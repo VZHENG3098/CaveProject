@@ -29,7 +29,11 @@ public class DimitrisBenMinigame
 		{
 			for (int x = 0; x < board[y].length; x += 1)
 			{
-				if (y == 0)
+				if (x == 0)
+				{
+					board[y][x] = "P";
+				}
+				else if (y == 0)
 				{
 					if (x < 6)
 					{
