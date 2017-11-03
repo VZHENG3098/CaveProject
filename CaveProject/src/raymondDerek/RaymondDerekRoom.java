@@ -10,4 +10,4 @@ public class RaymondDerekRoom extends NPCRoom {
 	}
 
 }
-  
+   

@@ -1,5 +1,7 @@
 package caveExplorer;
 
+import raymondDerek.RaymondDerekRoom;
+
 public class CaveRoom {
 
 	private String description;
@@ -164,6 +166,9 @@ public class CaveRoom {
 		CaveExplorer.npcs = new NPC[1];
 		CaveExplorer.npcs[0] = testNPC;
 		
+		CaveRoom DR = new RaymondDerekRoom("Room");
+		CaveExplorer.caves[4][2] = DR;
+		
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
 		CaveExplorer.currentRoom.enter();
@@ -242,17 +247,4 @@ public class CaveRoom {
 	public Door getDoor(int direction) {
 		return doors[direction];
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
