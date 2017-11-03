@@ -2,9 +2,9 @@ package raymondDerek;
 
 import caveExplorer.NPCRoom;
 
-public class Raymondroom extends NPCRoom {
+public class RaymondDerekRoom extends NPCRoom {
 
-	public Raymondroom(String description) {
+	public RaymondDerekRoom(String description) {
 		super(description);
 		// TODO Auto-generated constructor stub
 	}
