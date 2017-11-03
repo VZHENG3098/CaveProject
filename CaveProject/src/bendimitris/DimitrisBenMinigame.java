@@ -21,7 +21,7 @@ public class DimitrisBenMinigame
 		playing = true;
 	}
 	
-	private void runGame() 
+	public void runGame() 
 	{
 		// generate random place in line to open a space every other turn, have the teacher
 		// face a random direction every turn, add one to skip for every person you skip

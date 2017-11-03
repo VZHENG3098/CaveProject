@@ -1,8 +1,8 @@
 package bendimitris;
 
-import caveExplorer.NPCRoom;
+import caveExplorer.CaveRoom;
 
-public class DimitrisBenRoom extends NPCRoom {
+public class DimitrisBenRoom extends CaveRoom {
 	
 	DimitrisBenMinigame game;
 
@@ -10,6 +10,11 @@ public class DimitrisBenRoom extends NPCRoom {
 		super("This is the cafeteria room, play to survive");
 		game = new DimitrisBenMinigame();
 		
+	}
+	
+	public void enter() {
+		game.runGame();
+		super.enter();
 	}
 	
 	
