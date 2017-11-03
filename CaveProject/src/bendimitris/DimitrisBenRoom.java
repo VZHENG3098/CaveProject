@@ -1,8 +1,12 @@
 package bendimitris;
 
-public class DimitrisBenRoom {
+import caveExplorer.NPCRoom;
 
-	public DimitrisBenRoom() {
+public class DimitrisBenRoom extends NPCRoom 
+{
+
+	public DimitrisBenRoom() 
+	{
 		// TODO Auto-generated constructor stub
 	}
 
