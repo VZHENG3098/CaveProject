@@ -5,9 +5,11 @@ import caveExplorer.NPCRoom;
 public class DimitrisBenRoom extends NPCRoom 
 {
 
-	public DimitrisBenRoom(String description) 
+	public DimitrisBenRoom() 
 	{
-		super(description);
+		super("This is the cafeteria room, play to survive");
 	}
+	
+	public 
 
 }
