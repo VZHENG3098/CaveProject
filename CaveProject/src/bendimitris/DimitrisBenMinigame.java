@@ -1,9 +1,19 @@
 package bendimitris;
 
+import java.util.Scanner;
+
 public class DimitrisBenMinigame 
 {
 	private String[][] board;
 	private boolean playing;
+	private int roundNumber;
+	private Scanner in = new Scanner(System.in);
+	
+	public static void main(String[] args)
+	{
+		DimitrisBenMinigame game = new DimitrisBenMinigame();
+		game.startGame();
+	}
 	
 	public DimitrisBenMinigame()
 	{
@@ -15,7 +25,6 @@ public class DimitrisBenMinigame
 	{
 		// generate random place in line to open a space every other turn, have the teacher
 		// face a random direction every turn, add one to skip for every person you skip
-		int roundNumber = 0;
 		
 		// every other round
 		if (roundNumber % 2 == 0)
@@ -31,13 +40,27 @@ public class DimitrisBenMinigame
 				openingX = (int)(Math.random() * board[openingY].length);
 			}
 			
-			if (board[openingY][openingX].equals("X"))
+			if (board[openingY][openingX].equals("X") || board[openingY][openingX].equals("^") || board[openingY][openingX].equals(" "))
 			{
 				runGame();
 			}
+			else
+			{
+				board[openingY][openingX] = " ";
+				board[openingY][board[openingY].length - 1] = "P";
+			}
 		}
 		
+		getMove();
+		
+		printBoard();
+		
 		playing = false;
+	}
+
+	private void getMove() 
+	{
+		
 	}
 
 	public void printBoard()
@@ -106,8 +129,8 @@ public class DimitrisBenMinigame
 	public void startGame()
 	{
 		setUpBoard();
-		printBoard();
 		
+		roundNumber = 0;
 		while (playing)
 		{
 			runGame();
