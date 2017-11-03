@@ -1,8 +1,11 @@
 package DavidVin;
 
-public class davidRoom {
+import caveExplorer.CaveRoom;
 
-	public davidRoom() {
+public class davidRoom extends CaveRoom {
+
+	public davidRoom(String description) {
+		super(description);
 		// TODO Auto-generated constructor stub
 	}
 
