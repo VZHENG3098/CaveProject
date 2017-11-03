@@ -37,7 +37,7 @@ public class DimitrisBenMinigame
 			}
 		}
 		
-		
+		playing = false;
 	}
 
 	public void printBoard()
