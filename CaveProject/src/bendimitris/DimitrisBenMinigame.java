@@ -1,7 +1,5 @@
 package bendimitris;
 
-	
-	
 public class DimitrisBenMinigame 
 {
 	private String[][] board;
