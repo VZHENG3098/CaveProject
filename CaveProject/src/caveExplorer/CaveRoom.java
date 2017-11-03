@@ -167,7 +167,7 @@ public class CaveRoom {
 		CaveExplorer.npcs[0] = testNPC;
 		
 		CaveRoom DR = new RaymondDerekRoom("Room");
-		CaveExplorer.caves[4][2] = DR;
+		CaveExplorer.caves[4][2] = DR; 
 		
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
