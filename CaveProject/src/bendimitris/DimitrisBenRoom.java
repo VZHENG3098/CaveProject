@@ -5,9 +5,9 @@ import caveExplorer.NPCRoom;
 public class DimitrisBenRoom extends NPCRoom 
 {
 
-	public DimitrisBenRoom() 
+	public DimitrisBenRoom(String description) 
 	{
-		// TODO Auto-generated constructor stub
+		super(description);
 	}
 
 }
