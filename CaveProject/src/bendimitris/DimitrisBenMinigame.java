@@ -26,7 +26,7 @@ public class DimitrisBenMinigame
 		// generate random place in line to open a space every other turn, have the teacher
 		// face a random direction every turn, add one to skip for every person you skip
 		
-		// every other round
+		// only get opening every other round
 		if (roundNumber % 2 == 0)
 		{
 			int openingY = (int)(Math.random() * board.length);
