@@ -152,7 +152,7 @@ public class CaveRoom {
 	 */
 	public static void setUpCaves() {
 		//1. Determine size of caves
-		CaveExplorer.caves = new NPCRoom[5][5];
+		CaveExplorer.caves = new CaveRoom[5][5];
 		CaveRoom[][] c = CaveExplorer.caves;//create a shortcut for accessing CaveExplorer.caves
 		//2. Populate with default caves
 		for(int row =0; row < c.length; row ++) {
