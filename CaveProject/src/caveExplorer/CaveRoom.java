@@ -1,5 +1,8 @@
 package caveExplorer;
 
+import raymondDerek.DerekCustomRoom;
+import raymondDerek.RaymondCustomRoom;
+import raymondDerek.RaymondDerekRoom;
 import bendimitris.DimitrisBenRoom;
 
 public class CaveRoom {
@@ -166,8 +169,15 @@ public class CaveRoom {
 		CaveExplorer.npcs = new NPC[1];
 		CaveExplorer.npcs[0] = testNPC;
 		
-		//set starting room as cafeteria for debug
+		CaveRoom DR = new DerekCustomRoom("Room");
+		CaveExplorer.caves[4][2] = DR;
+		
+		CaveRoom R = new RaymondCustomRoom("Locker");
+		CaveExplorer.caves[1][2] = R;
+		 
+
 		c[1][1] = new DimitrisBenRoom();
+
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
 		
@@ -247,17 +257,4 @@ public class CaveRoom {
 	public Door getDoor(int direction) {
 		return doors[direction];
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
