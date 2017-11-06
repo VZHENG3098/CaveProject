@@ -12,7 +12,6 @@ public class DimitrisBenMinigame
 	public DimitrisBenMinigame()
 	{
 		board = new String[4][7];
-		playing = true;
 	}
 	
 	public void runGame() 
@@ -123,7 +122,7 @@ public class DimitrisBenMinigame
 	public void startGame()
 	{
 		setUpBoard();
-		
+		playing = true;
 		roundNumber = 0;
 		while (playing)
 		{
