@@ -10,7 +10,6 @@ public class DimitrisBenRoom extends CaveRoom {
 	public DimitrisBenRoom(){
 		super("This is the cafeteria room, play to survive");
 		super.setContents("C");
-		game = new DimitrisBenMinigame();
 		
 	}
 	
@@ -53,6 +52,7 @@ public class DimitrisBenRoom extends CaveRoom {
 	public void performAction(int direction) {
 		if(direction == 4) {
 			//set up board before hand
+			game = new DimitrisBenMinigame();
 			game.startGame();
 			
 		}else {
