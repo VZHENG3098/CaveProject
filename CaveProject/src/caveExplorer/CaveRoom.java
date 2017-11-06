@@ -4,6 +4,7 @@ import raymondDerek.DerekCustomRoom;
 import raymondDerek.RaymondCustomRoom;
 import raymondDerek.RaymondDerekRoom;
 import bendimitris.DimitrisBenRoom;
+import DavidVin.davidRoom;
 
 public class CaveRoom {
 
@@ -164,10 +165,9 @@ public class CaveRoom {
 			}
 		}
 		//3. Replace some default rooms with custom rooms (SAVE FOR LATER)
-		NPC testNPC = new NPC();
-		testNPC.setPosition(1,2);
-		CaveExplorer.npcs = new NPC[1];
-		CaveExplorer.npcs[0] = testNPC;
+	//	CaveRoom customRoom = new davidRoom("Room");
+	//	CaveExplorer.caves[1][1] = customRoom;
+		
 		
 		CaveRoom DR = new DerekCustomRoom("Room");
 		CaveExplorer.caves[4][2] = DR;
