@@ -25,7 +25,7 @@ public class CaveExplorer {
 	
 	private static void startExploring() {
 		while(playing) {
-			moveNPCs();
+			//moveNPCs(); --causing program to terminate early
 			print(inventory.getDescription());
 			print(currentRoom.getDescription());
 			print(currentRoom.getDirections());
