@@ -3,7 +3,8 @@ package raymondDerek;
 import caveExplorer.CaveExplorer;
 import caveExplorer.NPC;
 import caveExplorer.NPCRoom;
-
+import caveExplorer.Inventory;
+ 
 public class RaymondCustomRoom extends NPCRoom {
 	private NPC npc;
 
@@ -13,25 +14,23 @@ public class RaymondCustomRoom extends NPCRoom {
 	}
 	public void printValidMoves() {
 		System.out.println("You can only enter 'w', 'a', 's', or 'd' to move "
-				+ "or you can press 'e' to interact.");
+				+ "or you can press 'e' to pick up the clothes.");
 	}
 	
 	public String validMoves() {
-		return "wdsaef";
+		return "wdsae";
 	}
-
+ 
 
 	public void performAction(int direction) {
-		if(direction == 5) {
-			
-		}else if(direction == 4) {
-			super.performAction(direction);
+		if(direction == 4) {
+			CaveExplorer.print("You have picked up the gym clothes. Maybe you can use them later in the gym.");
+			CaveExplorer.inventory.clothes= true;
 		} else {
 			CaveExplorer.print("That key does nothing");
 		}
 	}
 	
-	public void 
 	
 	public String getContents() {
 		if(containsNPC() && npc.isActive()) {
@@ -42,6 +41,6 @@ public class RaymondCustomRoom extends NPCRoom {
 	}
 	
 	public String getDescription() {
-		return "This is the locker room. Change your clothes here.";
+		return "You've stumbled upon a random pile of clothes that have the Tech logo on it.";
 	}
 }
