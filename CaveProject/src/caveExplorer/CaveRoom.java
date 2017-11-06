@@ -3,6 +3,7 @@ package caveExplorer;
 import raymondDerek.DerekCustomRoom;
 import raymondDerek.RaymondCustomRoom;
 import raymondDerek.RaymondDerekRoom;
+import bendimitris.DimitrisBenRoom;
 
 public class CaveRoom {
 
@@ -27,7 +28,7 @@ public class CaveRoom {
 		contents = defaultContents;
 		//NOTE: Arrays are instantiated with 'null' values
 		borderingRooms = new CaveRoom[4];
-		doors = new Door[4];
+		doors = new Door[5]; //extra door is used in explorable room
 		setDirections();
 	}
 
@@ -154,7 +155,7 @@ public class CaveRoom {
 	 */
 	public static void setUpCaves() {
 		//1. Determine size of caves
-		CaveExplorer.caves = new NPCRoom[5][5];
+		CaveExplorer.caves = new CaveRoom[5][5];
 		CaveRoom[][] c = CaveExplorer.caves;//create a shortcut for accessing CaveExplorer.caves
 		//2. Populate with default caves
 		for(int row =0; row < c.length; row ++) {
@@ -174,8 +175,12 @@ public class CaveRoom {
 		CaveRoom R = new RaymondCustomRoom("Locker");
 		CaveExplorer.caves[4][3] = R;
 		
+
+		c[1][1] = new DimitrisBenRoom();
+
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
+		
 		CaveExplorer.currentRoom.enter();
 		
 		//5. Set up doors
