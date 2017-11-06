@@ -5,7 +5,7 @@ public class Inventory {
 	private String map;
 	
 	public boolean clothes;
-	
+	 
 	public Inventory() {
 		updateMap();	
 	}

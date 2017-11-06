@@ -4,7 +4,7 @@ import caveExplorer.CaveExplorer;
 import caveExplorer.NPC;
 import caveExplorer.NPCRoom;
 import caveExplorer.Inventory;
-
+ 
 public class RaymondCustomRoom extends NPCRoom {
 	private NPC npc;
 
@@ -20,7 +20,7 @@ public class RaymondCustomRoom extends NPCRoom {
 	public String validMoves() {
 		return "wdsae";
 	}
-
+ 
 
 	public void performAction(int direction) {
 		if(direction == 4) {

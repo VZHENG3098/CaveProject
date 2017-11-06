@@ -174,7 +174,7 @@ public class CaveRoom {
 		
 		CaveRoom R = new RaymondCustomRoom("Locker");
 		CaveExplorer.caves[1][2] = R;
-		
+		 
 
 		c[1][1] = new DimitrisBenRoom();
 
