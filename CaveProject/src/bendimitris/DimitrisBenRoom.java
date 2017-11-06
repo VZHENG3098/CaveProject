@@ -53,8 +53,7 @@ public class DimitrisBenRoom extends CaveRoom {
 	public void performAction(int direction) {
 		if(direction == 4) {
 			//set up board before hand
-			game.setUpBoard();
-			game.runGame();
+			game.startGame();
 			
 		}else {
 			CaveExplorer.print("That key does nothing");

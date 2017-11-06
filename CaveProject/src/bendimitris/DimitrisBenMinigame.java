@@ -9,12 +9,6 @@ public class DimitrisBenMinigame
 	private int roundNumber;
 	private Scanner in = new Scanner(System.in);
 	
-	public static void main(String[] args)
-	{
-		DimitrisBenMinigame game = new DimitrisBenMinigame();
-		game.startGame();
-	}
-	
 	public DimitrisBenMinigame()
 	{
 		board = new String[4][7];
