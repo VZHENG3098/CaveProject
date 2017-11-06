@@ -1,9 +1,9 @@
 package bendimitris;
 
 import caveExplorer.CaveExplorer;
-import caveExplorer.NPCRoom;
+import caveExplorer.CaveRoom;
 
-public class DimitrisBenRoom extends NPCRoom {
+public class DimitrisBenRoom extends CaveRoom {
 	
 	DimitrisBenMinigame game;
 
