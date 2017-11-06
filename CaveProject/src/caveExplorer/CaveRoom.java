@@ -1,5 +1,7 @@
 package caveExplorer;
 
+import raymondDerek.DerekCustomRoom;
+import raymondDerek.RaymondCustomRoom;
 import raymondDerek.RaymondDerekRoom;
 
 public class CaveRoom {
@@ -166,8 +168,11 @@ public class CaveRoom {
 		CaveExplorer.npcs = new NPC[1];
 		CaveExplorer.npcs[0] = testNPC;
 		
-		CaveRoom DR = new RaymondDerekRoom("Room");
-		CaveExplorer.caves[4][2] = DR; 
+		CaveRoom DR = new DerekCustomRoom("Room");
+		CaveExplorer.caves[4][2] = DR;
+		
+		CaveRoom R = new RaymondCustomRoom("Locker");
+		CaveExplorer.caves[4][3] = R;
 		
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
