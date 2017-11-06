@@ -170,7 +170,7 @@ public class CaveRoom {
 		CaveExplorer.npcs[0] = testNPC;
 		
 		CaveRoom DR = new DerekCustomRoom("Room");
-		CaveExplorer.caves[4][2] = DR;
+		CaveExplorer.caves[0][1] = DR;
 		
 		CaveRoom R = new RaymondCustomRoom("Locker");
 		CaveExplorer.caves[1][2] = R;
