@@ -22,26 +22,32 @@ public class DimitrisBenMinigame
 		// only get opening every other round
 		if (roundNumber % 2 == 0)
 		{
-			int openingY = (int)(Math.random() * board.length);
-			int openingX;
-			if (openingY > 0)
+			boolean foundNumber = false;
+			while(!foundNumber)
 			{
-				openingX = 1;
-			}
-			else
-			{
-				openingX = (int)(Math.random() * board[openingY].length);
+				int openingY = (int)(Math.random() * board.length);
+				int openingX;
+				if (openingY > 0)
+				{
+					openingX = 1;
+				}
+				else
+				{
+					openingX = (int)(Math.random() * board[openingY].length);
+				}
+				
+				if (board[openingY][openingX].equals("X") || board[openingY][openingX].equals("^") || board[openingY][openingX].equals(" "))
+				{
+					continue;
+				}
+				else
+				{
+					board[openingY][openingX] = " ";
+					board[openingY][board[openingY].length - 1] = "P";
+					foundNumber = true;
+				}
 			}
 			
-			if (board[openingY][openingX].equals("X") || board[openingY][openingX].equals("^") || board[openingY][openingX].equals(" "))
-			{
-				runGame();
-			}
-			else
-			{
-				board[openingY][openingX] = " ";
-				board[openingY][board[openingY].length - 1] = "P";
-			}
 		}
 		
 		getMove();
