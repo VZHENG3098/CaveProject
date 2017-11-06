@@ -28,6 +28,7 @@ public class DimitrisBenRoom extends CaveRoom {
 		if(direction == 4) {
 			//set up board before hand
 			game.setUpBoard();
+			game.printBoard();
 			game.runGame();
 			
 		}else {
