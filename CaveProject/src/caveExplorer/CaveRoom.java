@@ -172,7 +172,7 @@ public class CaveRoom {
 		CaveExplorer.caves[4][2] = DR;
 		
 		CaveRoom R = new RaymondCustomRoom("Locker");
-		CaveExplorer.caves[4][3] = R;
+		CaveExplorer.caves[1][2] = R;
 		
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
