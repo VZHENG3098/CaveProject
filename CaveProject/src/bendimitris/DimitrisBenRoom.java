@@ -6,7 +6,7 @@ import caveExplorer.Inventory;
 
 public class DimitrisBenRoom extends CaveRoom {
 	
-	DimitrisBenMinigame game;
+	DimitrisBenMinigame game = new DimitrisBenMinigame();
 
 	public DimitrisBenRoom(){
 		super("This is the cafeteria room, play to survive");
@@ -60,7 +60,6 @@ public class DimitrisBenRoom extends CaveRoom {
 	public void performAction(int direction) {
 		if(direction == 4) {
 			//set up board before hand
-			game = new DimitrisBenMinigame();
 			game.startGame();
 			
 		}else {
