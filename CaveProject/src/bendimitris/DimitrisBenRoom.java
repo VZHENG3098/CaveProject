@@ -1,5 +1,6 @@
 package bendimitris;
 
+import caveExplorer.CaveExplorer;
 import caveExplorer.NPCRoom;
 
 public class DimitrisBenRoom extends NPCRoom {
@@ -14,9 +15,7 @@ public class DimitrisBenRoom extends NPCRoom {
 	}
 	
 	public void enter() {
-		//set up board before hand
-		game.setUpBoard();
-		game.runGame();
+		
 		super.enter();
 	}
 	
@@ -25,7 +24,16 @@ public class DimitrisBenRoom extends NPCRoom {
 		
 	}
 	
-	
+	public void performAction(int direction) {
+		if(direction == 4) {
+			//set up board before hand
+			game.setUpBoard();
+			game.runGame();
+			
+		}else {
+			CaveExplorer.print("That key does nothing");
+		}
+	}
 	
 	
 
