@@ -3,8 +3,10 @@ package caveExplorer;
 public class Inventory {
 
 	private String map;
+	private String contents;
 	
 	public Inventory() {
+		this.contents = "";
 		updateMap();	
 	}
 	
@@ -50,6 +52,17 @@ public class Inventory {
 	public String getDescription() {
 		return map;
 //		return "There is nothing in your inventory.";
+	}
+	
+	public String getContents()
+	{
+		return this.contents;
+	}
+	
+	public void addToContents(String contents)
+	{
+		this.contents += contents +  ", ";
+		CaveExplorer.print("You picked up " + contents);
 	}
 
 }
