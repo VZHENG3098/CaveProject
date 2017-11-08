@@ -4,11 +4,11 @@ import caveExplorer.CaveExplorer;
 import caveExplorer.CaveRoom;
 import caveExplorer.Inventory;
 
-public class DimitrisBenRoom extends CaveRoom {
+public class BenRoom extends CaveRoom {
 	
 	DimitrisBenMinigame game = new DimitrisBenMinigame();
 
-	public DimitrisBenRoom(){
+	public BenRoom(){
 		super("This is the cafeteria room, play to survive");
 		super.setContents("C");
 	}

@@ -3,7 +3,7 @@ package caveExplorer;
 import raymondDerek.DerekCustomRoom;
 import raymondDerek.RaymondCustomRoom;
 import raymondDerek.RaymondDerekRoom;
-import bendimitris.DimitrisBenRoom;
+import bendimitris.BenRoom;
 import DavidVin.davidRoom;
 import DavidVin.vincentRoom;
 
@@ -179,7 +179,7 @@ public class CaveRoom {
 		CaveRoom V = new vincentRoom("Healer");
 		CaveExplorer.caves[1][3] = V;
 
-		c[1][1] = new DimitrisBenRoom();
+		c[1][1] = new BenRoom();
 		
 		
 		CaveRoom D = new davidRoom("Money");
