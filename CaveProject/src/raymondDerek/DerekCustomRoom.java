@@ -35,7 +35,7 @@ public class DerekCustomRoom extends NPCRoom {
 			return super.getContents();
 		}
 	}
-	
+	 
 	public String getDescription() {
 			return "This is the gym room. You need your clothes ";
 		}
