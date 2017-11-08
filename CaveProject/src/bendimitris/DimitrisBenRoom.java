@@ -11,18 +11,17 @@ public class DimitrisBenRoom extends CaveRoom {
 	public DimitrisBenRoom(){
 		super("This is the cafeteria room, play to survive");
 		super.setContents("C");
-		//if (CaveExplorer.inventory.getContents().indexOf("a Lunch Tray") > -1)
-		//{
-		//	CaveExplorer.print("This is where you picked up the lunch tray.");
-		//}
-		//else
-		//{
-		//	CaveExplorer.inventory.addToContents("a Lunch Tray");
-		//}
 	}
 	
 	public void enter() {
-		
+		if (CaveExplorer.inventory.getContents().indexOf("a Lunch Tray") > -1)
+		{
+			CaveExplorer.print("This is where you picked up the lunch tray.");
+		}
+		else
+		{
+			CaveExplorer.inventory.addToContents("a Lunch Tray");
+		}
 		super.enter();
 	}
 	
