@@ -28,6 +28,7 @@ public class CaveExplorer {
 			//moveNPCs(); --causing program to terminate early
 			print(inventory.getDescription());
 			print(inventory.getHealth());
+			print(inventory.getGold());
 			print(currentRoom.getDescription());
 			print(currentRoom.getDirections());
 			print("What would you like to do?");

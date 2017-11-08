@@ -180,6 +180,10 @@ public class CaveRoom {
 		CaveExplorer.caves[1][3] = V;
 
 		c[1][1] = new DimitrisBenRoom();
+		
+		
+		CaveRoom D = new davidRoom("Money");
+		CaveExplorer.caves[1][4] = D;
 
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
@@ -190,6 +194,7 @@ public class CaveRoom {
 		c[0][1].setConnection(SOUTH, c[1][1], new Door());
 		c[1][1].setConnection(EAST, c[1][2], new Door());
 		c[1][2].setConnection(EAST, c[1][3], new Door());
+		c[1][3].setConnection(EAST, c[1][4], new Door());
 		
 		
 		//make doors lock after you walk in

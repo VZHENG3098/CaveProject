@@ -62,5 +62,8 @@ public class Inventory {
 	public void giveGold() {
 		gold += 100 ;
 	}
+	public String getGold() {
+		return ""+gold+"";
+	}
 }
 
