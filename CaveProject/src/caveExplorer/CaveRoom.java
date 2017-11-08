@@ -166,8 +166,8 @@ public class CaveRoom {
 			}
 		}
 		//3. Replace some default rooms with custom rooms (SAVE FOR LATER)
-	//	CaveRoom customRoom = new davidRoom("Room");
-	//	CaveExplorer.caves[1][1] = customRoom;
+		//CaveRoom customRoom = new davidRoom("Room");
+		//CaveExplorer.caves[1][1] = customRoom;
 		
 		
 		CaveRoom DR = new DerekCustomRoom("Room");

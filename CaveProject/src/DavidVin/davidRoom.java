@@ -31,10 +31,8 @@ public class davidRoom extends CaveRoom {
 		}
 	}
 	
+
 	public String getDescription() {
 		return "You found money on the ground. Press e to obtain it";
 	}
-	
-
-	
 }
