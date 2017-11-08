@@ -3,17 +3,21 @@ package caveExplorer;
 public class Inventory {
 
 	private String map;
+	private String contents;
+
 	
 	public boolean clothes;
 	 
-	private String contents;
+
 	private int health;
 	private int gold;
 	public Inventory() {
-		health = 50;
-		gold = 0;
-		updateMap();
-		contents = "";
+
+	health = 50;
+	gold = 0;
+	updateMap();
+	contents = "";
+
 	}
 	
 	public void updateMap() {
