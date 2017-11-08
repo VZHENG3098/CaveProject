@@ -6,13 +6,14 @@ public class Inventory {
 	
 	public boolean clothes;
 	 
+	private String contents;
 	private int health;
 	private int gold;
 	public Inventory() {
 		health = 50;
 		gold = 0;
 		updateMap();
-
+		contents = "";
 	}
 	
 	public void updateMap() {
@@ -64,6 +65,17 @@ public class Inventory {
 	}
 	public String getGold() {
 		return ""+gold+"";
+	}
+	
+	public String getContents()
+	{
+		return this.contents;
+	}
+	
+	public void addToContents(String contents)
+	{
+		this.contents += contents +  ", ";
+		CaveExplorer.print("You picked up " + contents);
 	}
 }
 
