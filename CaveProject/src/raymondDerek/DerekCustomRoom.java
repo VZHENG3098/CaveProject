@@ -49,6 +49,9 @@ public class DerekCustomRoom extends NPCRoom {
 	public String validMoves() {
 		return "wdsae";
 	}
+	
+
+	
 }
 
 	

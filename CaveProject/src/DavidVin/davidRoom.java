@@ -20,7 +20,6 @@ public class davidRoom extends CaveRoom {
 	public String validMoves() {
 		return "wdsae";
 	}
-
 	
 	public void performAction(int direction) {
 		if(direction == 4) {
@@ -31,7 +30,6 @@ public class davidRoom extends CaveRoom {
 		}
 	}
 	
-
 	public String getDescription() {
 		return "You found money on the ground. Press e to obtain it";
 	}

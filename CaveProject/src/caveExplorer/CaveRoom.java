@@ -3,7 +3,7 @@ package caveExplorer;
 import raymondDerek.DerekCustomRoom;
 import raymondDerek.RaymondCustomRoom;
 import raymondDerek.RaymondDerekRoom;
-import bendimitris.DimitrisBenRoom;
+import bendimitris.BenRoom;
 import DavidVin.davidRoom;
 import DavidVin.vincentRoom;
 
@@ -179,11 +179,18 @@ public class CaveRoom {
 		CaveRoom V = new vincentRoom("Healer");
 		CaveExplorer.caves[1][3] = V;
 
-		c[1][1] = new DimitrisBenRoom();
+		c[1][1] = new BenRoom();
+		
+		
 		
 		
 		CaveRoom D = new davidRoom("Money");
 		CaveExplorer.caves[1][4] = D;
+		
+		
+		CaveRoom S = new davidRoom("Money");
+		CaveExplorer.caves[2][1] = S;
+		
 
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
@@ -195,7 +202,11 @@ public class CaveRoom {
 		c[1][1].setConnection(EAST, c[1][2], new Door());
 		c[1][2].setConnection(EAST, c[1][3], new Door());
 		c[1][3].setConnection(EAST, c[1][4], new Door());
-		
+		c[1][2].setConnection(SOUTH, c[2][2], new Door());
+		c[1][1].setConnection(SOUTH, c[2][1], new Door());
+		c[2][1].setConnection(SOUTH, c[3][1], new Door());
+		c[3][2].setConnection(EAST, c[3][3], new Door());
+		c[3][1].setConnection(EAST, c[3][2], new Door());
 		
 		//make doors lock after you walk in
 		//teleport to a different room
