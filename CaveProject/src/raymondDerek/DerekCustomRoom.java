@@ -11,23 +11,18 @@ public class DerekCustomRoom extends NPCRoom {
 	
 	public DerekCustomRoom(String description) {
 			super(description);
+			super.setContents("G");
 		// TODO Auto-generated constructor stub
 	}
 	
 	public void performAction1(int direction) {
 		if(direction == 4 && CaveExplorer.inventory.clothes == true) {
-			CaveExplorer.print("Print 'e' again to talk to the teacher");
 			talkTeacher();
 		} else {
 			CaveExplorer.print("You can not do anything without the gym clothes.");
 		}
 	}
 	
-	private void talkTeacher() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public String getContents() {
 		if(containsNPC() && npc.isActive()) {
 			return "G";
@@ -37,7 +32,12 @@ public class DerekCustomRoom extends NPCRoom {
 	}
 	 
 	public String getDescription() {
-			return "This is the gym room. You need your clothes ";
+		if(CaveExplorer.inventory.clothes == true) {
+			return "The gym is now unlocked! Congrats on finding your clothes. Print 'e' to talk to the teacher";
+		}
+		else {
+			return "This is the gym room. You need your clothes";
+		}
 		}
 		
 
@@ -50,7 +50,15 @@ public class DerekCustomRoom extends NPCRoom {
 		return "wdsae";
 	}
 	
+	public void talkTeacher() {
+		System.out.println("You may now play the minigame");
+		playMinigame();
+	}
 
+	private void playMinigame() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
 
