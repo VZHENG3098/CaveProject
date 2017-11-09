@@ -180,12 +180,6 @@ public class CaveRoom {
 		CaveExplorer.caves[1][3] = V;
 
 		c[1][1] = new BenRoom();
-<<<<<<< HEAD
-		
-		
-=======
->>>>>>> branch 'developement' of https://github.com/VZHENG3098/CaveProject.git
-		
 		
 		CaveRoom D = new davidRoom("Money");
 		CaveExplorer.caves[1][4] = D;
