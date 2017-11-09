@@ -14,7 +14,7 @@ public class DerekCustomRoom extends NPCRoom {
 			super.setContents("G");
 	}
 	
-	public void performAction1(int direction) {
+	public void performAction(int direction) {
 		if(direction == 4 && CaveExplorer.inventory.isClothes()){
 			talkTeacher();
 
