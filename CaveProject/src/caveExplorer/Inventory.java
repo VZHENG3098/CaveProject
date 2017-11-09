@@ -6,7 +6,7 @@ public class Inventory {
 	private String contents;
 
 	
-	public boolean clothes;
+	private boolean clothes;
 	 
 
 	private int health;
@@ -15,6 +15,7 @@ public class Inventory {
 
 	health = 50;
 	gold = 0;
+	clothes = false;
 	updateMap();
 	contents = "";
 
@@ -22,7 +23,6 @@ public class Inventory {
 	
 	public void updateMap() {
 		map = " ";
-		clothes = false;
 		//make hor. line across top:
 		for(int i = 0; i < CaveExplorer.caves[0].length -1; i++) {
 			map+="____";//4 underscores
@@ -80,6 +80,14 @@ public class Inventory {
 	{
 		this.contents += contents +  ", ";
 		CaveExplorer.print("You picked up " + contents);
+	}
+
+	public void setClothes() {
+		clothes = !clothes;
+	}
+
+	public boolean isClothes() {
+		return clothes;
 	}
 }
 

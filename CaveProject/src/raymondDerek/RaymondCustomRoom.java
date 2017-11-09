@@ -10,7 +10,7 @@ public class RaymondCustomRoom extends NPCRoom {
 
 	public RaymondCustomRoom(String description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		super.setContents("c");
 	}
 	public void printValidMoves() {
 		System.out.println("You can only enter 'w', 'a', 's', or 'd' to move "
@@ -23,9 +23,9 @@ public class RaymondCustomRoom extends NPCRoom {
  
 
 	public void performAction(int direction) {
-		if(direction == 4) {
+		if(direction == 4 && !CaveExplorer.inventory.isClothes()) {
 			CaveExplorer.print("You have picked up the gym clothes. Maybe you can use them later in the gym.");
-			CaveExplorer.inventory.clothes= true;
+			CaveExplorer.inventory.setClothes();
 		} else {
 			CaveExplorer.print("That key does nothing");
 		}
@@ -34,13 +34,17 @@ public class RaymondCustomRoom extends NPCRoom {
 	
 	public String getContents() {
 		if(containsNPC() && npc.isActive()) {
-			return "C"; //clothes
+			return "c"; //clothes
 		}else {
 			return super.getContents();
 		}
 	}
 	
 	public String getDescription() {
-		return "You've stumbled upon a random pile of clothes that have the Tech logo on it.";
+		if(!CaveExplorer.inventory.isClothes()) {
+			return "You've stumbled upon a random pile of clothes that have the Tech logo on it.";	
+		} else {
+			return "This is the room where you found your gym clothes";
+		}
 	}
 }
