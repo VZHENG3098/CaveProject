@@ -3,7 +3,7 @@ package raymondDerek;
 import caveExplorer.CaveExplorer;
 import caveExplorer.NPC;
 import caveExplorer.NPCRoom;
-import caveExplorer.Inventory;
+
 
 public class DerekCustomRoom extends NPCRoom {
 	
@@ -11,23 +11,18 @@ public class DerekCustomRoom extends NPCRoom {
 	
 	public DerekCustomRoom(String description) {
 			super(description);
-		// TODO Auto-generated constructor stub
+			super.setContents("G");
 	}
 	
 	public void performAction1(int direction) {
-		if(direction == 4 && CaveExplorer.inventory.clothes == true) {
-			CaveExplorer.print("Print 'e' again to talk to the teacher");
+		if(direction == 4 && CaveExplorer.inventory.isClothes()){
 			talkTeacher();
+
 		} else {
 			CaveExplorer.print("You can not do anything without the gym clothes.");
 		}
 	}
 	
-	private void talkTeacher() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public String getContents() {
 		if(containsNPC() && npc.isActive()) {
 			return "G";
@@ -37,8 +32,13 @@ public class DerekCustomRoom extends NPCRoom {
 	}
 	 
 	public String getDescription() {
-			return "This is the gym room. You need your clothes ";
+		if(CaveExplorer.inventory.isClothes()) {
+			return "The gym is now unlocked! Congrats on finding your clothes. Print 'e' to talk to the teacher";
 		}
+		else {
+			return "This is the gym room. You need your clothes";
+		}
+	}
 		
 
 	public void printValidMoves() {
@@ -50,8 +50,15 @@ public class DerekCustomRoom extends NPCRoom {
 		return "wdsae";
 	}
 	
+	public void talkTeacher() {
+		CaveExplorer.print("You may now play the minigame");
+		playMinigame();
+	}
 
+	private void playMinigame() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
-
 	
