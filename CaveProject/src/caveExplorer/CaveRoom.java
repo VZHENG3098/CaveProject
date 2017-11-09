@@ -173,7 +173,7 @@ public class CaveRoom {
 		CaveRoom DR = new DerekCustomRoom("Room");
 		CaveExplorer.caves[0][1] = DR;
 		
-		CaveRoom R = new RaymondCustomRoom("Locker");
+		CaveRoom R = new RaymondCustomRoom("Clothes");
 		CaveExplorer.caves[1][2] = R;
 		 
 		CaveRoom V = new vincentRoom("Healer");

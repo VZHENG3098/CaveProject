@@ -26,8 +26,10 @@ public class RaymondCustomRoom extends NPCRoom {
 		if(direction == 4 && !CaveExplorer.inventory.isClothes()) {
 			CaveExplorer.print("You have picked up the gym clothes. Maybe you can use them later in the gym.");
 			CaveExplorer.inventory.setClothes();
+		} else if(direction == 4) {
+			CaveExplorer.print("There is nothing else to pick up");
 		} else {
-			CaveExplorer.print("That key does nothing");
+			CaveExplorer.print("That key does nothing.");
 		}
 	}
 	
