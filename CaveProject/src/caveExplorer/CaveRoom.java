@@ -78,7 +78,7 @@ public class CaveRoom {
 
 	
 	public void enter() {
-		contents = "X";
+		contents = "YOU";
 	}
 	
 	public void leave() {
