@@ -81,7 +81,7 @@ public class CaveRoom {
 		contents = "YOU";
 	}
 	
-	public void leave() {
+	public void leave() { 
 		contents = defaultContents;
 	}
 
