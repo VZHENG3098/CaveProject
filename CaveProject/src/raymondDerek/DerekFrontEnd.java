@@ -1,11 +1,19 @@
 package raymondDerek;
 
 
-public class DerekFrontEnd {
+public class DerekFrontEnd implements RaymondSupporter {
 
-	public DerekFrontEnd() {
-		// TODO Auto-generated constructor stub
+	private DerekSupporter backend;
+
+	
+	public static final void main(String[] args) {
+		DerekFrontEnd demo = new DerekFrontEnd();
 	}
-
+	
+	public DerekFrontEnd() {
+		backend = new RaymondBackEnd(this);
+		
+	}
+	
 }
  
