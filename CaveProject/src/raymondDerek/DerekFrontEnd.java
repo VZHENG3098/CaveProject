@@ -7,6 +7,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 	
 	public static final void main(String[] args) {
 		DerekFrontEnd demo = new DerekFrontEnd();
+		demo.play();
 		
 	}
 	
@@ -16,13 +17,13 @@ public class DerekFrontEnd implements RaymondSupporter {
 	}
 	
 	public void play() {
-		
+		displayPoints();
 	}
 	
 	public void displayPoints() {
-		System.out.println(RaymondDerekPlot.getPoint());
+		
 	}
 	
 	
 }
-  
+ 
