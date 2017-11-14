@@ -6,7 +6,7 @@ public class BenFrontend implements DimitrisSupport{
 	public BenFrontend(BenSupport backend) {
 		this.backend = backend;
 	}
-	 
+	
 	public static void main(String[] args) {
 
 	}
