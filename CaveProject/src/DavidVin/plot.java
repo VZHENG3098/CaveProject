@@ -30,10 +30,13 @@ public class plot {
 	public boolean isRevealed() {
 		return revealed;
 	}
-
-	public String letter()
+	
+	public String getLetter()
 	{
 		return letter;
+	}
+	public void setLetter(String a) {
+		letter = a;
 	}
 	
 	

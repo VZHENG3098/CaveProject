@@ -29,8 +29,7 @@ public class vincentRoom extends CaveRoom {
 	 */ 
 	public void performAction(int direction) {
 		if(direction == 4) {
-			CaveExplorer.print("Press e to heal your player");
-			CaveExplorer.inventory.setHP();
+			DavidFrontEnd.play();
 		}else {
 			CaveExplorer.print("That key does nothing");
 		}

@@ -1,6 +1,7 @@
 package caveExplorer;
 
 import DavidVin.davidRoom;
+import DavidVin.vincentRoom;
 
 public class CaveRoom {
 
@@ -25,7 +26,7 @@ public class CaveRoom {
 		contents = defaultContents;
 		//NOTE: Arrays are instantiated with 'null' values
 		borderingRooms = new CaveRoom[4];
-		doors = new Door[4];
+		doors = new Door[5]; //extra door is used in explorable room
 		setDirections();
 	}
 
@@ -73,10 +74,10 @@ public class CaveRoom {
 
 	
 	public void enter() {
-		contents = "X";
+		contents = "YOU";
 	}
 	
-	public void leave() {
+	public void leave() { 
 		contents = defaultContents;
 	}
 
@@ -152,7 +153,7 @@ public class CaveRoom {
 	 */
 	public static void setUpCaves() {
 		//1. Determine size of caves
-		CaveExplorer.caves = new NPCRoom[5][5];
+		CaveExplorer.caves = new CaveRoom[7][10];
 		CaveRoom[][] c = CaveExplorer.caves;//create a shortcut for accessing CaveExplorer.caves
 		//2. Populate with default caves
 		for(int row =0; row < c.length; row ++) {
@@ -165,13 +166,38 @@ public class CaveRoom {
 		//CaveExplorer.caves[1][1] = customRoom;
 		
 		
+		 
+		CaveRoom HealerRoom = new vincentRoom("Healer");
+		CaveExplorer.caves[1][1] = HealerRoom;
+		
+		CaveRoom MoneyRoom = new davidRoom("Money");
+		
+		
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
+		
 		CaveExplorer.currentRoom.enter();
 		
 		//5. Set up doors
-		c[0][1].setConnection(SOUTH, c[1][1], new Door());
-		c[1][1].setConnection(EAST, c[1][2], new Door());
+		
+		for(int row = 0; row < c.length; row++) { // delete all doors
+			for(int col = 0; col < c[row].length-1; col++) {
+				if(row != 2 && row != 4) {
+					c[row][col].setConnection(EAST, c[row][col+1], new Door());
+				}
+				
+				
+			}
+		}
+		for(int row = 0; row < c.length-1; row++) {
+			for(int col = 0; col < c[row].length; col++) {
+				if(row != 2 && row != 4) {
+					c[row][col].setConnection(SOUTH, c[row+1][col], new Door());
+				}
+				
+				
+			}
+		}
 		
 		
 		//make doors lock after you walk in
@@ -243,17 +269,4 @@ public class CaveRoom {
 	public Door getDoor(int direction) {
 		return doors[direction];
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
