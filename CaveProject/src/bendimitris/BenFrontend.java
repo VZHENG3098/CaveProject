@@ -11,4 +11,3 @@ public class BenFrontend implements DimitrisSupport{
 
 	}
 }
-ECHO is on.
