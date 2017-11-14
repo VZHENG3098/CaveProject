@@ -25,8 +25,9 @@ public class CaveExplorer {
 	
 	private static void startExploring() {
 		while(playing) {
-			moveNPCs();
+			//moveNPCs(); --causing program to terminate early
 			print(inventory.getDescription());
+			print(inventory.getHealth());
 			print(currentRoom.getDescription());
 			print(currentRoom.getDirections());
 			print("What would you like to do?");
