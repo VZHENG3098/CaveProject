@@ -2,7 +2,7 @@ package caveExplorer;
 
 import raymondDerek.DerekCustomRoom;
 import raymondDerek.RaymondCustomRoom;
-import raymondDerek.RaymondDerekRoom;
+import raymondDerek.RaymondDerekPlot;
 import bendimitris.BenRoom;
 import DavidVin.davidRoom;
 import DavidVin.vincentRoom;

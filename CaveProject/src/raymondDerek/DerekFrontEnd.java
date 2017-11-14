@@ -4,10 +4,10 @@ package raymondDerek;
 public class DerekFrontEnd implements RaymondSupporter {
 
 	private DerekSupporter backend;
-
 	
 	public static final void main(String[] args) {
 		DerekFrontEnd demo = new DerekFrontEnd();
+		
 	}
 	
 	public DerekFrontEnd() {
@@ -15,5 +15,14 @@ public class DerekFrontEnd implements RaymondSupporter {
 		
 	}
 	
+	public void play() {
+		
+	}
+	
+	public void displayPoints() {
+		System.out.println(RaymondDerekPlot.getPoint());
+	}
+	
+	
 }
- 
+  
