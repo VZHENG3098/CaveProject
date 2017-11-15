@@ -9,18 +9,30 @@ public class DimitrisBackend implements BenSupport {
 
 	@Override
 	public void runGame() {
-		// TODO Auto-generated method stub
+		movePeople();
 		
 	}
-
+	
 	@Override
+	public void executeTurn() {
+		getTeacherMove();
+		frontend.getBoard();
+	}
+	
+	public void getTeacherMove() {
+		frontend.moveTeacher();
+		
+	}
+	
+	public void movePlayer() {
+		// get user input/movement
+	}
+	
+	public int getInput() {
+		return -1;
+	}
+
 	public void movePeople() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void getMove() {
 		// TODO Auto-generated method stub
 		
 	}
