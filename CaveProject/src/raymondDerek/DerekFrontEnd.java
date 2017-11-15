@@ -5,7 +5,6 @@ import caveExplorer.CaveExplorer;
 public class DerekFrontEnd implements RaymondSupporter {
 
 	private DerekSupporter backend;
-	
 
 	public static final void main(String[] args) {
 		DerekFrontEnd demo = new DerekFrontEnd();

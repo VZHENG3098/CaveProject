@@ -7,10 +7,10 @@ public class RaymondDerekPlot{
 	private int row;
 	private int col;
 	
-	
 	public RaymondDerekPlot(int row, int col) {
-		containsBall = false;		this.row = row;
-		this.col = col;
+		containsBall = false;		
+		this.row = row;
+		this.col = col;                
 	}
 	
 	public boolean isContainsBall() {
@@ -24,7 +24,7 @@ public class RaymondDerekPlot{
 	public void setPoint(int points) {
 		points++;
 	}
-
+	
 	public int getRow() {
 		return row;
 	}

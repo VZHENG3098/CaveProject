@@ -8,12 +8,15 @@ public class RaymondBackEnd implements DerekSupporter{
 	private int hp;
 	private int level; //difficulty
 	private int playerPos; //col of player
+	private int points;
 	
 	public RaymondBackEnd(RaymondSupporter frontend) {
 		this.frontend = frontend;
-		plots = new RaymondDerekPlot[7][7];
+		plots = new RaymondDerekPlot[8][8];
+		createMap();
 		hp = 100; 
 		level = 1;
+		points = 0;
 	}
 	
 	public void createMap() {
@@ -23,6 +26,9 @@ public class RaymondBackEnd implements DerekSupporter{
 			}
 		}
 		
+		playerPos = (int)(Math.random()*7) + 1;
+		updateBallPos();
+		 
 	}
 	
 	public void createBalls() {
@@ -40,7 +46,9 @@ public class RaymondBackEnd implements DerekSupporter{
 			for(int col = 0; col < plots[row].length; col++) {
 				if(plots[row][col].isContainsBall()) {
 					plots[row][col].setContainBall(false); //ball moves down
-					plots[row + 1][col].setContainBall(true); 
+					if(row != plots.length -1) {
+						plots[row + 1][col].setContainBall(true); 
+					}
 				}
 			}
 		}
