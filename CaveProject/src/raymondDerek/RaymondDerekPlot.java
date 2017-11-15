@@ -24,10 +24,6 @@ public class RaymondDerekPlot{
 	public void setPoint(int points) {
 		points++;
 	}
-	
-	public int getPoint() {
-		return points;
-	}
 
 	public int getRow() {
 		return row;
