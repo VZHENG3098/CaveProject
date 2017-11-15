@@ -8,4 +8,6 @@ public interface DerekSupporter {
 
 	RaymondDerekPlot[][] getPlots();
 
+	int getPlayerPos();
+
 }

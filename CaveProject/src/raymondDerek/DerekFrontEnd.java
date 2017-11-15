@@ -18,7 +18,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 	public void play() {
 		while (backend.stillPlaying()) {
 			displayBoard();
-			
+			break;
 //			userInput();
 //			updateMap();
 		}
@@ -29,9 +29,13 @@ public class DerekFrontEnd implements RaymondSupporter {
 		for(int row = 0; row < plots[0].length; row++) {
 			for(int col = 0; col < plots[row].length; col++) {
 				if(plots[row][col].isContainsBall()) {
-					System.out.print("o");
+					System.out.print(" o ");
 				} else {
-					System.out.print(" ");
+					System.out.print("   ");
+				}
+				
+				if(row == plots.length - 1 && col == backend.getPlayerPos()) {
+					System.out.println(" X ");
 				}
 			}
 			System.out.println("");
