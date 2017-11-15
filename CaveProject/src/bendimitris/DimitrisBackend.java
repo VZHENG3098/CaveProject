@@ -9,18 +9,18 @@ public class DimitrisBackend implements BenSupport {
 
 	@Override
 	public void runGame() {
-		movePeople();
+		startTimer();
 		
 	}
 	
 	@Override
 	public void executeTurn() {
-		getTeacherMove();
-		frontend.getBoard();
-	}
-	
-	public void getTeacherMove() {
+		
 		frontend.moveTeacher();
+		frontend.getBoard();
+		movePeople();
+		movePlayer();
+		
 		
 	}
 	
@@ -37,7 +37,6 @@ public class DimitrisBackend implements BenSupport {
 		
 	}
 
-	@Override
 	public void startTimer() {
 		// TODO Auto-generated method stub
 		
