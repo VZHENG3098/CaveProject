@@ -56,7 +56,9 @@ public class VincentBackEnd implements davidSupport{
 	public static int getTurns(){
 		return turns;
 	}
-	
+	public static int getPoints() {
+		return points;
+	}
 	public static boolean checkAnswer(String a1, String a2) {
 		// a1 and a2 = number,number
 		int [] coordinate1 = covertToCoordinate(a1);
