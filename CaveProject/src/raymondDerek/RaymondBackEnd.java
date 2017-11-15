@@ -28,6 +28,7 @@ public class RaymondBackEnd implements DerekSupporter{
 		}
 		
 		playerPos = (int)(Math.random()*7) + 1;
+		createBalls();
 		updateBallPos();
 		 
 	}
