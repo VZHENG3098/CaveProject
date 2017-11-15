@@ -53,7 +53,7 @@ public class VincentBackEnd implements davidSupport{
 		return memArr;
 	}
 	
-	public int getTurns(){
+	public static int getTurns(){
 		return turns;
 	}
 	
