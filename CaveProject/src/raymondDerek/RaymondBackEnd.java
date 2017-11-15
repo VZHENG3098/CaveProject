@@ -31,6 +31,10 @@ public class RaymondBackEnd implements DerekSupporter{
 		 
 	}
 	
+	public int getPlayerPos() {
+		return playerPos;
+	}
+	
 	public void createBalls() {
 		//create random balls top row
 		for(int i = 0; i < plots[0].length; i++) {
