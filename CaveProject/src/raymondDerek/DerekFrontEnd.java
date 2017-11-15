@@ -1,5 +1,6 @@
 package raymondDerek;
 
+import caveExplorer.CaveExplorer;
 
 public class DerekFrontEnd implements RaymondSupporter {
 
@@ -16,11 +17,13 @@ public class DerekFrontEnd implements RaymondSupporter {
 		
 	}
 	
-	public void play() {
-		displayPoints();
-	}
-	
-	public void displayPoints() {
+	public void play(){
+    while(backend.stillPlaying()){
+        displayBoard();
+    }
+}
+
+	public void displayBoard() {
 		
 	}
 	
