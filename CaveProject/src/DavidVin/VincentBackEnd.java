@@ -31,24 +31,23 @@ public class VincentBackEnd implements davidSupport{
 		String[] arr1 = createArray(arraySize+arraySize);
 		String [] arr2 = createArray(arraySize+arraySize);
 		int count = 0;
-		for(int row =0; row < memArr.length; row ++) {
+		for(int row = 0; row < memArr.length; row ++) {
 			for(int col = 0; col < memArr[row].length; col++) {
-				System.out.println(arr1[count]);
-				
-				if(row <= 2) {
+				if(count <= 7) {
+					memArr[row][col] = new plot(row, col);
 					memArr[row][col].setLetter(arr1[count]);
 				}else {
+					memArr[row][col] = new plot(row, col);
 					memArr[row][col].setLetter(arr2[count-8]);
 				}
 				count++;
 			}
 		}
-		System.out.println(memArr[1][2]);
-		System.out.println(memArr[1][3]);
-		System.out.println(memArr[1][4]);
 		
 	}
-
+	public void checkAnswer(String a1, String a2) {
+		
+	}
 	public static String[] createArray(int size) {
 		String[] arr = new String[size];
 		
