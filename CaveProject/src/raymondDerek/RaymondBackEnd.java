@@ -23,6 +23,7 @@ public class RaymondBackEnd implements DerekSupporter{
 		for(int row = 0; row < plots.length; row++) {
 			for(int col = 0; col < plots[row].length; col++) {
 				plots[row][col] = new RaymondDerekPlot(row,col);
+			
 			}
 		}
 		
@@ -38,8 +39,7 @@ public class RaymondBackEnd implements DerekSupporter{
 	public void createBalls() {
 		//create random balls top row
 		for(int i = 0; i < plots[0].length; i++) {
-			double rnd = (Math.random());
-			if(rnd <= .25) {
+			if(Math.random() < .5) {
 				plots[0][i].setContainBall(true);
 			}
 		}
