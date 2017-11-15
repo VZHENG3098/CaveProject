@@ -6,14 +6,11 @@ public class RaymondDerekPlot{
 	private boolean containsBall;
 	private int row;
 	private int col;
-	private int points;
+	
 	
 	public RaymondDerekPlot(int row, int col) {
-		containsBall = false;
-		points = 0;
-		this.row = row;
+		containsBall = false;		this.row = row;
 		this.col = col;
-		
 	}
 	
 	public boolean isContainsBall() {
