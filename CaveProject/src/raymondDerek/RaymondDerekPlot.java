@@ -9,8 +9,9 @@ public class RaymondDerekPlot{
 	
 	
 	public RaymondDerekPlot(int row, int col) {
-		containsBall = false;		this.row = row;
-		this.col = col;
+		containsBall = false;		
+		this.row = row;
+		this.col = col;                
 	}
 	
 	public boolean isContainsBall() {
@@ -25,9 +26,6 @@ public class RaymondDerekPlot{
 		points++;
 	}
 	
-	public int getPoint() {
-		return points;
-	}
 
 	public int getRow() {
 		return row;
