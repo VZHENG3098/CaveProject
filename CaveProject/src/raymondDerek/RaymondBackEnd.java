@@ -52,7 +52,19 @@ public class RaymondBackEnd implements DerekSupporter{
 	}
 	
 	public int getLevel() {
-		return level;dbhiwefweu
+		return level;
+	}
+
+	public boolean stillPlaying() {
+		if(hp > 0) {
+			return true;
+		}
+		return false;
+	
+	}
+
+	public RaymondDerekPlot[][] getPlots() {
+		return plots;
 	}
 
 }
