@@ -6,4 +6,6 @@ public interface DerekSupporter {
 
 	boolean stillPlaying();
 
+	RaymondDerekPlot[][] getPlots();
+
 }
