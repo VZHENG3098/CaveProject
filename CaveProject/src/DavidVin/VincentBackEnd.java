@@ -7,11 +7,15 @@ import caveExplorer.NPCRoom;
 public class VincentBackEnd implements davidSupport{
 	private static plot[][] memArr;
 	private static int arraySize;
+	private static int turns;
+	private static int points;
 	private vincentSupport frontend;
 	
 	
 	public VincentBackEnd(vincentSupport frontend)
 	{
+		turns = 25;	
+		points = 0;
 /*		arraySize = 4;
 		memArr = new plot[arraySize][arraySize];
 		this.frontend = frontend;
@@ -43,11 +47,35 @@ public class VincentBackEnd implements davidSupport{
 				count++;
 			}
 		}
+	}
+	
+	public plot[][] getPlot(){
+		return memArr;
+	}
+	
+	public int getTurns(){
+		return turns;
+	}
+	
+	public static boolean checkAnswer(String a1, String a2) {
+		// a1 and a2 = number,number
+		int [] coordinate1 = covertToCoordinate(a1);
+		int [] coordinate2 = covertToCoordinate(a2);
+		turns--;
+		if(memArr[coordinate1[0]][coordinate1[1]].getLetter().equals((memArr[coordinate2[0]][coordinate2[1]].getLetter()))) { // checks the letter are equal
+			points = points + 10;
+			return true;
+		}
+		return false;	
+	}
+	public static int[] covertToCoordinate(String input) {
+		int number1 = Integer.parseInt(input.substring(0,1));
+		int number2 = Integer.parseInt(input.substring(2,3));
+		int[] coordinate = {number1,number2};
+		return coordinate;
 		
 	}
-	public void checkAnswer(String a1, String a2) {
-		
-	}
+	
 	public static String[] createArray(int size) {
 		String[] arr = new String[size];
 		
