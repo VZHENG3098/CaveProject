@@ -49,7 +49,7 @@ public class VincentBackEnd implements davidSupport{
 		}
 	}
 	
-	public plot[][] getPlot(){
+	public static plot[][] getPlot(){
 		return memArr;
 	}
 	
@@ -75,7 +75,19 @@ public class VincentBackEnd implements davidSupport{
 		return coordinate;
 		
 	}
-	
+	public static boolean isCorrectFormat(String a1,plot[][] arr) {
+		try{
+			int a = Integer.parseInt(a1.substring(0,1));
+			int b = Integer.parseInt(a1.substring(2,3));
+			
+			if( a < arr.length && b < arr.length) {
+				return true;
+			}
+			return false;
+		}catch(Exception e){
+			return false;
+		}
+	}
 	public static String[] createArray(int size) {
 		String[] arr = new String[size];
 		
