@@ -44,7 +44,7 @@ public class RaymondBackEnd implements DerekSupporter{
 	// 1 to move right
 	public void userInput(int move) {
 		if(move == 1) {
-			if(playerPos + 1 < plots.length) {
+			if(playerPos + 1 < 7) {
 				playerPos += 1;
 			}
 		}
@@ -59,7 +59,7 @@ public class RaymondBackEnd implements DerekSupporter{
 	
 	public void createBalls() {
 		//create random balls top row
-		for(int i = 0; i < plots[0].length; i++) {
+		for(int i = 1; i < plots[0].length; i++) {
 			if(Math.random() < .5) {
 				plots[0][i].setContainBall(true);
 			}
@@ -79,7 +79,7 @@ public class RaymondBackEnd implements DerekSupporter{
 		}
 	}
 	
-	
+	 
 	public int getHp() {
 		return hp;
 	}
@@ -95,7 +95,7 @@ public class RaymondBackEnd implements DerekSupporter{
 		return false;
 	
 	}
-
+ 
 	public RaymondDerekPlot[][] getPlots() {
 		return plots;
 	}
