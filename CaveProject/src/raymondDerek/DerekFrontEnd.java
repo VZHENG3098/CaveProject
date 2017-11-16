@@ -41,7 +41,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 			} else {
 				System.out.println("You may only press 'a' or 'd' ");
 				move = inputSource.nextLine();
-			}
+			} 
 		}
 
 	}
