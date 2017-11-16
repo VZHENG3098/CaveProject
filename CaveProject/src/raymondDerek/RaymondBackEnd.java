@@ -42,7 +42,7 @@ public class RaymondBackEnd implements DerekSupporter{
 	// use to move player
 	//-1 to move left
 	// 1 to move right
-	public int userInput(int move) {
+	public void userInput(int move) {
 		if(move == 1) {
 			if(playerPos + 1 < plots.length) {
 				playerPos += 1;
@@ -54,7 +54,6 @@ public class RaymondBackEnd implements DerekSupporter{
 				playerPos -= 1;
 			}
 		}
-		return playerPos;
 	}
 	
 	
