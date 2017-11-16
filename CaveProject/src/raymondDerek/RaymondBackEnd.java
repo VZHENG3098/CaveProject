@@ -50,7 +50,7 @@ public class RaymondBackEnd implements DerekSupporter{
 		}
 		
 		if(move == -1) {
-			if(!(playerPos - 1 < 0)) {
+			if(!(playerPos - 1 <= 0)) {
 				playerPos -= 1;
 			}
 		}
