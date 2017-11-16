@@ -13,11 +13,17 @@ public class DimitrisBackend implements BenSupport {
 
 	@Override
 	public void runGame() {
+		//main loop
+		
+		int gameLen = 180; //secconds the game will run (180s = 3min)
+		
+		//initialized timer
 		startTimer();
-		int gameLen = 180;
-		while(totalSec < gameLen) {
-			this.frontend.printBoard();
-			executeTurn();
+		
+		
+		while(totalSec < gameLen) {//if player takes a long time to decide, then scanner will block using up precious time
+			this.frontend.printBoard(); //print the board each turn
+			executeTurn(); //then update state
 		}
 		
 		//loop runs every x seconds until the time is larger than gameLen
@@ -26,9 +32,9 @@ public class DimitrisBackend implements BenSupport {
 	
 	public void executeTurn() {
 		
-		frontend.moveTeacher();
-		board = frontend.getBoard();
-		movePeople();
+		frontend.moveTeacher(); //first ben moves teacher
+		board = frontend.getBoard(); //then I get the updated state
+		movePeople(); //using this updated state I move p
 		movePlayer();
 		
 		
@@ -39,16 +45,18 @@ public class DimitrisBackend implements BenSupport {
 	}
 	
 	public int getInput() {
+		//gets user input
+		
 		return -1;
 	}
 
 	public void movePeople() {
-		// TODO Auto-generated method stub
+		// moves all of the people preserving the line
 		
 	}
 
 	public void startTimer() {
-		// TODO Auto-generated method stub
+		// starts timer
 		
 	}
 	
