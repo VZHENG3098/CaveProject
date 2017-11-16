@@ -14,8 +14,6 @@ public class VincentBackEnd implements davidSupport{
 	
 	public VincentBackEnd(vincentSupport frontend)
 	{
-		turns = 25;	
-		points = 0;
 /*		arraySize = 4;
 		memArr = new plot[arraySize][arraySize];
 		this.frontend = frontend;
@@ -30,6 +28,8 @@ public class VincentBackEnd implements davidSupport{
 	}
 	
 	public static void startArray() {
+		turns = 25;	
+		points = 0;
 		arraySize = 4;
 		memArr = new plot[arraySize][arraySize];
 		String[] arr1 = createArray(arraySize+arraySize);

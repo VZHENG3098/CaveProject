@@ -50,12 +50,12 @@ public class DavidFrontEnd implements vincentSupport {
 	{
 		boolean finish = false;
 		String coordinate = getInput();
-		while(finish = false) {
+		while(finish == false) {
 			if(VincentBackEnd.isCorrectFormat(coordinate, arr)) {
 				finish = true;
 				return coordinate;
 			}else {
-				System.out.println("Please type the coordinate like this example 5,5");
+				System.out.println("Please type the coordinate like this example 0,0 and each number is less than " + (arr.length-1));
 				coordinate = getInput();
 			}
 		}
