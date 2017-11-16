@@ -15,7 +15,7 @@ public class DimitrisBackend implements BenSupport {
 	public void runGame() {
 		//main loop
 		
-		int gameLen = 180; //secconds the game will run (180s = 3min)
+		int gameLen = 180; //Seconds the game will run (180s = 3min)
 		
 		//initialized timer
 		startTimer();
