@@ -26,6 +26,11 @@ public class plot {
 	public void reveal(){
 		revealed = true;
 	}
+	
+	public void disreveal(){
+		revealed = true;
+	}
+
 
 	public boolean isRevealed() {
 		return revealed;

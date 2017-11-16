@@ -70,6 +70,8 @@ public class VincentBackEnd implements davidSupport{
 			return true;
 		}
 		turns--;
+		memArr[coordinate1[0]][coordinate1[1]].disreveal();
+		memArr[coordinate2[0]][coordinate2[1]].disreveal();
 		return false;	
 	}
 	public static int[] covertToCoordinate(String input) {
@@ -85,6 +87,7 @@ public class VincentBackEnd implements davidSupport{
 			int b = Integer.parseInt(a1.substring(2,3));
 			
 			if( a < arr.length && b < arr.length) {
+				arr[a][b].reveal();
 				return true;
 			}
 			return false;
