@@ -3,6 +3,7 @@ package bendimitris;
 public class DimitrisBackend implements BenSupport {
 	
 	int totalSec;
+	String[][] board;
 	
 	DimitrisSupport frontend;
 
@@ -15,6 +16,7 @@ public class DimitrisBackend implements BenSupport {
 		startTimer();
 		int gameLen = 180;
 		while(totalSec < gameLen) {
+			this.frontend.printBoard();
 			executeTurn();
 		}
 		
@@ -22,11 +24,10 @@ public class DimitrisBackend implements BenSupport {
 		
 	}
 	
-	@Override
 	public void executeTurn() {
 		
 		frontend.moveTeacher();
-		frontend.getBoard();
+		board = frontend.getBoard();
 		movePeople();
 		movePlayer();
 		
@@ -49,12 +50,6 @@ public class DimitrisBackend implements BenSupport {
 	public void startTimer() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public boolean outOfTime() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 	
 }
