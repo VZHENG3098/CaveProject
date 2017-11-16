@@ -28,7 +28,7 @@ public class plot {
 	}
 	
 	public void disreveal(){
-		revealed = true;
+		revealed = false;
 	}
 
 
