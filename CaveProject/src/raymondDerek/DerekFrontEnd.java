@@ -58,9 +58,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 				
 				if(row == plots.length - 1 && col == backend.getPlayerPos()) {
 					System.out.println(" X ");
-				} else {
-					System.out.println("   ");
-				}
+				} 
 			}
 			System.out.println("");
 		}
