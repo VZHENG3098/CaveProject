@@ -62,16 +62,30 @@ public class DavidFrontEnd implements vincentSupport {
 		return coordinate;
 	}
 	
-	public static void displayBoard(plot[][] plot)
+/*	public static void displayLetter(int coordinate)
 	{
-		for(int row = 0; row < plot.length; row++){
-			for(int col = 0; col < plot[row].length; col++){
-				if(plot[row][col].isRevealed()){
-
-				}else{
+		String s = plot.getLetter();
+	}
+	*/
+	public static void displayBoard(plot[][] arr)
+	{
+		for(int row = 0; row < arr.length; row++){
+			System.out.println("");
+			for(int col = 0; col < arr[row].length; col++)
+			{
+				if(arr[row][col].isRevealed()) {
+					System.out.print((arr[row][col].getLetter()));
+				}else {
 					System.out.print(".");
 				}
+					
 			}
 		}
 	}
 }
+
+
+
+
+
+
