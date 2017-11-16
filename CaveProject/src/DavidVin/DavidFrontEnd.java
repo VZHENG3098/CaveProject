@@ -32,16 +32,19 @@ public class DavidFrontEnd implements vincentSupport {
 	    	displayBoard(plot);
 	    	
 	    	String firstCoordinate = getCords(plot); // format is 5,5 , is a string
+	    	displayBoard(plot); // displays letter in the plot
 	    	String SecondCoordinate = getCords(plot);
+	    	displayBoard(plot);
 	    	
 	    	
 	    	VincentBackEnd.checkAnswer(firstCoordinate, SecondCoordinate);
 	    	
 	    	
 	    	
-	    	System.out.println(VincentBackEnd.getPoints());
+	    	System.out.println("You currently have"+VincentBackEnd.getPoints()+"points");
 	    	int turns = VincentBackEnd.getTurns();
-	    	System.out.println(turns);
+	    	System.out.println("You have"+ turns + "flips left");
+	    	
 	    	
 		}
 	}
@@ -65,6 +68,7 @@ public class DavidFrontEnd implements vincentSupport {
 /*	public static void displayLetter(int coordinate)
 	{
 		String s = plot.getLetter();
+		
 	}
 	*/
 	public static void displayBoard(plot[][] arr)
@@ -75,10 +79,8 @@ public class DavidFrontEnd implements vincentSupport {
 			{
 				if(arr[row][col].isRevealed()) {
 					System.out.print((arr[row][col].getLetter()));
-				}else {
-					System.out.print(".");
 				}
-					
+				System.out.print(".");	
 			}
 		}
 	}
