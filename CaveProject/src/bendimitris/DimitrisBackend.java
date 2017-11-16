@@ -18,7 +18,7 @@ public class DimitrisBackend implements BenSupport {
 			executeTurn();
 		}
 		
-		//loop runs every x secconds untill the time is larger than gameLen
+		//loop runs every x seconds until the time is larger than gameLen
 		
 	}
 	
