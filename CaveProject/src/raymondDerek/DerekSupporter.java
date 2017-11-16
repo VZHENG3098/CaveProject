@@ -12,4 +12,6 @@ public interface DerekSupporter {
 
 	void userInput(int i);
 
+	void updateBallPos();
+
 }
