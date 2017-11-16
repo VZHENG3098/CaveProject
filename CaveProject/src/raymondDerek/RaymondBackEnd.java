@@ -1,8 +1,10 @@
 package raymondDerek;
 
+import java.util.Scanner;
 
 public class RaymondBackEnd implements DerekSupporter{
 
+	private static Scanner r = new Scanner(System.in);
 	private	RaymondSupporter frontend;
 	private RaymondDerekPlot[][] plots;
 	private int hp;
@@ -29,13 +31,32 @@ public class RaymondBackEnd implements DerekSupporter{
 		
 		playerPos = (int)(Math.random()*7) + 1;
 		createBalls();
-		updateBallPos();
+//		updateBallPos();
 		 
 	}
 	
 	public int getPlayerPos() {
 		return playerPos;
 	}
+	
+	// use to move player
+	public int userInput() {
+		String move = r.nextLine();
+		while(true) {
+			if(move.equalsIgnoreCase("a")) {
+				playerPos --;
+				break;
+			} else if (move.equalsIgnoreCase("d")) {
+				playerPos ++;
+				break;
+			} else {
+				System.out.println("You may only press 'a' or 'd' ");
+				move = r.nextLine();
+			}
+		}
+		return playerPos;
+	}
+	
 	
 	public void createBalls() {
 		//create random balls top row
