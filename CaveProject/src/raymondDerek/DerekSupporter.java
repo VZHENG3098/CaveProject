@@ -10,4 +10,6 @@ public interface DerekSupporter {
 
 	int getPlayerPos();
 
+	void userInput(int i);
+
 }

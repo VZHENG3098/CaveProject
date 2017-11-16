@@ -8,7 +8,6 @@ public class DerekFrontEnd implements RaymondSupporter {
 
 	private DerekSupporter backend;
 	private static Scanner inputSource = new Scanner(System.in);
-	private int playerPos;
 	private int a;
 	
 	public static final void main(String[] args) {
@@ -33,18 +32,19 @@ public class DerekFrontEnd implements RaymondSupporter {
 	private void userInput() {
 		CaveExplorer.print("Please type which box you would like to goto.");
 		String move = inputSource.nextLine();
-		while(true) {
-		if(move.equalsIgnoreCase("a")) {
-			playerPos --;
-			break;
-		} else if (move.equalsIgnoreCase("d")) {
-			playerPos ++;
-			break;
-		} else {
-			System.out.println("You may only press 'a' or 'd' ");
-			move = inputSource.nextLine();
+		while (true) {
+			if (move.equalsIgnoreCase("a")) {
+				backend.userInput(-1);
+				break;
+			} else if (move.equalsIgnoreCase("d")) {
+				backend.userInput(1);
+				break;
+			} else {
+				System.out.println("You may only press 'a' or 'd' ");
+				move = inputSource.nextLine();
+			}
 		}
-	}
+
 	}
 
 	public void displayBoard() {
@@ -79,7 +79,4 @@ public class DerekFrontEnd implements RaymondSupporter {
 	    }
 	}
 	
-	public int getPlayerPos() {
-		return playerPos;
-	}
 }
