@@ -40,18 +40,18 @@ public class RaymondBackEnd implements DerekSupporter{
 	}
 	
 	// use to move player
-	public int userInput() {
-		String move = r.nextLine();
-		while(true) {
-			if(move.equalsIgnoreCase("a")) {
-				playerPos --;
-				break;
-			} else if (move.equalsIgnoreCase("d")) {
-				playerPos ++;
-				break;
-			} else {
-				System.out.println("You may only press 'a' or 'd' ");
-				move = r.nextLine();
+	//-1 to move left
+	// 1 to move right
+	public int userInput(int move) {
+		if(move == 1) {
+			if(playerPos + 1 < plots.length) {
+				playerPos += 1;
+			}
+		}
+		
+		if(move == -1) {
+			if(!(playerPos - 1 < 0)) {
+				playerPos -= 1;
 			}
 		}
 		return playerPos;
