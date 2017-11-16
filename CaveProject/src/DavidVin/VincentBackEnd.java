@@ -34,7 +34,7 @@ public class VincentBackEnd implements davidSupport{
 		memArr = new plot[arraySize][arraySize];
 		String[] arr1 = createArray(arraySize+arraySize);
 		String [] arr2 = createArray(arraySize+arraySize);
-		int count = 0;
+		int count = 0; 
 		for(int row = 0; row < memArr.length; row ++) {
 			for(int col = 0; col < memArr[row].length; col++) {
 				if(count <= 7) {
@@ -62,12 +62,14 @@ public class VincentBackEnd implements davidSupport{
 	public static boolean checkAnswer(String a1, String a2) {
 		// a1 and a2 = number,number
 		int [] coordinate1 = covertToCoordinate(a1);
-		int [] coordinate2 = covertToCoordinate(a2);
-		turns--;
+		int [] coordinate2 = covertToCoordinate(a2); 
 		if(memArr[coordinate1[0]][coordinate1[1]].getLetter().equals((memArr[coordinate2[0]][coordinate2[1]].getLetter()))) { // checks the letter are equal
 			points = points + 10;
+			memArr[coordinate1[0]][coordinate1[1]].reveal();
+			memArr[coordinate2[0]][coordinate2[1]].reveal();
 			return true;
 		}
+		turns--;
 		return false;	
 	}
 	public static int[] covertToCoordinate(String input) {
