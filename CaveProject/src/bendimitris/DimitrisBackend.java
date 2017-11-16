@@ -1,6 +1,9 @@
 package bendimitris;
 
 public class DimitrisBackend implements BenSupport {
+	
+	int totalSec;
+	
 	DimitrisSupport frontend;
 
 	public DimitrisBackend(DimitrisSupport frontend) {
@@ -10,6 +13,12 @@ public class DimitrisBackend implements BenSupport {
 	@Override
 	public void runGame() {
 		startTimer();
+		int gameLen = 180;
+		while(totalSec < gameLen) {
+			executeTurn();
+		}
+		
+		//loop runs every x secconds untill the time is larger than gameLen
 		
 	}
 	
