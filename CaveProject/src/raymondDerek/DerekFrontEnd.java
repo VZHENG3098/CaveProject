@@ -22,24 +22,29 @@ public class DerekFrontEnd implements RaymondSupporter {
 
 	public void play() {
 		while (backend.stillPlaying()) {
-			userInput();
 			displayBoard();
-			break;
+			userInput();
+		
 			
 //			updateMap();
 		}
 	}
 
-	private int userInput() {
+	private void userInput() {
 		CaveExplorer.print("Please type which box you would like to goto.");
-		String answer = getInput();
-		for(int i =0;i<answer.length();i++) {
-			if(isInteger(answer)) {
-				a = i;
-			}
+		String move = inputSource.nextLine();
+		while(true) {
+		if(move.equalsIgnoreCase("a")) {
+			playerPos --;
+			break;
+		} else if (move.equalsIgnoreCase("d")) {
+			playerPos ++;
+			break;
+		} else {
+			System.out.println("You may only press 'a' or 'd' ");
+			move = inputSource.nextLine();
 		}
-		playerPos = a;
-		return playerPos;
+	}
 	}
 
 	public void displayBoard() {
