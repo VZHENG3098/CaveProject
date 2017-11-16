@@ -83,6 +83,9 @@ public class VincentBackEnd implements davidSupport{
 	}
 	public static boolean isCorrectFormat(String a1,plot[][] arr) {
 		try{
+			if(a1.length() > 4) {
+				return false;
+			}
 			int a = Integer.parseInt(a1.substring(0,1));
 			int b = Integer.parseInt(a1.substring(2,3));
 			
