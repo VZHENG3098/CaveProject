@@ -62,7 +62,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 			}
 			System.out.println("");
 		}
-
+ 
 	}
 	
 	public static String getInput(){
