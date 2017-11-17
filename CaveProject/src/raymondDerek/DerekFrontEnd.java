@@ -12,11 +12,16 @@ public class DerekFrontEnd implements RaymondSupporter {
 
 	public static final void main(String[] args) {
 		DerekFrontEnd demo = new DerekFrontEnd();
-		demo.play();
+		demo.welcome();
 	}
 
 	public DerekFrontEnd() {
 		backend = new RaymondBackEnd(this);
+	}
+
+	public void welcome() {
+		CaveExplorer.print("Welcome to Brooklyn Tech Dodgeball!");
+		play();
 	}
 
 	public void play() {
@@ -26,7 +31,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 			userInput();
 			backend.updateBallPos();
 			i++;
-			if (i % 3 == 0) { 
+			if (i % 3 == 0) {
 				backend.createBalls();
 			}
 			// updateMap();
@@ -43,14 +48,14 @@ public class DerekFrontEnd implements RaymondSupporter {
 			} else if (move.equalsIgnoreCase("d")) {
 				backend.userInput(1);
 				break;
-			} else if (move.equalsIgnoreCase("s")){
-				backend.userInput(0);
-			}else {
+			} else if (move.equalsIgnoreCase("s")) {
+				backend.userInput(2);
+				break;
+			} else {
 				System.out.println("You may only press a, d, or s");
 				move = inputSource.nextLine();
 			}
 		}
-
 	}
 
 	public void displayBoard() {
@@ -68,7 +73,6 @@ public class DerekFrontEnd implements RaymondSupporter {
 						System.out.print("   ");
 					}
 				}
-
 			}
 			System.out.println("");
 		}
