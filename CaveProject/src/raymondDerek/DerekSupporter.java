@@ -14,4 +14,6 @@ public interface DerekSupporter {
 
 	void updateBallPos();
 
+	int getHp();
+
 }

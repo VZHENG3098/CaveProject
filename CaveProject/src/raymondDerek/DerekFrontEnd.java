@@ -20,15 +20,17 @@ public class DerekFrontEnd implements RaymondSupporter {
 	}
 
 	public void welcome() {
-		CaveExplorer.print("Welcome to Brooklyn Tech Dodgeball! Your goal is to complete and survive all the levels of this game. "
-				+ "Once you successfully complete this game, you will gain a gym pass. It will help you throughout your day. ");
+		CaveExplorer.print(
+				"Welcome to Brooklyn Tech Dodgeball! Your goal is to complete and survive all the levels of this game. "
+						+ "Once you successfully complete this game, you will gain a gym pass. It will help you throughout your day. ");
 		play();
 	}
 
 	public void play() {
 		int i = 0;
-		while (backend.stillPlaying()) { 
+		while (backend.stillPlaying()) {
 			displayBoard();
+			printhp();
 			userInput();
 			backend.updateBallPos();
 			i++;
@@ -40,11 +42,11 @@ public class DerekFrontEnd implements RaymondSupporter {
 	}
 
 	private void printhp() {
-		
+		System.out.println(backend.getHp());
 	}
-	
+
 	private void userInput() {
-		CaveExplorer.print("Please type which box you would like to goto.");
+		CaveExplorer.print("Please type which direction you would like to goto.");
 		String move = inputSource.nextLine();
 		while (true) {
 			if (move.equalsIgnoreCase("a")) {
@@ -54,7 +56,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 				backend.userInput(1);
 				break;
 			} else if (move.equalsIgnoreCase("s")) {
-				backend.userInput(2); //2 so nothing happens
+				backend.userInput(2); // 2 so nothing happens
 				break;
 			} else {
 				System.out.println("You may only press a, d, or s");
