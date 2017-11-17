@@ -31,7 +31,7 @@ public class plot {
 		revealed = false;
 	}
 
-
+	
 	public boolean isRevealed() {
 		return revealed;
 	}

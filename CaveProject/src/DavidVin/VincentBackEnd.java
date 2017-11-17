@@ -65,6 +65,9 @@ public class VincentBackEnd implements davidSupport{
 		int [] coordinate2 = covertToCoordinate(a2); 
 		if(memArr[coordinate1[0]][coordinate1[1]].getLetter().equals((memArr[coordinate2[0]][coordinate2[1]].getLetter()))) { // checks the letter are equal
 			points = points + 10;
+			if(	memArr[coordinate1[0]][coordinate1[1]].isRevealed()) {
+				return false;
+			}
 			memArr[coordinate1[0]][coordinate1[1]].reveal();
 			memArr[coordinate2[0]][coordinate2[1]].reveal();
 			return true;
