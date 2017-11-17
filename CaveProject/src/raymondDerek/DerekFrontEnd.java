@@ -27,7 +27,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 
 	public void play() {
 		int i = 0;
-		while (backend.stillPlaying()) {
+		while (backend.stillPlaying()) { 
 			displayBoard();
 			userInput();
 			backend.updateBallPos();
