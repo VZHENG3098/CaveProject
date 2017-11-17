@@ -26,24 +26,32 @@ public class DavidFrontEnd implements vincentSupport {
 	public static void play()
 	{
 		VincentBackEnd.startArray();
+		plot[][] plot = VincentBackEnd.getPlot();
+		displayBoard(plot);
+		
 		while(victory==false){
-			plot[][] plot = VincentBackEnd.getPlot();
-	    	System.out.println("Flip two cards to see if you have a match.");
-	    	displayBoard(plot);
+			
+	    	System.out.println("\n"+"Flip two cards to see if you have a match.");
+	    	
 	    	
 	    	String firstCoordinate = getCords(plot); // format is 5,5 , is a string
 	    	displayBoard(plot); // displays letter in the plot
+	    	System.out.println("\nEnter your second coordinate.");                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 	    	String SecondCoordinate = getCords(plot);
 	    	displayBoard(plot);
 	    	
 	    	
 	    	VincentBackEnd.checkAnswer(firstCoordinate, SecondCoordinate);
 	    	
+	    	if(VincentBackEnd.checkAnswer(firstCoordinate, SecondCoordinate)==true)
+	    	{
+	    		System.out.println("You gain ten points");
+	    	}
 	    	
 	    	
-	    	System.out.println("You currently have"+VincentBackEnd.getPoints()+"points");
+	    	System.out.println("\nYou currently have "+VincentBackEnd.getPoints()+" points");
 	    	int turns = VincentBackEnd.getTurns();
-	    	System.out.println("You have"+ turns + "flips left");
+	    	System.out.println("You have "+ turns + " flips left");
 	    	
 	    	
 		}
@@ -65,12 +73,6 @@ public class DavidFrontEnd implements vincentSupport {
 		return coordinate;
 	}
 	
-/*	public static void displayLetter(int coordinate)
-	{
-		String s = plot.getLetter();
-		
-	}
-	*/
 	public static void displayBoard(plot[][] arr)
 	{
 		for(int row = 0; row < arr.length; row++){
@@ -80,12 +82,16 @@ public class DavidFrontEnd implements vincentSupport {
 				if(arr[row][col].isRevealed()) {
 					System.out.print((arr[row][col].getLetter()));
 				}
-				System.out.print(".");	
+				else
+				{
+					System.out.print(".");
+				}
 			}
 		}
 	}
+	
+	
 }
-
 
 
 
