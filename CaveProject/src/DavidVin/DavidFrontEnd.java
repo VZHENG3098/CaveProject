@@ -30,14 +30,13 @@ public class DavidFrontEnd implements vincentSupport {
 		System.out.println("\nYou ask your neighbor for the homework so you can copy it.");
 		System.out.println("\nHe said he will only let you copy off him, if you are able to earn 60 points in a matching game.");
 		System.out.println("\n"+"The rules are simple flip two cards to see if you have a match.");
-		System.out.println("\n"+"Each match is worth 60 points.");
-		System.out.println("\n"+"You have 20 turns to find the matching pairs, or else you lose.");
+		System.out.println("\n"+"Each match is worth 10 points.");
+		System.out.println("\n"+"You have 25 turns to find the matching pairs, or else you lose.");
 	}
 	
 	
 	public static void play()
 	{
-		rules();
 		VincentBackEnd.startArray();
 		plot[][] plot = VincentBackEnd.getPlot();
 		displayBoard(plot);

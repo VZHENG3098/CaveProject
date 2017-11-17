@@ -48,8 +48,8 @@ public class davidRoom extends CaveRoom {
 		"\nYou ask your neighbor for the homework so you can copy it."+
 		"\nHe said he will only let you copy off him, if you are able to earn 60 points in a matching game."+
 		"\n"+"The rules are simple flip two cards to see if you have a match."+
-		"\n"+"Each match is worth 60 points."+
-		"\n"+"You have 20 turns to find the matching pairs, or else you lose.";
+		"\n"+"Each match is worth 10 points."+
+		"\n"+"You have 25 turns to find the matching pairs, or else you lose.";
 	}
 	
 }
