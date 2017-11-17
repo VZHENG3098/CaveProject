@@ -11,6 +11,7 @@ public class RaymondBackEnd implements DerekSupporter{
 	private int level; //difficulty
 	private int playerPos; //col of player
 	private int points;
+	private int moves;
 	
 	public RaymondBackEnd(RaymondSupporter frontend) {
 		this.frontend = frontend;
