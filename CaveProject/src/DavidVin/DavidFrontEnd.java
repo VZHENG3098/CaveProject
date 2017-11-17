@@ -34,6 +34,7 @@ public class DavidFrontEnd implements vincentSupport {
 		System.out.println("\n"+"You have 20 turns to find the matching pairs, or else you lose.");
 	}
 	
+	
 	public static void play()
 	{
 		rules();
@@ -92,25 +93,27 @@ public class DavidFrontEnd implements vincentSupport {
 	
 	public static void displayBoard(plot[][] arr)
 	{
+		System.out.print("   0  1  2  3"); //displays the col coordinates
 		for(int row = 0; row < arr.length; row++){
-			System.out.println("");
+			System.out.print("\n"+row+" "); //displays the row coordinates
 			for(int col = 0; col < arr[row].length; col++)
 			{
 				if(arr[row][col].isRevealed()) {
-					System.out.print((arr[row][col].getLetter()));
+					System.out.print(("["+arr[row][col].getLetter()+"]"));
 				}
 				else
 				{
-					System.out.print(".");
+					System.out.print("[?]");
 				}
 			}
 		}
 	}
 	
+	public String setDirections() {
+		return "";
+	}
 	
 }
-
-
 
 
 
