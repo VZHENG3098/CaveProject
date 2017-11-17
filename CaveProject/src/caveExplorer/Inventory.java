@@ -5,7 +5,7 @@ public class Inventory {
 	private String map;
 	private String contents;
 
-	
+	public boolean Essay;
 	public boolean clothes;
 	 
 
@@ -78,7 +78,9 @@ public class Inventory {
 	{
 		return this.contents;
 	}
-	
+	public void essayTrue() {
+		this.Essay = true;
+	}
 	public void addToContents(String contents)
 	{
 		this.contents += contents +  ", ";

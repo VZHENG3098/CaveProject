@@ -2,6 +2,7 @@ package DavidVin;
 
 import java.util.ArrayList;
 
+import caveExplorer.CaveExplorer;
 import caveExplorer.NPCRoom;
 
 public class VincentBackEnd implements davidSupport{
@@ -100,6 +101,9 @@ public class VincentBackEnd implements davidSupport{
 		}catch(Exception e){
 			return false;
 		}
+	}
+	public static void Victory() {
+		CaveExplorer.inventory.essayTrue();
 	}
 	public static String[] createArray(int size) { // create an random array of letter
 		String[] arr = new String[size];
