@@ -29,7 +29,7 @@ public class RaymondBackEnd implements DerekSupporter{
 			}
 		}
 		
-		playerPos = (int)(Math.random()*7) + 1;
+		playerPos = (int)(Math.random()*6) + 1;
 		createBalls();
 //		updateBallPos();
 		 
@@ -50,7 +50,7 @@ public class RaymondBackEnd implements DerekSupporter{
 		}
 		
 		if(move == -1) {
-			if((playerPos - 1 >= 0)) {
+			if((playerPos - 1 > 0)) {
 				playerPos -= 1;
 			}
 		}
@@ -59,7 +59,7 @@ public class RaymondBackEnd implements DerekSupporter{
 	
 	public void createBalls() {
 		//create random balls top row
-		for(int i = 1; i < plots[0].length; i++) {
+		for(int i = 1; i < plots[0].length - 1; i++) {
 			if(Math.random() < .5) {
 				plots[0][i].setContainBall(true);
 			}
@@ -67,16 +67,28 @@ public class RaymondBackEnd implements DerekSupporter{
 	}
 	
 	public void updateBallPos() {
-		for(int row = 0; row < plots[0].length; row++) {
+		int[] tempArr = new int[50];
+		int tempIdx = 0;
+		for(int row = 0; row < plots.length; row++) {
 			for(int col = 0; col < plots[row].length; col++) {
-				if(plots[row][col].isContainsBall()) {
-					plots[row][col].setContainBall(false); //ball moves down
-					if(row != plots.length -1) {
-						plots[row + 1][col].setContainBall(true); 
-					}
+				if(plots[row][col].isContainsBall() && row < 7) {
+					plots[row][col].setContainBall(false);
+					tempArr[tempIdx] = row + 1;
+					tempIdx++;
+					tempArr[tempIdx] = col;
+					tempIdx++;
 				}
+				
+		
 			}
 		}
+		for(int i = 0; i < tempArr.length - 1; i++) {
+			if((tempArr[i] > 0)) { //PREVENT INDEX GOING -1 AND BALL RELOOPING TO TOP
+				plots[(tempArr[i])][(tempArr[i+1])].setContainBall(true);				
+			}
+			i++;
+		}
+		
 	}
 	
 	 

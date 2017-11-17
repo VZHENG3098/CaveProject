@@ -13,6 +13,8 @@ public class RaymondDerekPlot{
 		this.col = col;                
 	}
 	
+	
+	
 	public boolean isContainsBall() {
 		return containsBall;
 	}
