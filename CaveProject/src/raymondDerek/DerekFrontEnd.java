@@ -26,7 +26,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 			userInput();
 			backend.updateBallPos();
 			i++;
-			if (i % 3 == 0) {
+			if (i % 3 == 0) { 
 				backend.createBalls();
 			}
 			// updateMap();
@@ -43,8 +43,10 @@ public class DerekFrontEnd implements RaymondSupporter {
 			} else if (move.equalsIgnoreCase("d")) {
 				backend.userInput(1);
 				break;
-			} else {
-				System.out.println("You may only press 'a' or 'd' ");
+			} else if (move.equalsIgnoreCase("s")){
+				backend.userInput(0);
+			}else {
+				System.out.println("You may only press a, d, or s");
 				move = inputSource.nextLine();
 			}
 		}
