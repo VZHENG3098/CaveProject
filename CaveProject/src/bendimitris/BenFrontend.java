@@ -2,6 +2,7 @@ package bendimitris;
 
 public class BenFrontend implements DimitrisSupport{
 	static BenSupport backend;
+	static DimitrisSupport frontend;
 	String[][] board;
 	
 	public BenFrontend(BenSupport backend) 
@@ -11,9 +12,12 @@ public class BenFrontend implements DimitrisSupport{
 	
 	public static void main(String[] args) 
 	{
-		BenFrontend frontend = new BenFrontend(backend);
-		frontend.board = frontend.setUpBoard(4, 7);
-		frontend.printBoard();
+		BenFrontend realFrontend = new BenFrontend(backend);
+		DimitrisBackend realBackend = new DimitrisBackend(frontend);
+		realFrontend.board = realFrontend.setUpBoard(4, 7);
+		realFrontend.moveTeacher();
+		realFrontend.printBoard();
+		realBackend.runGame();
 	}
 
 	public void printBoard()
@@ -82,9 +86,11 @@ public class BenFrontend implements DimitrisSupport{
 	}
 
 	@Override
-	public void moveTeacher() {
-		// TODO Auto-generated method stub
-		
+	public void moveTeacher() 
+	{
+		int direction = (int)(Math.random() * 4);
+		String[] teacher = {"<", "^", ">", "v"};
+		board[2][3] = teacher[direction];
 	}
 
 	@Override
