@@ -104,6 +104,10 @@ public class DavidFrontEnd implements vincentSupport {
 				else
 				{
 					System.out.print("[?]");
+					if(row == 3 && col == 3)
+					{
+						System.out.println(""); //when user types something it appears below the grid
+					}
 				}
 			}
 		}
