@@ -43,6 +43,11 @@ public class RaymondBackEnd implements DerekSupporter{
 	//-1 to move left
 	// 1 to move right
 	public void userInput(int move) {
+		for(int col = 0; col < 7; col++) {
+			if(plots[7][col].isContainsBall()) {
+				plots[7][col].setContainBall(false);
+			}
+		}
 		if(move == 1) {
 			if(playerPos + 1 < 7) {
 				playerPos += 1;
