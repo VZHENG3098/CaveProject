@@ -9,7 +9,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 	private DerekSupporter backend;
 	private static Scanner inputSource = new Scanner(System.in);
 	private int a;
-	
+
 	public static final void main(String[] args) {
 		DerekFrontEnd demo = new DerekFrontEnd();
 		demo.play();
@@ -17,15 +17,19 @@ public class DerekFrontEnd implements RaymondSupporter {
 
 	public DerekFrontEnd() {
 		backend = new RaymondBackEnd(this);
-	}		
+	}
 
 	public void play() {
+		int i = 0;
 		while (backend.stillPlaying()) {
 			displayBoard();
 			userInput();
-//			backend.updateBallPos();
-		
-//			updateMap();
+			backend.updateBallPos();
+			i++;
+			if (i % 3 == 0) {
+				backend.createBalls();
+			}
+			// updateMap();
 		}
 	}
 
@@ -42,41 +46,44 @@ public class DerekFrontEnd implements RaymondSupporter {
 			} else {
 				System.out.println("You may only press 'a' or 'd' ");
 				move = inputSource.nextLine();
-			} 
+			}
 		}
 
 	}
 
 	public void displayBoard() {
 		RaymondDerekPlot[][] plots = backend.getPlots();
-		for(int row = 0; row < plots[0].length; row++) {
-			for(int col = 0; col < plots[row].length; col++) {
-				if(plots[row][col].isContainsBall()) {
+		for (int row = 0; row < plots[0].length; row++) {
+			for (int col = 0; col < plots[row].length; col++) {
+				if (row == 7 && col == backend.getPlayerPos()) {
+					System.out.print(" X ");
+				} else if (plots[row][col].isContainsBall()) {
 					System.out.print(" o ");
 				} else {
-					System.out.print("   ");
+					if (col == 0 || col == 7) {
+						System.out.print("|");
+					} else {
+						System.out.print("   ");
+					}
 				}
-				
-				if(row == plots.length - 1 && col == backend.getPlayerPos()) {
-					System.out.println(" X ");
-				} 
+
 			}
 			System.out.println("");
 		}
- 
+
 	}
-	
-	public static String getInput(){
+
+	public static String getInput() {
 		return inputSource.nextLine();
 	}
 
 	public static boolean isInteger(String str) {
-	    try {
-	        Integer.parseInt(str);
-	        return true;
-	    } catch (NumberFormatException nfe) {
-	        return false;
-	    }
+		try {
+			Integer.parseInt(str);
+			return true;
+		} catch (NumberFormatException nfe) {
+			return false;
+		}
 	}
-	
+
 }
