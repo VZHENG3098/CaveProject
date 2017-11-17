@@ -32,14 +32,14 @@ public class VincentBackEnd implements davidSupport{
 		points = 0;
 		arraySize = 4;
 		memArr = new plot[arraySize][arraySize];
-		String[] arr1 = createArray(arraySize+arraySize);
+		String[] arr1 = createArray(arraySize+arraySize); // gets letter in random order {a,c,e,g,h} ect
 		String [] arr2 = createArray(arraySize+arraySize);
 		int count = 0; 
 		for(int row = 0; row < memArr.length; row ++) {
 			for(int col = 0; col < memArr[row].length; col++) {
 				if(count <= 7) {
-					memArr[row][col] = new plot(row, col);
-					memArr[row][col].setLetter(arr1[count]);
+					memArr[row][col] = new plot(row, col); // create plot
+					memArr[row][col].setLetter(arr1[count]); // set the letter for the plot
 				}else {
 					memArr[row][col] = new plot(row, col);
 					memArr[row][col].setLetter(arr2[count-8]);
@@ -50,7 +50,7 @@ public class VincentBackEnd implements davidSupport{
 	}
 	
 	public static plot[][] getPlot(){
-		return memArr;
+		return memArr;		
 	}
 	
 	public static int getTurns(){
@@ -65,7 +65,7 @@ public class VincentBackEnd implements davidSupport{
 		int [] coordinate2 = covertToCoordinate(a2); 
 		if(memArr[coordinate1[0]][coordinate1[1]].getLetter().equals((memArr[coordinate2[0]][coordinate2[1]].getLetter()))) { // checks the letter are equal
 			points = points + 10;
-			if(	memArr[coordinate1[0]][coordinate1[1]].isRevealed()) {
+			if(	memArr[coordinate1[0]][coordinate1[1]].isRevealed()) { // if the point is already used return false
 				return false;
 			}
 			memArr[coordinate1[0]][coordinate1[1]].reveal();
@@ -77,21 +77,21 @@ public class VincentBackEnd implements davidSupport{
 		memArr[coordinate2[0]][coordinate2[1]].disreveal();
 		return false;	
 	}
-	public static int[] covertToCoordinate(String input) {
+	public static int[] covertToCoordinate(String input) { // convert a string of 1,3 to a coordinate
 		int number1 = Integer.parseInt(input.substring(0,1));
 		int number2 = Integer.parseInt(input.substring(2,3));
 		int[] coordinate = {number1,number2};
 		return coordinate;
 		
 	}
-	public static boolean isCorrectFormat(String a1,plot[][] arr) {
+	public static boolean isCorrectFormat(String a1,plot[][] arr) { // check front end coordinate
 		try{
 			if(a1.length() > 4) {
 				return false;
 			}
 			int a = Integer.parseInt(a1.substring(0,1));
 			int b = Integer.parseInt(a1.substring(2,3));
-			
+			if (a1.substring(1,2).equals(",")) // need 
 			if( a < arr.length && b < arr.length) {
 				arr[a][b].reveal();
 				return true;
@@ -101,11 +101,11 @@ public class VincentBackEnd implements davidSupport{
 			return false;
 		}
 	}
-	public static String[] createArray(int size) {
+	public static String[] createArray(int size) { // create an random array of letter
 		String[] arr = new String[size];
 		
-		ArrayList<String> letters = new ArrayList<String>();
-		letters.add("A");
+		ArrayList<String> letters = new ArrayList<String>(); // created a arraylist because it is easier to remove letter
+		letters.add("A"); // kinda redundant 
 		letters.add("B");
 		letters.add("C");		
 		letters.add("D");
@@ -116,8 +116,8 @@ public class VincentBackEnd implements davidSupport{
 		
 		for(int i = 0 ; i<size;i++) {
 			int theNumber = (int)(Math.random()*letters.size());
-			arr[i] = letters.get(theNumber);
-			letters.remove(theNumber);
+			arr[i] = letters.get(theNumber); // set the letter
+			letters.remove(theNumber); // remove the letter from the array so it doesn't repeat.
 		}
 
 		return arr;
