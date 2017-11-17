@@ -23,17 +23,27 @@ public class DavidFrontEnd implements vincentSupport {
 		return inputSource.nextLine();
 	}
 	
+	public static void rules()
+	{
+		System.out.println("\nWelcome to English Class.");
+		System.out.println("\nYou forgot to do you summer reading assignment.");
+		System.out.println("\nYou ask your neighbor for the homework so you can copy it.");
+		System.out.println("\nHe said he will only let you copy off him, if you are able to earn 60 points in a matching game.");
+		System.out.println("\n"+"The rules are simple flip two cards to see if you have a match.");
+		System.out.println("\n"+"Each match is worth 60 points.");
+		System.out.println("\n"+"You have 20 turns to find the matching pairs, or else you lose.");
+	}
+	
 	public static void play()
 	{
+		rules();
 		VincentBackEnd.startArray();
 		plot[][] plot = VincentBackEnd.getPlot();
 		displayBoard(plot);
 		
-		while(victory==false){
+		
+		while(victory==false) {
 			
-	    	System.out.println("\n"+"Flip two cards to see if you have a match.");
-	    	
-	    	
 	    	String firstCoordinate = getCords(plot); // format is 5,5 , is a string
 	    	displayBoard(plot); // displays letter in the plot
 	    	System.out.println("\nEnter your second coordinate.");                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
@@ -45,13 +55,20 @@ public class DavidFrontEnd implements vincentSupport {
 	    	
 	    	if(VincentBackEnd.checkAnswer(firstCoordinate, SecondCoordinate)==true)
 	    	{
-	    		System.out.println("You gain ten points");
+	    		System.out.println("\nDing Ding Ding You gain ten points");
 	    	}
 	    	
 	    	
 	    	System.out.println("\nYou currently have "+VincentBackEnd.getPoints()+" points");
 	    	int turns = VincentBackEnd.getTurns();
 	    	System.out.println("You have "+ turns + " flips left");
+	    	
+	    	
+	    	if(VincentBackEnd.getPoints()==60)	
+	    	{
+	    		System.out.println("Congrats you won.");
+	    		victory=true;
+	    	}
 	    	
 	    	
 		}
