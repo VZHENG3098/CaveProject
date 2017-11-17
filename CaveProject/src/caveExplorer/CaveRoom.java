@@ -170,8 +170,8 @@ public class CaveRoom {
 		CaveRoom HealerRoom = new vincentRoom("Healer");
 		CaveExplorer.caves[1][1] = HealerRoom;
 		
-		CaveRoom MoneyRoom = new davidRoom("Money");
-		
+		CaveRoom english = new davidRoom("Money");
+		CaveExplorer.caves[1][2] = english;
 		
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
