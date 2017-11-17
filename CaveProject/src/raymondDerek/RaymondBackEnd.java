@@ -43,6 +43,11 @@ public class RaymondBackEnd implements DerekSupporter{
 	//-1 to move left
 	// 1 to move right
 	public void userInput(int move) {
+		if(plots[7][playerPos].isContainsBall()) {
+			System.out.println("You were hit by a ball!");
+			setHp();
+		}
+		
 		for(int col = 0; col < 7; col++) {
 			if(plots[7][col].isContainsBall()) {
 				plots[7][col].setContainBall(false);
@@ -59,6 +64,8 @@ public class RaymondBackEnd implements DerekSupporter{
 				playerPos -= 1;
 			}
 		}
+		
+		
 	}
 	
 	
@@ -96,6 +103,10 @@ public class RaymondBackEnd implements DerekSupporter{
 		
 	}
 	
+	
+	public void setHp() {
+		hp -= 20;
+	}
 	 
 	public int getHp() {
 		return hp;
@@ -109,6 +120,7 @@ public class RaymondBackEnd implements DerekSupporter{
 		if(hp > 0) {
 			return true;
 		}
+		System.out.println("You have lost all your stamina.");
 		return false;
 	
 	}
