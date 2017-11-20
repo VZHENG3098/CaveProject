@@ -1,20 +1,17 @@
 package bendimitris;
 
 public class BenFrontend implements DimitrisSupport{
-	private static BenSupport backend;
-	private DimitrisSupport frontend;
 	private static DimitrisBackend realBackend;
 	private String[][] board;
 	
-	public BenFrontend(BenSupport backend1) 
+	public BenFrontend() 
 	{
-		backend = backend1;
-		realBackend = new DimitrisBackend(frontend);
+		realBackend = new DimitrisBackend((DimitrisSupport)this);
 	}
 	
 	public static void main(String[] args) 
 	{
-		BenFrontend realFrontend = new BenFrontend(backend);
+		BenFrontend realFrontend = new BenFrontend();
 		realFrontend.board = realFrontend.setUpBoard(4, 7);
 		realFrontend.moveTeacher();
 		realFrontend.printBoard();
