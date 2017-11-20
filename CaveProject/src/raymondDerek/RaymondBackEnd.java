@@ -12,6 +12,7 @@ public class RaymondBackEnd implements DerekSupporter{
 	private int playerPos; //col of player
 	private int points;
 	private int moves;
+	private boolean skip;
 	
 	public RaymondBackEnd(RaymondSupporter frontend) {
 		this.frontend = frontend;
@@ -20,6 +21,7 @@ public class RaymondBackEnd implements DerekSupporter{
 		hp = 100; 
 		level = 1;
 		points = 0;
+		skip = false;
 	}
 	
 	public void createMap() {
@@ -43,6 +45,8 @@ public class RaymondBackEnd implements DerekSupporter{
 	// use to move player
 	//-1 to move left
 	// 1 to move right
+	// 2 to stay in same position
+	// 3 for the cheat code
 	public void userInput(int move) {
 		if(plots[7][playerPos].isContainsBall()) {
 			System.out.println("You were hit by a ball!");
@@ -66,7 +70,9 @@ public class RaymondBackEnd implements DerekSupporter{
 			}
 		}
 		 
-		 
+		if(move == 3) {
+			setSkip(true);
+		}
 		
 	}
 	
@@ -118,10 +124,24 @@ public class RaymondBackEnd implements DerekSupporter{
 		return level;
 	}
 
+	public void setSkip(boolean a) {
+		skip = a;
+	}
+	
+	public boolean getSkip() {
+		return skip;
+	}
+	
+	
 	public boolean stillPlaying() {
+		if(getSkip()) {
+			System.out.println("Today's your lucky day, there are no more dodgeballs");
+			return false;
+		}
+		
 		if(hp > 0) {
 			return true;
-		}
+		} 
 		System.out.println("You have lost all your stamina.");
 		return false;
 	
@@ -130,6 +150,8 @@ public class RaymondBackEnd implements DerekSupporter{
 	public RaymondDerekPlot[][] getPlots() {
 		return plots;
 	}
+
+	
 
 }
      
