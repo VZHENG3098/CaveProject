@@ -1,5 +1,7 @@
 package bendimitris;
 
+import caveExplorer.CaveExplorer;
+
 public class DimitrisBackend implements BenSupport {
 	
 	int totalSec;
@@ -45,9 +47,8 @@ public class DimitrisBackend implements BenSupport {
 	}
 	
 	public int getInput() {
-		//gets user input
-		
-		return -1;
+		String input = CaveExplorer.in.nextLine();
+		return "wdsae".indexOf(input);
 	}
 
 	public void movePeople() {
