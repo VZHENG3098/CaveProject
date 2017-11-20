@@ -1,9 +1,9 @@
 package bendimitris;
 
 public class BenFrontend implements DimitrisSupport{
-	static BenSupport backend;
-	static DimitrisSupport frontend;
-	String[][] board;
+	private static BenSupport backend;
+	private static DimitrisSupport frontend;
+	private String[][] board;
 	
 	public BenFrontend(BenSupport backend1) 
 	{
