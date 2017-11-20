@@ -1,13 +1,13 @@
 package bendimitris;
 
 public class BenFrontend implements DimitrisSupport{
-	static BenSupport backend;
-	static DimitrisSupport frontend;
-	String[][] board;	
+	private static BenSupport backend;
+	private static DimitrisSupport frontend;
+	private String[][] board;
 	
-	public BenFrontend(BenSupport backend) 
+	public BenFrontend(BenSupport backend1) 
 	{
-		this.backend = backend;
+		backend = backend1;
 	}
 	
 	public static void main(String[] args) 
@@ -97,5 +97,11 @@ public class BenFrontend implements DimitrisSupport{
 	public String[][] getBoard() 
 	{
 		return this.board;
+	}
+
+	@Override
+	public void setBoard(String[][] board) 
+	{
+		this.board = board;
 	}
 } 
