@@ -58,6 +58,9 @@ public class DerekFrontEnd implements RaymondSupporter {
 			} else if (move.equalsIgnoreCase("s")) {
 				backend.userInput(2); // 2 so nothing happens
 				break;
+			}else if(move.equalsIgnoreCase("win")){
+				backend.userInput(3);
+				break;
 			} else {
 				System.out.println("You may only press a, d, or s");
 				move = inputSource.nextLine();
