@@ -16,4 +16,7 @@ public interface DerekSupporter {
 
 	int getHp();
 
+	boolean levelCode();
+
 }
+
