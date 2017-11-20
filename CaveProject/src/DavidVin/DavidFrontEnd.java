@@ -9,14 +9,13 @@ public class DavidFrontEnd implements vincentSupport {
 	public static boolean victory;
 	public static int row;
 	public static int col;
-	
+	public static boolean cheatActivated;
 	
 	public DavidFrontEnd()
 	{
+		cheatActivated = false;
 		victory = false;
-		play();
-		
-		
+		play();	
 	}
 	public static String getInput(){
 		
@@ -41,7 +40,6 @@ public class DavidFrontEnd implements vincentSupport {
 		plot[][] plot = VincentBackEnd.getPlot();
 		displayBoard(plot);
 		
-		
 		while(victory==false) {
 			
 	    	String firstCoordinate = getCords(plot); // format is 5,5 , is a string
@@ -50,27 +48,20 @@ public class DavidFrontEnd implements vincentSupport {
 	    	String SecondCoordinate = getCords(plot);
 	    	displayBoard(plot);
 	    	
-	    	
-	    	VincentBackEnd.checkAnswer(firstCoordinate, SecondCoordinate);
-	    	
 	    	if(VincentBackEnd.checkAnswer(firstCoordinate, SecondCoordinate)==true)
 	    	{
 	    		System.out.println("\nDing Ding Ding You gain ten points");
 	    	}
 	    	
-	    	
 	    	System.out.println("\nYou currently have "+VincentBackEnd.getPoints()+" points");
 	    	int turns = VincentBackEnd.getTurns();
 	    	System.out.println("You have "+ turns + " flips left");
-	    	
 	    	
 	    	if(VincentBackEnd.getPoints()==60)	
 	    	{
 	    		System.out.println("Congrats you won.");
 	    		victory=true;
 	    	}
-	    	
-	    	
 		}
 	}
 	
@@ -79,7 +70,17 @@ public class DavidFrontEnd implements vincentSupport {
 		boolean finish = false;
 		String coordinate = getInput();
 		while(finish == false) {
-			if(VincentBackEnd.isCorrectFormat(coordinate, arr)) {
+			if(coordinate.equals("cheat")) {
+				if(cheatActivated == true) {
+					System.out.println("You already activated your cheats");
+				}
+				cheatActivated = true;
+				displayBoard(arr);
+				System.out.println("");
+				
+				coordinate = getInput();
+			}
+		else if(VincentBackEnd.isCorrectFormat(coordinate, arr)) {
 				finish = true;
 				return coordinate;
 			}else {
@@ -97,7 +98,10 @@ public class DavidFrontEnd implements vincentSupport {
 			System.out.print("\n"+row+" "); //displays the row coordinates
 			for(int col = 0; col < arr[row].length; col++)
 			{
-				if(arr[row][col].isRevealed()) {
+				if(cheatActivated == true) {
+					System.out.print(("["+arr[row][col].getLetter()+"]"));
+				}
+				else if(arr[row][col].isRevealed()) {
 					System.out.print(("["+arr[row][col].getLetter()+"]"));
 				}
 				else
@@ -107,6 +111,7 @@ public class DavidFrontEnd implements vincentSupport {
 					{
 						System.out.println(""); //when user types something it appears below the grid
 					}
+				
 				}
 			}
 		}
@@ -117,6 +122,3 @@ public class DavidFrontEnd implements vincentSupport {
 	}
 	
 }
-
-
-
