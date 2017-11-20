@@ -85,16 +85,22 @@ public class RaymondBackEnd implements DerekSupporter{
 	
 	public void createBalls() {
 		//create random balls top row
-		int x = 0;
-		while(x < getNumBalls()) {
-			for(int i = 1; i < plots[0].length - 1; i++) {
-				if(Math.random() < .5) {
+		int x = 1;
+		for (int i = 1; i < plots[0].length - 1; i++) {
+			if (Math.random() < .5) {
+				if (x <= getNumBalls()) {
 					plots[0][i].setContainBall(true);
+					System.out.println("YES");
 					x++;
+				} else {
+					break;
 				}
 			}
 		}
-		
+
+		if(x < getNumBalls()) {
+			System.out.println("this is num balls " + getNumBalls());
+		}
 	}
 	
 	public void updateBallPos() {
@@ -140,6 +146,8 @@ public class RaymondBackEnd implements DerekSupporter{
 		} else if (moves >= 20) {
 			level = 3;
 			numBalls = 5;
+		} else {
+			numBalls = 3;
 		}
 		return level;
 	}
@@ -153,7 +161,7 @@ public class RaymondBackEnd implements DerekSupporter{
 	}
 	
 	public int getNumBalls() {
-		return numBalls;
+		return 3;
 	}
 	
 	
