@@ -17,20 +17,22 @@ public class DerekFrontEnd implements RaymondSupporter {
 
 	public DerekFrontEnd() {
 		backend = new RaymondBackEnd(this);
+		a=1;
 	}
 
 	public void welcome() {
 		CaveExplorer.print(
 				"Welcome to Brooklyn Tech Dodgeball! Your goal is to complete and survive all the levels of this game. "
-						+ "Once you successfully complete this game, you will gain a gym pass. It will help you throughout your day. ");
+						+ "\nOnce you successfully complete this game, you will gain a gym pass. \nIt will help you throughout your day. ");
 		play();
 	}
 
 	public void play() {
 		int i = 0;
 		while (backend.stillPlaying()) {
+			CaveExplorer.print("You are on level "+ a);
+			printhp(); healthbar();
 			displayBoard();
-			printhp();
 			userInput();
 			backend.updateBallPos();
 			i++;
@@ -38,11 +40,12 @@ public class DerekFrontEnd implements RaymondSupporter {
 				backend.createBalls();
 			}
 			// updateMap();
+	//		showLevel();
 		}
 	}
 
 	private void printhp() {
-		System.out.println(backend.getHp());
+		CaveExplorer.print(backend.getHp() + " hp");
 	}
 
 	private void userInput() {
@@ -102,4 +105,17 @@ public class DerekFrontEnd implements RaymondSupporter {
 		}
 	}
 
+//	public void showLevel() {
+//		if(backend.levelCode()) {
+//			a++;
+//		}
+//		CaveExplorer.print("You are on level "+ a);
+//		
+//	}
+	
+	public void healthbar() {
+		String j = "[__________]";
+		CaveExplorer.print(j);
+		if(backend.isContainsball)
+	}
 }
