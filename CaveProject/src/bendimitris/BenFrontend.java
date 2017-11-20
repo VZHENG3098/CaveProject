@@ -3,7 +3,7 @@ package bendimitris;
 public class BenFrontend implements DimitrisSupport{
 	static BenSupport backend;
 	static DimitrisSupport frontend;
-	String[][] board;
+	String[][] board;	
 	
 	public BenFrontend(BenSupport backend) 
 	{

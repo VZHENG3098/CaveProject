@@ -4,8 +4,13 @@ import caveExplorer.CaveExplorer;
 
 public class DimitrisBackend implements BenSupport {
 	
-	int totalSec;
-	String[][] board;
+	private int totalSec;
+	private String[][] board;
+	private int[] playerPosition;
+	
+	static String playerString = "X";
+	
+	
 	
 	DimitrisSupport frontend;
 
@@ -44,11 +49,38 @@ public class DimitrisBackend implements BenSupport {
 	
 	public void movePlayer() {
 		// get user input/movement
+		
+		int direction = getInput();
+		
+		
+	}
+	
+	public int[] getPlayerPosition() {
+		for(int row = 0; row < board.length; row++) {
+			for(int col = 0; col < board[row].length; col++) {
+				if(board[row][col] == DimitrisBackend.playerString) {
+					int[] pos = {row,col};
+					return pos;
+				}
+			}
+		}
+		int[] error = {-1,-1};
+		return error;
+	}
+	
+	public int[] calculateOpenSides(int[] pos) {
+		
+		int[] noSides = {-1,-1};
+		return noSides;
 	}
 	
 	public int getInput() {
 		String input = CaveExplorer.in.nextLine();
-		return "wdsae".indexOf(input);
+		if(input.length() == 1) {
+			return "wdsae".indexOf(input);
+		}
+		return -1;
+		
 	}
 
 	public void movePeople() {
