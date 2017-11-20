@@ -2,6 +2,8 @@ package raymondDerek;
 
 import java.util.Scanner;
 
+import caveExplorer.CaveExplorer;
+
 public class RaymondBackEnd implements DerekSupporter{
 
 	private static Scanner r = new Scanner(System.in);
@@ -13,6 +15,7 @@ public class RaymondBackEnd implements DerekSupporter{
 	private int points;
 	private int moves;
 	private boolean skip;
+	private int  numBalls; //how dodgeballs per round
 	
 	public RaymondBackEnd(RaymondSupporter frontend) {
 		this.frontend = frontend;
@@ -21,6 +24,7 @@ public class RaymondBackEnd implements DerekSupporter{
 		hp = 100; 
 		level = 1;
 		points = 0;
+		numBalls = 3;
 		skip = false;
 	}
 	
@@ -74,16 +78,23 @@ public class RaymondBackEnd implements DerekSupporter{
 			setSkip(true);
 		}
 		
+		moves++; //used to level
+		
 	}
 	
 	
 	public void createBalls() {
 		//create random balls top row
-		for(int i = 1; i < plots[0].length - 1; i++) {
-			if(Math.random() < .5) {
-				plots[0][i].setContainBall(true);
+		int x = 0;
+		while(x < getNumBalls()) {
+			for(int i = 1; i < plots[0].length - 1; i++) {
+				if(Math.random() < .5) {
+					plots[0][i].setContainBall(true);
+					x++;
+				}
 			}
 		}
+		
 	}
 	
 	public void updateBallPos() {
@@ -120,7 +131,16 @@ public class RaymondBackEnd implements DerekSupporter{
 		return hp;
 	}
 	
+	
+	//level initially at 1
 	public int getLevel() {
+		if(moves >= 10 && moves < 20) {			
+			level = 2;
+			numBalls = 4;
+		} else if (moves >= 20) {
+			level = 3;
+			numBalls = 5;
+		}
 		return level;
 	}
 
@@ -132,17 +152,21 @@ public class RaymondBackEnd implements DerekSupporter{
 		return skip;
 	}
 	
+	public int getNumBalls() {
+		return numBalls;
+	}
+	
 	
 	public boolean stillPlaying() {
 		if(getSkip()) {
-			System.out.println("Today's your lucky day, there are no more dodgeballs");
+			CaveExplorer.print("Today's your lucky day, there are no more dodgeballs");
 			return false;
 		}
 		
 		if(hp > 0) {
 			return true;
 		} 
-		System.out.println("You have lost all your stamina.");
+		CaveExplorer.print("You have lost all your stamina.");
 		return false;
 	
 	}
