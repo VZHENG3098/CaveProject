@@ -32,7 +32,8 @@ public class DerekFrontEnd implements RaymondSupporter {
 		int i = 0;
 		while (backend.stillPlaying()) {
 			CaveExplorer.print("You are on level "+ a);
-			printhp(); healthbar();
+			printhp(); 
+			healthbar();
 			displayBoard();
 			userInput();
 			backend.updateBallPos();
@@ -127,7 +128,17 @@ public class DerekFrontEnd implements RaymondSupporter {
 //		} else if (maxhp == 80) {
 //			System.out.println("[____]");
 //		}
-		String curr = "";
+		int hp = backend.getHp()/20;
+		String a = "[";
+		for(int i = 0 ;i <= hp;i++) {
+			if(i == hp) {
+				 a = a+"]";
+			}else {
+				a = a + "_";
+				
+			}
+		}
+		CaveExplorer.print(a);
 	}
 
 }
