@@ -75,7 +75,7 @@ public class DimitrisBackend implements BenSupport {
 	}
 	
 	public int getInput() {
-		String input = CaveExplorer.in.nextLine();
+		String input = caveExplorer.CaveExplorer.in.nextLine();
 		if(input.length() == 1) {
 			return "wdsae".indexOf(input);
 		}
