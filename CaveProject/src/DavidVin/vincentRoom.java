@@ -30,6 +30,7 @@ public class vincentRoom extends CaveRoom {
 	public void performAction(int direction) {
 		if(direction == 4) {
 			CaveExplorer.inventory.setHP();
+			DavidFrontEnd.play();
 		}else {
 			CaveExplorer.print("That key does nothing");
 		}
