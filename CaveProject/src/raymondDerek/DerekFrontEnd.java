@@ -9,6 +9,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 	private DerekSupporter backend;
 	private static Scanner inputSource = new Scanner(System.in);
 	private int a;
+	
 
 	public static final void main(String[] args) {
 		DerekFrontEnd demo = new DerekFrontEnd();
@@ -114,8 +115,19 @@ public class DerekFrontEnd implements RaymondSupporter {
 //	}
 	
 	public void healthbar() {
-		String j = "[__________]";
-		CaveExplorer.print(j);
-		if(backend.isContainsball)
+		String curr = "[_____]";
+
+		CaveExplorer.print(curr);
+		
+		int currHp = backend.getHp();
+		int maxhp = 100; 
+		
+		if(maxhp == 100) {
+			System.out.println("[_____]");
+		}else if(maxhp == 80) {
+			System.out.println("[____]");
+		}
+		}
+		
 	}
 }
