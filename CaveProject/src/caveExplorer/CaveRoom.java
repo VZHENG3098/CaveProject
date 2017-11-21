@@ -1,5 +1,6 @@
 package caveExplorer;
 
+
 import raymondDerek.DerekCustomRoom;
 import raymondDerek.RaymondCustomRoom;
 import raymondDerek.RaymondDerekPlot;
@@ -78,10 +79,10 @@ public class CaveRoom {
 
 	
 	public void enter() {
-		contents = "X";
+		contents = "YOU";
 	}
 	
-	public void leave() {
+	public void leave() { 
 		contents = defaultContents;
 	}
 
@@ -157,7 +158,9 @@ public class CaveRoom {
 	 */
 	public static void setUpCaves() {
 		//1. Determine size of caves
-		CaveExplorer.caves = new CaveRoom[5][5];
+
+		CaveExplorer.caves = new CaveRoom[7][10];
+
 		CaveRoom[][] c = CaveExplorer.caves;//create a shortcut for accessing CaveExplorer.caves
 		//2. Populate with default caves
 		for(int row =0; row < c.length; row ++) {
@@ -168,6 +171,7 @@ public class CaveRoom {
 		//3. Replace some default rooms with custom rooms (SAVE FOR LATER)
 		//CaveRoom customRoom = new davidRoom("Room");
 		//CaveExplorer.caves[1][1] = customRoom;
+
 		
 		
 		CaveRoom DR = new DerekCustomRoom("Room");
@@ -191,21 +195,35 @@ public class CaveRoom {
 		CaveExplorer.caves[2][1] = S;
 		
 
+
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
 		
 		CaveExplorer.currentRoom.enter();
 		
 		//5. Set up doors
-		c[0][1].setConnection(SOUTH, c[1][1], new Door());
-		c[1][1].setConnection(EAST, c[1][2], new Door());
-		c[1][2].setConnection(EAST, c[1][3], new Door());
-		c[1][3].setConnection(EAST, c[1][4], new Door());
-		c[1][2].setConnection(SOUTH, c[2][2], new Door());
-		c[1][1].setConnection(SOUTH, c[2][1], new Door());
-		c[2][1].setConnection(SOUTH, c[3][1], new Door());
-		c[3][2].setConnection(EAST, c[3][3], new Door());
-		c[3][1].setConnection(EAST, c[3][2], new Door());
+
+		
+		for(int row = 0; row < c.length; row++) { // delete all doors
+			for(int col = 0; col < c[row].length-1; col++) {
+				if(row != 2 && row != 4) {
+					c[row][col].setConnection(EAST, c[row][col+1], new Door());
+				}
+				
+				
+			}
+		}
+		for(int row = 0; row < c.length-1; row++) {
+			for(int col = 0; col < c[row].length; col++) {
+				if(row != 2 && row != 4) {
+					c[row][col].setConnection(SOUTH, c[row+1][col], new Door());
+				}
+				
+				
+			}
+		}
+		
+
 		
 		//make doors lock after you walk in
 		//teleport to a different room
@@ -277,3 +295,4 @@ public class CaveRoom {
 		return doors[direction];
 	}
 }
+

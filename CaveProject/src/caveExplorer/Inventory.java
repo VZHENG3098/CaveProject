@@ -19,6 +19,23 @@ public class Inventory {
 	updateMap();
 	contents = "";
 
+	public boolean Essay;
+	public boolean clothes;
+	 
+
+	private int health;
+	private int gold;
+	
+
+	public Inventory() {
+
+
+
+	health = 50;
+	gold = 0;
+	updateMap();
+	contents = "";
+
 	}
 	
 	public void updateMap() {
@@ -28,6 +45,15 @@ public class Inventory {
 			map+="____";//4 underscores
 		}
 		map += "___\n";
+		map = " ";
+
+		clothes = false;
+		//make hor. line across top:
+		for(int i = 0; i < CaveExplorer.caves[0].length -1; i++) {
+			map+="____";//4 underscores
+
+		}
+		map += "_____\n";
 		for(CaveRoom[] row: CaveExplorer.caves) {
 			for(int i = 0; i < 3; i++) {
 				String text = "";
@@ -46,6 +72,19 @@ public class Inventory {
 							text += "   ";
 						} else {
 							text += "___"; //closed door or wall
+						text += "     ";
+					} else if ( i == 1) {
+						if(cr.getContents().length() == 1) {
+							text += "  "+cr.getContents() + "  ";
+						}else {
+							text +=  " "+cr.getContents() + " ";
+						}
+						
+					} else if( i == 2) {
+						if(cr.getDoor(CaveRoom.SOUTH) != null && cr.getDoor(CaveRoom.SOUTH).isOpen()) {
+							text += "     ";
+						} else {
+							text += "_____"; //closed door or wall
 						}
 					}
 				}//last caveroom
@@ -75,7 +114,9 @@ public class Inventory {
 	{
 		return this.contents;
 	}
-	
+	public void essayTrue() {
+		this.Essay = true;
+	}
 	public void addToContents(String contents)
 	{
 		this.contents += contents +  ", ";
