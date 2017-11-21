@@ -179,7 +179,7 @@ public class CaveRoom {
 		CaveExplorer.caves[1][1] = HealerRoom;
 		
 		CaveRoom english = new davidRoom("Money");
-		CaveExplorer.caves[1][2] = english;
+		CaveExplorer.caves[1][6] = english;
 		
 		CaveRoom DR = new DerekCustomRoom("Room");
 		CaveExplorer.caves[4][2] = DR;
@@ -208,7 +208,7 @@ public class CaveRoom {
 		}
 		for(int row = 0; row < c.length-1; row++) {
 			for(int col = 0; col < c[row].length; col++) {
-				if(row != 2 && row != 4) {
+				if(row != 1 && row != 4) {
 					c[row][col].setConnection(SOUTH, c[row+1][col], new Door());
 				}
 				
@@ -216,7 +216,11 @@ public class CaveRoom {
 			}
 		}
 		
+		c[1][0].setConnection(SOUTH, c[2][0], new Door()); // create the door
+		c[4][0].setConnection(SOUTH, c[5][0], new Door());
 		
+		c[1][9].setConnection(SOUTH, c[2][9], new Door());
+		c[4][9].setConnection(SOUTH, c[5][9], new Door());
 		//make doors lock after you walk in
 		//teleport to a different room
 		//make map dark

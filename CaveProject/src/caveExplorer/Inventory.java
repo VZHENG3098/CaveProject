@@ -32,7 +32,7 @@ public class Inventory {
 		clothes = false;
 		//make hor. line across top:
 		for(int i = 0; i < CaveExplorer.caves[0].length -1; i++) {
-			map+="____";//4 underscores
+			map+="______";//4 underscores
 
 		}
 		map += "_____\n";
