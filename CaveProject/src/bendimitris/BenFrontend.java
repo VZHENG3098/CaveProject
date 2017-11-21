@@ -18,7 +18,8 @@ public class BenFrontend implements DimitrisSupport{
 		BenFrontend realFrontend = new BenFrontend();
 		caveExplorer.CaveExplorer.in = new Scanner(System.in); //memory lead - only useful for debugging
 		realFrontend.board = realFrontend.setUpBoard(4, 7);
-		realFrontend.moveTeacher();
+		realBackend.addLunchCounter(realFrontend.board);
+		realBackend.populatePeople(realFrontend.board, 7);
 		realBackend.runGame();
 	}
 	
@@ -47,22 +48,7 @@ public class BenFrontend implements DimitrisSupport{
 		{
 			for (int x = 0; x < board[y].length; x += 1)
 			{
-				if (x == 0)
-				{
-					board[y][x] = "P";
-				}
-				else if (y == 0)
-				{
-					if (x < 6)
-					{
-						board[y][x] = "P";
-					}
-					else
-					{
-						board[y][x] = " ";
-					}
-				}
-				else if (y == 1)
+				if (y == 1)
 				{
 					if (x == 5)
 					{
@@ -73,13 +59,9 @@ public class BenFrontend implements DimitrisSupport{
 						board[y][x] = " ";
 					}
 				}
-				else if (y == 3)
-				{
-					board[y][x] = " ";
-				}
 				else
 				{
-					if (x == 3)
+					if (x == 3 && y == 2)
 					{
 						board[y][x] = "^";
 					}
