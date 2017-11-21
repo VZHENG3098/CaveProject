@@ -20,21 +20,24 @@ public class davidRoom extends CaveRoom {
 	public String validMoves() {
 		return "wdsae";
 	}
-
 	
 	public void performAction(int direction) {
-		
-		
-		
-		
+
+
 		if(direction == 4) {
 			CaveExplorer.print("Press e to start");
-			
+				
 			startGame();
-		}else {
+		}
+		else 
+		{
 			CaveExplorer.print("That key does nothing");
 		}
+			
+	
 	}
+	
+
 	
 	public void startGame()
 	{
@@ -51,5 +54,5 @@ public class davidRoom extends CaveRoom {
 		"\n"+"Each match is worth 10 points."+
 		"\n"+"You have 25 turns to find the matching pairs, or else you lose.";
 	}
-	
+
 }

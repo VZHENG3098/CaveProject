@@ -5,34 +5,34 @@ public class Inventory {
 	private String map;
 	private String contents;
 
-
-	public boolean Essay;
-	public boolean clothes;
-	 
-
-	private int health;
-	private int gold;
 	
+	private boolean clothes;
+	private boolean essay;
 
 	public Inventory() {
 
-
-
-	health = 50;
-	gold = 0;
+	clothes = false;
 	updateMap();
 	contents = "";
 
+	 essay = false;
 
+	 
 	}
 	
+
+
+	
 	public void updateMap() {
+
 		map = " ";
 
 		clothes = false;
 		//make hor. line across top:
 		for(int i = 0; i < CaveExplorer.caves[0].length -1; i++) {
+
 			map+="______";//4 underscores
+
 
 		}
 		map += "_____\n";
@@ -46,8 +46,16 @@ public class Inventory {
 						text += "|";
 					}
 					if(i == 0) {
-						text += "     ";
+						text += "   ";
 					} else if ( i == 1) {
+						text += " "+cr.getContents() + " ";
+					} else if( i == 2) {
+						if(cr.getDoor(CaveRoom.SOUTH) != null && cr.getDoor(CaveRoom.SOUTH).isOpen()) {
+							text += "   ";
+						} else {
+							text += "___"; //closed door or wall
+						text += "     ";
+						}} else if ( i == 1) {
 						if(cr.getContents().length() == 1) {
 							text += "  "+cr.getContents() + "  ";
 						}else {
@@ -67,30 +75,20 @@ public class Inventory {
 			}
 		}
 	}
-	public void setHP() {
-		health = 100;
-	}
 
 	public String getDescription() {
 		return map ;
 		//return "h is nothing in your inventory.";
 	}
-	public String getHealth() {
-		return ""+health+"";
-	}
-	public void giveGold() {
-		gold += 100 ;
-	}
-	public String getGold() {
-		return ""+gold+"";
-	}
+
+
 	
 	public String getContents()
 	{
 		return this.contents;
 	}
 	public void essayTrue() {
-		this.Essay = true;
+		this.essay = true;
 	}
 	public void addToContents(String contents)
 	{
@@ -98,11 +96,12 @@ public class Inventory {
 		CaveExplorer.print("You picked up " + contents);
 	}
 
+	public void setClothes() {
+		clothes = !clothes;
+	}
+
+	public boolean isClothes() {
+		return clothes;
+	}
 }
-
-
-
-
-
-
 

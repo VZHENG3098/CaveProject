@@ -29,9 +29,13 @@ public class vincentRoom extends CaveRoom {
 	 */ 
 	public void performAction(int direction) {
 		if(direction == 4) {
+			
 			DavidFrontEnd.play();
 		}else {
 			CaveExplorer.print("That key does nothing");
 		}
+	}
+	public String getDescription() {
+		return "Welcome to English class.";
 	}
 }

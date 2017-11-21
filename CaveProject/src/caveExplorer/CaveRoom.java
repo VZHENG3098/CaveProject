@@ -3,11 +3,10 @@ package caveExplorer;
 
 import raymondDerek.DerekCustomRoom;
 import raymondDerek.RaymondCustomRoom;
-import raymondDerek.RaymondDerekRoom;
-import bendimitris.DimitrisBenRoom;
+import raymondDerek.RaymondDerekPlot;
+import bendimitris.BenRoom;
 import DavidVin.davidRoom;
 import DavidVin.vincentRoom;
-
 
 public class CaveRoom {
 
@@ -172,8 +171,10 @@ public class CaveRoom {
 		//3. Replace some default rooms with custom rooms (SAVE FOR LATER)
 		//CaveRoom customRoom = new davidRoom("Room");
 		//CaveExplorer.caves[1][1] = customRoom;
+
 		
 		
+
 		 
 		CaveRoom HealerRoom = new vincentRoom("Healer");
 		CaveExplorer.caves[1][1] = HealerRoom;
@@ -181,14 +182,29 @@ public class CaveRoom {
 		CaveRoom english = new davidRoom("Money");
 		CaveExplorer.caves[1][6] = english;
 		
+
+
 		CaveRoom DR = new DerekCustomRoom("Room");
-		CaveExplorer.caves[4][2] = DR;
+		CaveExplorer.caves[0][1] = DR;
 		
-		CaveRoom R = new RaymondCustomRoom("Locker");
+		CaveRoom R = new RaymondCustomRoom("Clothes");
 		CaveExplorer.caves[1][2] = R;
 		 
+		CaveRoom V = new vincentRoom("Healer");
+		CaveExplorer.caves[1][3] = V;
 
-		c[1][1] = new DimitrisBenRoom();
+		c[1][1] = new BenRoom();
+
+		
+		
+		CaveRoom D = new davidRoom("Money");
+		CaveExplorer.caves[1][4] = D;
+		
+		
+		CaveRoom S = new davidRoom("Money");
+		CaveExplorer.caves[2][1] = S;
+		
+
 
 		//4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
@@ -196,6 +212,7 @@ public class CaveRoom {
 		CaveExplorer.currentRoom.enter();
 		
 		//5. Set up doors
+
 		
 		for(int row = 0; row < c.length; row++) { // delete all doors
 			for(int col = 0; col < c[row].length-1; col++) {
@@ -216,11 +233,16 @@ public class CaveRoom {
 			}
 		}
 		
+
 		c[1][0].setConnection(SOUTH, c[2][0], new Door()); // create the door
 		c[4][0].setConnection(SOUTH, c[5][0], new Door());
 		 
 		c[1][9].setConnection(SOUTH, c[2][9], new Door());
 		c[4][9].setConnection(SOUTH, c[5][9], new Door());
+
+
+		
+
 		//make doors lock after you walk in
 		//teleport to a different room  
 		//make map dark
