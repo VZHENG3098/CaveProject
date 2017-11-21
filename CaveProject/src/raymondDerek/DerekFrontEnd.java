@@ -106,28 +106,28 @@ public class DerekFrontEnd implements RaymondSupporter {
 		}
 	}
 
-//	public void showLevel() {
-//		if(backend.levelCode()) {
-//			a++;
-//		}
-//		CaveExplorer.print("You are on level "+ a);
-//		
-//	}
-	
-	public void healthbar() {
-		String curr = "[_____]";
+	// public void showLevel() {
+	// if(backend.levelCode()) {
+	// a++;
+	// }
+	// CaveExplorer.print("You are on level "+ a);
+	//
+	// }
 
-		CaveExplorer.print(curr);
-		
-		int currHp = backend.getHp();
-		int maxhp = 100; 
-		
-		if(maxhp == 100) {
-			System.out.println("[_____]");
-		}else if(maxhp == 80) {
-			System.out.println("[____]");
-		}
-		}
-		
+	public void healthbar() {
+//		String curr = "[_____]";
+//
+//		CaveExplorer.print(curr);
+//
+//		int currHp = backend.getHp();
+//		int maxhp = 100;
+//
+//		if (maxhp == 100) {
+//			System.out.println("[_____]");
+//		} else if (maxhp == 80) {
+//			System.out.println("[____]");
+//		}
+		String curr = "";
 	}
+
 }
