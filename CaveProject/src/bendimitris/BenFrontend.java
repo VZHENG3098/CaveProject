@@ -1,5 +1,9 @@
 package bendimitris;
 
+import java.util.Scanner;
+
+import caveExplorer.CaveExplorer;
+
 public class BenFrontend implements DimitrisSupport{
 	private static DimitrisBackend realBackend;
 	private String[][] board;
@@ -12,6 +16,7 @@ public class BenFrontend implements DimitrisSupport{
 	public static void main(String[] args) 
 	{
 		BenFrontend realFrontend = new BenFrontend();
+		caveExplorer.CaveExplorer.in = new Scanner(System.in);
 		realFrontend.board = realFrontend.setUpBoard(4, 7);
 		realFrontend.moveTeacher();
 		realBackend.runGame();
