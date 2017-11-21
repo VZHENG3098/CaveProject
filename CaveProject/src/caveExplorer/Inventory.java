@@ -46,16 +46,8 @@ public class Inventory {
 						text += "|";
 					}
 					if(i == 0) {
-						text += "   ";
-					} else if ( i == 1) {
-						text += " "+cr.getContents() + " ";
-					} else if( i == 2) {
-						if(cr.getDoor(CaveRoom.SOUTH) != null && cr.getDoor(CaveRoom.SOUTH).isOpen()) {
-							text += "   ";
-						} else {
-							text += "___"; //closed door or wall
 						text += "     ";
-						}} else if ( i == 1) {
+					} else if ( i == 1) {
 						if(cr.getContents().length() == 1) {
 							text += "  "+cr.getContents() + "  ";
 						}else {
