@@ -218,7 +218,7 @@ public class CaveRoom {
 		
 		c[1][0].setConnection(SOUTH, c[2][0], new Door()); // create the door
 		c[4][0].setConnection(SOUTH, c[5][0], new Door());
-		
+		 
 		c[1][9].setConnection(SOUTH, c[2][9], new Door());
 		c[4][9].setConnection(SOUTH, c[5][9], new Door());
 		//make doors lock after you walk in
