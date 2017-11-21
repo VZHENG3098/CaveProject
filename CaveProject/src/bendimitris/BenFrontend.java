@@ -14,7 +14,6 @@ public class BenFrontend implements DimitrisSupport{
 		BenFrontend realFrontend = new BenFrontend();
 		realFrontend.board = realFrontend.setUpBoard(4, 7);
 		realFrontend.moveTeacher();
-		realFrontend.printBoard();
 		realBackend.runGame();
 	}
 
