@@ -13,12 +13,18 @@ public class BenFrontend implements DimitrisSupport{
 		realBackend = new DimitrisBackend((DimitrisSupport)this);
 	}
 	
-	public static void main(String[] args) 
+	public static void main(String[] args)  //debug function
 	{
 		BenFrontend realFrontend = new BenFrontend();
-		caveExplorer.CaveExplorer.in = new Scanner(System.in);
+		caveExplorer.CaveExplorer.in = new Scanner(System.in); //memory lead - only useful for debugging
 		realFrontend.board = realFrontend.setUpBoard(4, 7);
 		realFrontend.moveTeacher();
+		realBackend.runGame();
+	}
+	
+	public void startGame() { //initialized the game
+		board = setUpBoard(4, 7);
+		moveTeacher();
 		realBackend.runGame();
 	}
 
@@ -105,5 +111,10 @@ public class BenFrontend implements DimitrisSupport{
 	public void setBoard(String[][] board) 
 	{
 		this.board = board;
+	}
+
+	public boolean wonGame() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 } 

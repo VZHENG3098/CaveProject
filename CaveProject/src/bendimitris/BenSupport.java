@@ -6,5 +6,6 @@ public interface BenSupport
 	
 	public String[][] addLunchCounter(String[][] board);
 	public String[][] populatePeople(String[][] board, int sizeOfLine);
+	public boolean wonGame();
 	
 }
