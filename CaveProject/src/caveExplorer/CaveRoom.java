@@ -222,7 +222,7 @@ public class CaveRoom {
 		c[1][9].setConnection(SOUTH, c[2][9], new Door());
 		c[4][9].setConnection(SOUTH, c[5][9], new Door());
 		//make doors lock after you walk in
-		//teleport to a different room
+		//teleport to a different room  
 		//make map dark
 		//make  a boss follow you (spawn after entry)
 		//moving up and down (3D array, i.e. make a starway room)
