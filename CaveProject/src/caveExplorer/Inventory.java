@@ -7,44 +7,24 @@ public class Inventory {
 
 	
 	private boolean clothes;
-	 
+	private boolean essay;
 
-	private int health;
-	private int gold;
 	public Inventory() {
 
-	health = 50;
-	gold = 0;
 	clothes = false;
 	updateMap();
 	contents = "";
 
-	public boolean Essay;
-	public boolean clothes;
+	 essay = false;
+
 	 
-
-	private int health;
-	private int gold;
-	
-
-	public Inventory() {
-
-
-
-	health = 50;
-	gold = 0;
-	updateMap();
-	contents = "";
-
 	}
 	
+
+
+	
 	public void updateMap() {
-		map = " ";
-		//make hor. line across top:
-		for(int i = 0; i < CaveExplorer.caves[0].length -1; i++) {
-			map+="____";//4 underscores
-		}
-		map += "___\n";
+
 		map = " ";
 
 		clothes = false;
@@ -73,7 +53,7 @@ public class Inventory {
 						} else {
 							text += "___"; //closed door or wall
 						text += "     ";
-					} else if ( i == 1) {
+						}} else if ( i == 1) {
 						if(cr.getContents().length() == 1) {
 							text += "  "+cr.getContents() + "  ";
 						}else {
@@ -93,29 +73,20 @@ public class Inventory {
 			}
 		}
 	}
-	public void setHP() {
-		health = 100;
-	}
+
 	public String getDescription() {
 		return map ;
 		//return "h is nothing in your inventory.";
 	}
-	public String getHealth() {
-		return ""+health+"";
-	}
-	public void giveGold() {
-		gold += 100 ;
-	}
-	public String getGold() {
-		return ""+gold+"";
-	}
+
+
 	
 	public String getContents()
 	{
 		return this.contents;
 	}
 	public void essayTrue() {
-		this.Essay = true;
+		this.essay = true;
 	}
 	public void addToContents(String contents)
 	{
