@@ -7,13 +7,21 @@ public class plot {
 	private int row;
 	private int col;
 	private String letter;
+	private boolean specialPlot;
 	
 	public plot(int row, int col) {
+		specialPlot = false;
 		revealed = false;
 		this.row = row;
 		this.col = col;
 	}
 	
+	public void setSpecialPlot(){
+		specialPlot = true;
+	}
+	public boolean getSpecialPlot() {
+		return specialPlot;
+	}
 	public int getRow() {
 		return row;
 	}

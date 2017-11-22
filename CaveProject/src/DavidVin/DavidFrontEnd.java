@@ -93,7 +93,7 @@ public class DavidFrontEnd implements vincentSupport {
 	
 	public static void displayBoard(plot[][] arr)
 	{
-		System.out.print("   0  1  2  3"); //displays the col coordinates
+		System.out.print("   0  1  2  3  4  5"); //displays the col coordinates
 		for(int row = 0; row < arr.length; row++){
 			System.out.print("\n"+row+" "); //displays the row coordinates
 			for(int col = 0; col < arr[row].length; col++)
@@ -107,7 +107,7 @@ public class DavidFrontEnd implements vincentSupport {
 				else
 				{
 					System.out.print("[?]");
-					if(row == 3 && col == 3)
+					if(row == 6 && col == 6)
 					{
 						System.out.println(""); //when user types something it appears below the grid
 					}
