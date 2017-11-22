@@ -22,28 +22,22 @@ public class davidRoom extends CaveRoom {
 	}
 	
 	public void performAction(int direction) {
-		if(direction == 4) {
-			CaveExplorer.print("You meet a nice student. Press e to get 100 gold.");
-			CaveExplorer.inventory.giveGold();
 
-	
-	public void performAction(int direction) {
-		
-		
-		
-		
+
 		if(direction == 4) {
 			CaveExplorer.print("Press e to start");
-			
+				
 			startGame();
-		}else {
+		}
+		else 
+		{
 			CaveExplorer.print("That key does nothing");
 		}
+			
+	
 	}
 	
-	public String getDescription() {
-		return "You found money on the ground. Press e to obtain it";
-	}
+
 	
 	public void startGame()
 	{
