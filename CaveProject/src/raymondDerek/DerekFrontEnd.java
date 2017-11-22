@@ -6,7 +6,7 @@ import caveExplorer.CaveExplorer;
 
 public class DerekFrontEnd implements RaymondSupporter {
 
-	private DerekSupporter backend;
+	private static DerekSupporter backend;
 	private static Scanner inputSource = new Scanner(System.in);
 
 	public DerekFrontEnd() {
@@ -44,7 +44,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 		CaveExplorer.print(backend.getHp() + " hp");
 	}
 
-	public void userInput() {
+	public static void userInput() {
 		CaveExplorer.print("Please type which direction you would like to goto.");
 		String move = inputSource.nextLine();
 		while (true) {
@@ -67,7 +67,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 		}
 	}
 
-	public void displayBoard() {
+	public static void displayBoard() {
 		RaymondDerekPlot[][] plots = backend.getPlots();
 		for (int row = 0; row < plots[0].length; row++) {
 			for (int col = 0; col < plots[row].length; col++) {

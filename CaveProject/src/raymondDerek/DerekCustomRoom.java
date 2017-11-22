@@ -56,8 +56,6 @@ public class DerekCustomRoom extends NPCRoom {
 	}
 
 	private void playMinigame() {
-		// TODO Auto-generated method stub
-		
 	}
 	
 }
