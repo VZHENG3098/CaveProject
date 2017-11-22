@@ -8,17 +8,11 @@ public class DerekFrontEnd implements RaymondSupporter {
 
 	private DerekSupporter backend;
 	private static Scanner inputSource = new Scanner(System.in);
-	private int a;
-	
-
-	public static final void main(String[] args) {
-		DerekFrontEnd demo = new DerekFrontEnd();
-		demo.welcome();
-	}
 
 	public DerekFrontEnd() {
 		backend = new RaymondBackEnd(this);
-		a=1;
+		DerekFrontEnd demo = new DerekFrontEnd();
+		demo.welcome();
 	}
 
 	public void welcome() {
@@ -31,8 +25,8 @@ public class DerekFrontEnd implements RaymondSupporter {
 	public void play() {
 		int i = 0;
 		while (backend.stillPlaying()) {
-			CaveExplorer.print("You are on level "+ a);
-			printhp(); 
+			CaveExplorer.print("You are on level " + backend.getLevel());
+			printhp();
 			healthbar();
 			displayBoard();
 			userInput();
@@ -42,15 +36,15 @@ public class DerekFrontEnd implements RaymondSupporter {
 				backend.createBalls();
 			}
 			// updateMap();
-	//		showLevel();
+			// showLevel();
 		}
 	}
 
-	private void printhp() {
+	public void printhp() {
 		CaveExplorer.print(backend.getHp() + " hp");
 	}
 
-	private void userInput() {
+	public void userInput() {
 		CaveExplorer.print("Please type which direction you would like to goto.");
 		String move = inputSource.nextLine();
 		while (true) {
@@ -63,7 +57,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 			} else if (move.equalsIgnoreCase("s")) {
 				backend.userInput(2); // 2 so nothing happens
 				break;
-			}else if(move.equalsIgnoreCase("win")){
+			} else if (move.equalsIgnoreCase("win")) {
 				backend.userInput(3);
 				break;
 			} else {
@@ -98,44 +92,15 @@ public class DerekFrontEnd implements RaymondSupporter {
 		return inputSource.nextLine();
 	}
 
-	public static boolean isInteger(String str) {
-		try {
-			Integer.parseInt(str);
-			return true;
-		} catch (NumberFormatException nfe) {
-			return false;
-		}
-	}
-
-	// public void showLevel() {
-	// if(backend.levelCode()) {
-	// a++;
-	// }
-	// CaveExplorer.print("You are on level "+ a);
-	//
-	// }
-
 	public void healthbar() {
-//		String curr = "[_____]";
-//
-//		CaveExplorer.print(curr);
-//
-//		int currHp = backend.getHp();
-//		int maxhp = 100;
-//
-//		if (maxhp == 100) {
-//			System.out.println("[_____]");
-//		} else if (maxhp == 80) {
-//			System.out.println("[____]");
-//		}
-		int hp = backend.getHp()/20;
+		int hp = backend.getHp() / 20;
 		String a = "[";
-		for(int i = 0 ;i <= hp;i++) {
-			if(i == hp) {
-				 a = a+"]";
-			}else {
+		for (int i = 0; i <= hp; i++) {
+			if (i == hp) {
+				a = a + "]";
+			} else {
 				a = a + "_";
-				
+
 			}
 		}
 		CaveExplorer.print(a);

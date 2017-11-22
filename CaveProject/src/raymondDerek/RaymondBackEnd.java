@@ -24,7 +24,6 @@ public class RaymondBackEnd implements DerekSupporter{
 		hp = 100; 
 		level = 1;
 		points = 0;
-		numBalls = 3;
 		skip = false;
 	}
 	
@@ -85,22 +84,31 @@ public class RaymondBackEnd implements DerekSupporter{
 	
 	public void createBalls() {
 		//create random balls top row
-		int x = 1;
+		int x = 0;
 		for (int i = 1; i < plots[0].length - 1; i++) {
 			if (Math.random() < .5) {
-				if (x <= getNumBalls()) {
+				if (x < getNumBalls()) {
 					plots[0][i].setContainBall(true);
-					System.out.println("YES");
 					x++;
 				} else {
 					break;
 				}
 			}
 		}
-
-		if(x < getNumBalls()) {
-			System.out.println("this is num balls " + getNumBalls());
+		
+		//fill remaining col with balls if not enough
+		if(x != getNumBalls()) {
+			for(int i = 1; i < plots[0].length - 1; i++) {
+				if(plots[0][i].isContainsBall() == false) {
+					plots[0][i].setContainBall(true);
+					x ++;
+				}
+				if(x == getNumBalls()) {
+					break;
+				}
+			}
 		}
+		 
 	}
 	
 	public void updateBallPos() {
@@ -140,15 +148,14 @@ public class RaymondBackEnd implements DerekSupporter{
 	
 	//level initially at 1
 	public int getLevel() {
-		if(moves >= 10 && moves < 20) {			
-			level = 2;
-			numBalls = 4;
-		} else if (moves >= 20) {
+		if(moves > 20) {
 			level = 3;
-			numBalls = 5;
+		} else if (moves > 10) {
+			level = 2;
 		} else {
-			numBalls = 3;
+			level = 1;
 		}
+		
 		return level;
 	}
 
@@ -161,7 +168,15 @@ public class RaymondBackEnd implements DerekSupporter{
 	}
 	
 	public int getNumBalls() {
-		return 3;
+		int l = getLevel();
+		if(l == 1) {
+			return 3;
+		} else if (l == 2) {
+			return 4;
+		} else {
+			return 5;
+		}
+		
 	}
 	
 	
@@ -182,6 +197,7 @@ public class RaymondBackEnd implements DerekSupporter{
 	public RaymondDerekPlot[][] getPlots() {
 		return plots;
 	}
+
 
 	
 

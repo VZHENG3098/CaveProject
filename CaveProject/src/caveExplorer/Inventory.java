@@ -27,7 +27,6 @@ public class Inventory {
 
 		map = " ";
 
-		clothes = false;
 		//make hor. line across top:
 		for(int i = 0; i < CaveExplorer.caves[0].length -1; i++) {
 
