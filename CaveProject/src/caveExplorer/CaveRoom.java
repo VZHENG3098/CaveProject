@@ -218,27 +218,26 @@ public class CaveRoom {
 			for(int col = 0; col < c[row].length-1; col++) {
 				if(row != 2 && row != 4) {
 					c[row][col].setConnection(EAST, c[row][col+1], new Door());
-				}
-				
-				
+				}				
 			}
 		}
 		for(int row = 0; row < c.length-1; row++) {
 			for(int col = 0; col < c[row].length; col++) {
-				if(row != 1 && row != 4) {
+				if((row != 1 && row != 4 && row != 3 && row != 2) || col == 0 || col == c[row].length -1) {	//add rows to remove, this will not affect the first and last collumns
 					c[row][col].setConnection(SOUTH, c[row+1][col], new Door());
 				}
+				
 				
 				
 			}
 		}
 		
 
-		c[1][0].setConnection(SOUTH, c[2][0], new Door()); // create the door
-		c[4][0].setConnection(SOUTH, c[5][0], new Door());
-		 
-		c[1][9].setConnection(SOUTH, c[2][9], new Door());
-		c[4][9].setConnection(SOUTH, c[5][9], new Door());
+//		c[1][0].setConnection(SOUTH, c[2][0], new Door()); // create the door
+//		c[4][0].setConnection(SOUTH, c[5][0], new Door());
+//		 
+//		c[1][9].setConnection(SOUTH, c[2][9], new Door());
+//		c[4][9].setConnection(SOUTH, c[5][9], new Door());
 
 
 		
