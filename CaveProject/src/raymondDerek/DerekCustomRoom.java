@@ -52,13 +52,7 @@ public class DerekCustomRoom extends NPCRoom {
 	
 	public void talkTeacher() {
 		CaveExplorer.print("You may now play the minigame");
-		playMinigame();
-	}
 
-	private void playMinigame() {
-		// TODO Auto-generated method stub
-		
 	}
-	
 }
 	
