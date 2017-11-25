@@ -8,6 +8,7 @@ public class davidRoom extends CaveRoom {
 
 	public davidRoom(String description) {
 		super(description);
+		super.setContents("E");
 		// TODO Auto-generated constructor stub
 	}
 	

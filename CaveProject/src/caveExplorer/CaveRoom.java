@@ -190,19 +190,15 @@ public class CaveRoom {
 		CaveRoom R = new RaymondCustomRoom("Clothes");
 		CaveExplorer.caves[1][2] = R;
 		 
-		CaveRoom V = new vincentRoom("Healer");
-		CaveExplorer.caves[1][3] = V;
+		//CaveRoom V = new vincentRoom("Healer");
+		//CaveExplorer.caves[1][3] = V;
 
 		c[1][1] = new BenRoom();
 
 		
 		
-		CaveRoom D = new davidRoom("Money");
-		CaveExplorer.caves[1][4] = D;
 		
 		
-		CaveRoom S = new davidRoom("Money");
-		CaveExplorer.caves[2][1] = S;
 		
 
 
