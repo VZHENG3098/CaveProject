@@ -19,6 +19,10 @@ public class plot {
 	public void setSpecialPlot(){
 		specialPlot = true;
 	}
+	public void usedSpecialPlot(){
+		specialPlot = false;
+	}
+	
 	public boolean getSpecialPlot() {
 		return specialPlot;
 	}

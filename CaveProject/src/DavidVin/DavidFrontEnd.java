@@ -82,6 +82,9 @@ public class DavidFrontEnd implements vincentSupport {
 			}
 		else if(VincentBackEnd.isCorrectFormat(coordinate, arr)) {
 				finish = true;
+				if(VincentBackEnd.checkForSpecialBock(coordinate) && cheatActivated == false){
+					System.out.println("THERE IS A SPECIAL BLOCK NEAR YOU!");
+				}
 				return coordinate;
 			}else {
 				System.out.println("Please type the coordinate like this example 0,0 and each number is less than " + (arr.length-1));

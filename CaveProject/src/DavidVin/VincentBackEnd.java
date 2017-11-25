@@ -45,6 +45,7 @@ public class VincentBackEnd implements davidSupport{
 					memArr[row][col] = new plot(row, col); // create plot
 					memArr[row][col].setLetter(arr1[count]); // set the letter for the plot
 					if(random < 0.1 && putSpecial == false) {
+						System.out.println(""+row+"" + ""+col+"");
 						memArr[row][col].setSpecialPlot();
 						putSpecial = true;
 					}
@@ -53,6 +54,7 @@ public class VincentBackEnd implements davidSupport{
 					memArr[row][col] = new plot(row, col);
 					memArr[row][col].setLetter(arr2[count-18]);
 					if(random < 0.1 && putSpecial == false) {
+						System.out.println(""+row+"" + ""+col+"");
 						memArr[row][col].setSpecialPlot();
 						putSpecial = true;
 					}
@@ -122,12 +124,47 @@ public class VincentBackEnd implements davidSupport{
 		}
 	}
 	
-	public boolean checkForSpecialBock(String coords) { // only call this method after it goes through the correctFormat
-		int a = Integer.parseInt(coords.substring(0,1));
-		int b = Integer.parseInt(coords.substring(2,3));
-
+	public static boolean checkForSpecialBock(String coords) { // only call this method after it goes through the correctFormat
+/*		   	  0  1  2  3  4  5		   0  1  2  3  4  5
+		   0 [?][?][?][?][?][?]		0 [P][X][?][?][?][?]	// this is how it should display
+		   1 [?][?][?][?][?][?]		1 [X][X][?][?][?][?]	
+		   2 [?][?][X][X][X][?] 	2 [?][?][?][?][?][?] 
+		   3 [?][?][X][P][X][?]		3 [?][?][?][?][?][?]
+		   4 [?][?][X][X][X][?]		4 [?][?][?][?][?][?]
+		   5 [?][?][?][?][?][?]		5 [?][?][?][?][?][?]*/
+		int[] coordinates = covertToCoordinate(coords);
+		int a = coordinates[0];
+		int b = coordinates[1];
+		int startRow = avoidAIOOBEStart(a);
+		int endRow = avoidAIOOBEEnd(a);
+		int startCol = avoidAIOOBEStart(b);
+		int endCol = avoidAIOOBEEnd(b);
+		for(int row = startRow; row <=  endRow; row++){
+			for(int col = startCol; col <= endCol; col++){
+				if(memArr[row][col].getSpecialPlot() && (row != a || col != b)) {
+					return true;
+				}
+			}
+		}
+		
+		
 		return false;
 	}
+	
+	public static int avoidAIOOBEStart(int num) {
+		if(num == 0) {
+			return num;
+		}
+		return num-1;
+	}
+	
+	public static int avoidAIOOBEEnd(int num) {
+		if(num == memArr.length-1) {
+			return num;
+		}
+		return num+1;
+	}
+	
 	public static void Victory() {
 		CaveExplorer.inventory.essayTrue();
 	}
