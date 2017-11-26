@@ -176,8 +176,8 @@ public class CaveRoom {
 		
 
 		 
-		CaveRoom HealerRoom = new vincentRoom("Healer");
-		CaveExplorer.caves[1][1] = HealerRoom;
+		CaveRoom ER = new vincentRoom("Essay");
+		CaveExplorer.caves[1][5] = ER;
 		
 		CaveRoom english = new davidRoom("Money");
 		CaveExplorer.caves[1][6] = english;
