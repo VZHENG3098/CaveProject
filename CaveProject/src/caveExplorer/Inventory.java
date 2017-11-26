@@ -5,23 +5,24 @@ public class Inventory {
 	private String map;
 	private String contents;
 
-	
-	private boolean clothes;
-	private boolean essay;
+	public boolean Essay;
+	public boolean clothes;
+	 
+	public int Schedule;
+	private int health;
+	private int gold;
 
 	public Inventory() {
+	Schedule = 0;
+	health = 50;
+	gold = 0;
 
 	clothes = false;
 	updateMap();
 	contents = "";
-
-	 essay = false;
-
+	 Essay = false;
 	 
 	}
-	
-
-
 	
 	public void updateMap() {
 
@@ -79,14 +80,19 @@ public class Inventory {
 		return this.contents;
 	}
 	public void essayTrue() {
-		this.essay = true;
+		this.Essay = true;
+	}
+	public boolean getEssay() {
+		return Essay;
 	}
 	public void addToContents(String contents)
 	{
 		this.contents += contents +  ", ";
 		CaveExplorer.print("You picked up " + contents);
 	}
-
+	public void nextClass() { // call this after each successive minigame
+		Schedule++;
+	}
 	public void setClothes() {
 		clothes = !clothes;
 	}
