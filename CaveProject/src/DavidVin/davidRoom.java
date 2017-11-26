@@ -23,13 +23,13 @@ public class davidRoom extends CaveRoom {
 	}
 	
 	public void performAction(int direction) {
-
-
 		if(direction == 4) {
-			if(CaveExplorer.inventory.getEssay() == true) {
-				
-			}else {
+			if(CaveExplorer.inventory.getEssay() == true && CaveExplorer.inventory.returnSchedule() == 0) {
+				CaveExplorer.inventory.nextClass();
+				CaveExplorer.inventory.increaseStamina(20);
+			}else if(CaveExplorer.inventory.returnSchedule() == 0) {
 				DavidFrontEnd.play();
+				CaveExplorer.inventory.nextClass();
 			}
 		}
 		else 
@@ -61,7 +61,7 @@ public class davidRoom extends CaveRoom {
 					"\n"+"You have 25 turns to find the matching pairs, or else you lose."+
 					"\n"+"Press E to start!";
 		}else {
-			return "You had english already go to "+CaveExplorer.inventory.currentClass();
+			return "Go to your next class "+CaveExplorer.inventory.currentClass();
 		}
 			
 		

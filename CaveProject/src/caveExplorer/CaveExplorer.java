@@ -27,6 +27,8 @@ public class CaveExplorer {
 		while(playing) {
 			//moveNPCs(); --causing program to terminate early
 			print(inventory.getDescription());
+			print("You have "+inventory.getStamina()+" Stamina left.");
+			inventory.decreaseStamina(1); // decrease stamina each time you move 
 			print(currentRoom.getDescription());
 			print(currentRoom.getDirections());
 			print("What would you like to do?");

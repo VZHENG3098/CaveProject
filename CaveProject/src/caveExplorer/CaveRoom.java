@@ -5,6 +5,7 @@ import raymondDerek.DerekCustomRoom;
 import raymondDerek.RaymondCustomRoom;
 import raymondDerek.RaymondDerekPlot;
 import bendimitris.BenRoom;
+import DavidVin.VincentRoomLQS;
 import DavidVin.davidRoom;
 import DavidVin.vincentRoom;
 
@@ -179,6 +180,9 @@ public class CaveRoom {
 		CaveRoom ER = new vincentRoom("Essay");
 		CaveExplorer.caves[1][5] = ER;
 		
+		CaveRoom LQS = new VincentRoomLQS("LQS");
+		CaveExplorer.caves[2][2] = LQS;
+		
 		CaveRoom english = new davidRoom("Money");
 		CaveExplorer.caves[2][6] = english;
 
@@ -249,6 +253,8 @@ public class CaveRoom {
 		CaveRoom[][] c = CaveExplorer.caves;
 		if(CaveExplorer.inventory.returnSchedule() == 0) {
 			c[3][6].setConnection(NORTH, c[2][6], new Door());		// open door for english class
+		}else if(CaveExplorer.inventory.returnSchedule() == 1){
+			c[3][2].setConnection(NORTH, c[2][2], new Door());
 		}
 	}
 	public void goToRoom(int direction) {

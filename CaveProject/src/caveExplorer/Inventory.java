@@ -9,13 +9,13 @@ public class Inventory {
 	public boolean clothes;
 	 
 	private int Schedule;
-	private int health;
+	private int stamina;
 	private int gold;
-	private String[] ScheduleList = {"English","Lunch","Gym"};
+	private String[] ScheduleList = {"English","LQS","Lunch","Gym"};
 	
 	public Inventory() {
 	Schedule = 0;
-	health = 50;
+	stamina = 50;
 	gold = 0;
 
 	clothes = false;
@@ -73,9 +73,16 @@ public class Inventory {
 		return map ;
 		//return "h is nothing in your inventory.";
 	}
-
-
 	
+	public String getStamina() {
+		return Integer.toString(stamina);
+	}
+	public void decreaseStamina(int lowerby) {
+		stamina = stamina - lowerby;
+	}
+	public void increaseStamina(int lowerby) {
+		stamina = stamina + lowerby;
+	}
 	public String getContents()
 	{
 		return this.contents;
@@ -92,12 +99,12 @@ public class Inventory {
 		CaveExplorer.print("You picked up " + contents);
 	}
 	public void nextClass() { // call this after each successive minigame
+		System.out.println(Schedule);
 		Schedule++;
 	}
 	
 	public int returnSchedule() {
-		System.out.println("lol");
-		return 0;
+		return Schedule;
 	}
 	
 	public void setClothes() {
