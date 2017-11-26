@@ -166,6 +166,12 @@ public class DimitrisBackend implements BenSupport {
 		}
 		return false;
 	}
+
+	@Override
+	public boolean wonGame() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }
  
