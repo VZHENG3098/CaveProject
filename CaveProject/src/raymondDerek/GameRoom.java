@@ -20,6 +20,12 @@ public class GameRoom extends CaveRoom {
 		return "wdsae";
 	}
 
+	public String getContents() {
+		return "D";
+		
+	}
+	
+	
 	public void performAction(int direction) {
 
 		if(direction == 4) {
@@ -39,7 +45,7 @@ public class GameRoom extends CaveRoom {
 	
 
 	public String getDescription() {
-		return "You can play dodgeball here.";
+		return "You can play dodgeball here. Press e to play.";
 	}
 
 }

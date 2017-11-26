@@ -21,6 +21,10 @@ public class RaymondCustomRoom extends NPCRoom {
 		return "wdsae";
 	}
  
+	public String getContents() {
+		return "c";
+		
+	}
 
 	public void performAction(int direction) {
 		if(direction == 4 && !CaveExplorer.inventory.isClothes()) {
@@ -34,13 +38,7 @@ public class RaymondCustomRoom extends NPCRoom {
 	}
 	
 	
-	public String getContents() {
-		if(containsNPC() && npc.isActive()) {
-			return "c"; //clothes
-		}else {
-			return super.getContents();
-		}
-	}
+	
 	
 	public String getDescription() {
 		if(!CaveExplorer.inventory.isClothes()) {
