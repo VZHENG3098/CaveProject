@@ -2,6 +2,7 @@ package caveExplorer;
 
 
 import raymondDerek.DerekCustomRoom;
+import raymondDerek.GameRoom;
 import raymondDerek.RaymondCustomRoom;
 import raymondDerek.RaymondDerekPlot;
 import bendimitris.BenRoom;
@@ -189,6 +190,9 @@ public class CaveRoom {
 		
 		CaveRoom R = new RaymondCustomRoom("Clothes");
 		CaveExplorer.caves[1][2] = R;
+		
+		CaveRoom DB = new GameRoom("DodgeBall");
+		CaveExplorer.caves[0][4] = DB;
 		 
 		CaveRoom V = new vincentRoom("Healer");
 		CaveExplorer.caves[1][3] = V;

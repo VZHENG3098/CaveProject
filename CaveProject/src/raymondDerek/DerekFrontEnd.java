@@ -11,18 +11,17 @@ public class DerekFrontEnd implements RaymondSupporter {
 
 	public DerekFrontEnd() {
 		backend = new RaymondBackEnd(this);
-		DerekFrontEnd demo = new DerekFrontEnd();
-		demo.welcome();
+		welcome();
 	}
 
 	public void welcome() {
 		CaveExplorer.print(
 				"Welcome to Brooklyn Tech Dodgeball! Your goal is to complete and survive all the levels of this game. "
 						+ "\nOnce you successfully complete this game, you will gain a gym pass. \nIt will help you throughout your day. ");
-		play();
 	}
 
-	public void play() {
+	public static void play() {
+
 		int i = 0;
 		while (backend.stillPlaying()) {
 			CaveExplorer.print("You are on level " + backend.getLevel());
@@ -38,9 +37,15 @@ public class DerekFrontEnd implements RaymondSupporter {
 			// updateMap();
 			// showLevel();
 		}
+		if (backend.getSkip()) {
+			CaveExplorer.print("Today's your lucky day, there are no more dodgeballs");
+		} else {
+			CaveExplorer.print("You have lost all your stamina.");
+		}
+
 	}
 
-	public void printhp() {
+	public static void printhp() {
 		CaveExplorer.print(backend.getHp() + " hp");
 	}
 
@@ -88,11 +93,11 @@ public class DerekFrontEnd implements RaymondSupporter {
 
 	}
 
-	public static String getInput() {
+	public String getInput() {
 		return inputSource.nextLine();
 	}
 
-	public void healthbar() {
+	public static void healthbar() {
 		int hp = backend.getHp() / 20;
 		String a = "[";
 		for (int i = 0; i <= hp; i++) {

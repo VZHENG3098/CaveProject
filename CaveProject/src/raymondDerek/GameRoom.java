@@ -1,15 +1,15 @@
 package raymondDerek;
 
-import caveExplorer.NPCRoom;
+
 import caveExplorer.CaveExplorer;
 import caveExplorer.CaveRoom;
 import caveExplorer.Inventory;
 
-public class GameRoom extends NPCRoom {
+public class GameRoom extends CaveRoom {
 
 	public GameRoom(String description) {
 		super(description);
-		// TODO Auto-generated constructor stub
+		super.setContents("D");
 	}
 
 	public void printValidMoves() {
@@ -22,9 +22,7 @@ public class GameRoom extends NPCRoom {
 
 	public void performAction(int direction) {
 
-
 		if(direction == 4) {
-			CaveExplorer.print("Press e to start");
 				
 			startGame();
 		}
@@ -34,13 +32,14 @@ public class GameRoom extends NPCRoom {
 		}
 	}
 	public void startGame() {
-		DerekFrontEnd.play();
+		new DerekFrontEnd().play();
+
 	}
 
 	
 
 	public String getDescription() {
-		return "";
+		return "You can play dodgeball here.";
 	}
 
 }
