@@ -1,22 +1,31 @@
 package bendimitris;
 
+import java.util.Scanner;
+
+import caveExplorer.CaveExplorer;
+
 public class BenFrontend implements DimitrisSupport{
-	private static BenSupport backend;
-	private static DimitrisSupport frontend;
+	private static DimitrisBackend realBackend;
 	private String[][] board;
 	
-	public BenFrontend(BenSupport backend1) 
+	public BenFrontend() 
 	{
-		backend = backend1;
+		realBackend = new DimitrisBackend((DimitrisSupport)this);
 	}
 	
-	public static void main(String[] args) 
+	public static void main(String[] args)  //debug function
 	{
-		BenFrontend realFrontend = new BenFrontend(backend);
-		DimitrisBackend realBackend = new DimitrisBackend(frontend);
+		BenFrontend realFrontend = new BenFrontend();
+		caveExplorer.CaveExplorer.in = new Scanner(System.in); //memory lead - only useful for debugging
 		realFrontend.board = realFrontend.setUpBoard(4, 7);
-		realFrontend.moveTeacher();
-		realFrontend.printBoard();
+		realBackend.addLunchCounter(realFrontend.board);
+		realBackend.populatePeople(realFrontend.board, 7);
+		realBackend.runGame();
+	}
+	
+	public void startGame() { //initialized the game
+		board = setUpBoard(4, 7);
+		moveTeacher();
 		realBackend.runGame();
 	}
 
@@ -39,22 +48,7 @@ public class BenFrontend implements DimitrisSupport{
 		{
 			for (int x = 0; x < board[y].length; x += 1)
 			{
-				if (x == 0)
-				{
-					board[y][x] = "P";
-				}
-				else if (y == 0)
-				{
-					if (x < 6)
-					{
-						board[y][x] = "P";
-					}
-					else
-					{
-						board[y][x] = " ";
-					}
-				}
-				else if (y == 1)
+				if (y == 1)
 				{
 					if (x == 5)
 					{
@@ -65,13 +59,9 @@ public class BenFrontend implements DimitrisSupport{
 						board[y][x] = " ";
 					}
 				}
-				else if (y == 3)
-				{
-					board[y][x] = " ";
-				}
 				else
 				{
-					if (x == 3)
+					if (x == 3 && y == 2)
 					{
 						board[y][x] = "^";
 					}
@@ -103,5 +93,10 @@ public class BenFrontend implements DimitrisSupport{
 	public void setBoard(String[][] board) 
 	{
 		this.board = board;
+	}
+
+	public boolean wonGame() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 } 

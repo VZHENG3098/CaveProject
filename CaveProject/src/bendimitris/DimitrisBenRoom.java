@@ -6,7 +6,7 @@ import caveExplorer.Inventory;
 
 public class DimitrisBenRoom extends CaveRoom {
 	
-	DimitrisBenMinigame game = new DimitrisBenMinigame();
+	BenFrontend game = new BenFrontend();
 
 	public DimitrisBenRoom(){
 		super("This is the cafeteria room, play to survive");
@@ -17,10 +17,6 @@ public class DimitrisBenRoom extends CaveRoom {
 		if (CaveExplorer.inventory.getContents().indexOf("a Lunch Tray") > -1)
 		{
 			CaveExplorer.print("This is where you picked up the lunch tray.");
-		}
-		else
-		{
-			CaveExplorer.inventory.addToContents("a Lunch Tray");
 		}
 		super.enter();
 	}
@@ -58,8 +54,19 @@ public class DimitrisBenRoom extends CaveRoom {
 	
 	public void performAction(int direction) {
 		if(direction == 4) {
-			//set up board before hand
-			game.startGame();
+			game.startGame(); // if e is selected then the game is run the game
+			if(game.wonGame()) {
+				//add lunch tray to inventory + remove poison
+				CaveExplorer.inventory.poison = false;
+				
+				CaveExplorer.inventory.addToContents("a Lunch Tray");
+			}
+			else {
+				//reset game + add poison to inventory
+				CaveExplorer.inventory.poison = true;
+				
+				game = new BenFrontend();
+			}
 			
 		}else {
 			CaveExplorer.print("That key does nothing");

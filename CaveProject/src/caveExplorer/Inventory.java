@@ -1,11 +1,16 @@
 package caveExplorer;
 
 public class Inventory {
+	
+	public int stamina; //starting stamina
 
 	private String map;
 	private String contents;
 	
 	public boolean clothes;
+	
+	//cafeteria
+	public boolean poison;
 	 
 	public Inventory() {
 		this.contents = "";
