@@ -36,7 +36,8 @@ public class vincentRoom extends NPCRoom {
 			CaveExplorer.inventory.essayTrue();
 			active = false;
 			CaveExplorer.print("You picked up the assignment");
-		}else {
+		}
+		else {
 			CaveExplorer.print("That key does nothing");
 		}
 	}

@@ -11,20 +11,32 @@ public class Inventory {
 	public int Schedule;
 	private int health;
 	private int gold;
-	
+
 	public Inventory() {
 	Schedule = 0;
 	health = 50;
 	gold = 0;
+
+	clothes = false;
 	updateMap();
 	contents = "";
-
+	 Essay = false;
+	 
 	}
 	
+
+
+	
 	public void updateMap() {
+
 		map = " ";
-		for(int i = 0; i < CaveExplorer.caves[0].length - 1; i++) {
-			map += "______";
+
+		//make hor. line across top:
+		for(int i = 0; i < CaveExplorer.caves[0].length -1; i++) {
+
+			map+="______";//4 underscores
+
+
 		}
 		map += "_____\n";
 		for(CaveRoom[] row: CaveExplorer.caves) {
@@ -58,22 +70,13 @@ public class Inventory {
 			}
 		}
 	}
-	public void setHP() {
-		health = 100;
-	}
+
 	public String getDescription() {
 		return map ;
 		//return "h is nothing in your inventory.";
 	}
-	public String getHealth() {
-		return ""+health+"";
-	}
-	public void giveGold() {
-		gold += 100 ;
-	}
-	public String getGold() {
-		return ""+gold+"";
-	}
+
+
 	
 	public String getContents()
 	{
@@ -93,11 +96,12 @@ public class Inventory {
 	public void nextClass() { // call this after each successive minigame
 		Schedule++;
 	}
+	public void setClothes() {
+		clothes = !clothes;
+	}
+
+	public boolean isClothes() {
+		return clothes;
+	}
 }
-
-
-
-
-
-
 
