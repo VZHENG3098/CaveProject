@@ -61,7 +61,7 @@ public class davidRoom extends CaveRoom {
 					"\n"+"You have 25 turns to find the matching pairs, or else you lose."+
 					"\n"+"Press E to start!";
 		}else {
-			return "You had english already go to your next period";
+			return "You had english already go to "+CaveExplorer.inventory.currentClass();
 		}
 			
 		

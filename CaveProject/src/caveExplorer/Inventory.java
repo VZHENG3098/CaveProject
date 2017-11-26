@@ -11,7 +11,8 @@ public class Inventory {
 	private int Schedule;
 	private int health;
 	private int gold;
-
+	private String[] ScheduleList = {"English","Lunch","Gym"};
+	
 	public Inventory() {
 	Schedule = 0;
 	health = 50;
@@ -105,6 +106,9 @@ public class Inventory {
 
 	public boolean isClothes() {
 		return clothes;
+	}
+	public String currentClass() {
+		return ScheduleList[Schedule];
 	}
 }
 
