@@ -44,8 +44,7 @@ public class VincentBackEnd implements davidSupport{
 					double random = Math.random();
 					memArr[row][col] = new plot(row, col); // create plot
 					memArr[row][col].setLetter(arr1[count]); // set the letter for the plot
-					if(random < 0.1 && putSpecial == false) {
-						System.out.println(""+row+"" + ""+col+"");
+					if(random < 0.05 && putSpecial == false) {
 						memArr[row][col].setSpecialPlot();
 						putSpecial = true;
 					}
@@ -54,7 +53,6 @@ public class VincentBackEnd implements davidSupport{
 					memArr[row][col] = new plot(row, col);
 					memArr[row][col].setLetter(arr2[count-18]);
 					if(random < 0.1 && putSpecial == false) {
-						System.out.println(""+row+"" + ""+col+"");
 						memArr[row][col].setSpecialPlot();
 						putSpecial = true;
 					}
@@ -141,7 +139,8 @@ public class VincentBackEnd implements davidSupport{
 		int endCol = avoidAIOOBEEnd(b);
 		for(int row = startRow; row <=  endRow; row++){
 			for(int col = startCol; col <= endCol; col++){
-				if(memArr[row][col].getSpecialPlot() && (row != a || col != b)) {
+	
+				if(memArr[row][col].getSpecialPlot() && !(row != a && col != b)) {
 					return true;
 				}
 			}

@@ -8,11 +8,12 @@ public class Inventory {
 	public boolean Essay;
 	public boolean clothes;
 	 
-
+	public int Schedule;
 	private int health;
 	private int gold;
+	
 	public Inventory() {
-
+	Schedule = 0;
 	health = 50;
 	gold = 0;
 	updateMap();
@@ -81,10 +82,16 @@ public class Inventory {
 	public void essayTrue() {
 		this.Essay = true;
 	}
+	public boolean getEssay() {
+		return Essay;
+	}
 	public void addToContents(String contents)
 	{
 		this.contents += contents +  ", ";
 		CaveExplorer.print("You picked up " + contents);
+	}
+	public void nextClass() { // call this after each successive minigame
+		Schedule++;
 	}
 }
 
