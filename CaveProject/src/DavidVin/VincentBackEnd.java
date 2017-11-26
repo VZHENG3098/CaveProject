@@ -104,6 +104,7 @@ public class VincentBackEnd implements davidSupport{
 	}
 	public static void Victory() {
 		CaveExplorer.inventory.essayTrue();
+		CaveExplorer.inventory.nextClass();
 	}
 	public static String[] createArray(int size) { // create an random array of letter
 		String[] arr = new String[size];

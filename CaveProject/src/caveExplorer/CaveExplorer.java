@@ -31,6 +31,7 @@ public class CaveExplorer {
 			print(currentRoom.getDirections());
 			print("What would you like to do?");
 			currentRoom.interpretInput(in.nextLine());
+			CaveRoom.updatingRoom();
 		}
 	}
 

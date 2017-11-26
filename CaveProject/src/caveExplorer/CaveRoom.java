@@ -180,9 +180,7 @@ public class CaveRoom {
 		CaveExplorer.caves[1][5] = ER;
 		
 		CaveRoom english = new davidRoom("Money");
-		CaveExplorer.caves[1][6] = english;
-		
-
+		CaveExplorer.caves[2][6] = english;
 
 		CaveRoom DR = new DerekCustomRoom("Room");
 		CaveExplorer.caves[0][1] = DR;
@@ -247,7 +245,12 @@ public class CaveRoom {
 		
 		
 	}
-	
+	public static void updatingRoom() {
+		CaveRoom[][] c = CaveExplorer.caves;
+		if(CaveExplorer.inventory.returnSchedule() == 0) {
+			c[3][6].setConnection(NORTH, c[2][6], new Door());		// open door for english class
+		}
+	}
 	public void goToRoom(int direction) {
 		//make sure there is a room to go to:
 		if(borderingRooms[direction] != null && doors[direction] != null &&

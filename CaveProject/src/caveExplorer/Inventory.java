@@ -8,7 +8,7 @@ public class Inventory {
 	public boolean Essay;
 	public boolean clothes;
 	 
-	public int Schedule;
+	private int Schedule;
 	private int health;
 	private int gold;
 
@@ -93,6 +93,12 @@ public class Inventory {
 	public void nextClass() { // call this after each successive minigame
 		Schedule++;
 	}
+	
+	public int returnSchedule() {
+		System.out.println("lol");
+		return 0;
+	}
+	
 	public void setClothes() {
 		clothes = !clothes;
 	}
