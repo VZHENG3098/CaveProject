@@ -25,11 +25,12 @@ public class DerekFrontEnd implements RaymondSupporter {
 		int i = 0;
 		while (backend.stillPlaying()) {
 			CaveExplorer.print("You are on level " + backend.getLevel());
+			backend.updateBallPos();
 			printhp();
 			healthbar();
-			displayBoard();
+			displayBoard(); 
 			userInput();
-			backend.updateBallPos();
+			suggestionInput();
 			i++;
 			if (i % 3 == 0) {
 				backend.createBalls();
@@ -39,8 +40,10 @@ public class DerekFrontEnd implements RaymondSupporter {
 		}
 		if (backend.getHp() <= 20) {
 			CaveExplorer.print("You have lost all your stamina.");
+			CaveExplorer.inventory.decreaseStamina(5);
 		} else {
 			CaveExplorer.print("Today's your lucky day, there are no more dodgeballs");
+			CaveExplorer.inventory.increaseStamina(10);
 		}
 
 	}
@@ -102,13 +105,23 @@ public class DerekFrontEnd implements RaymondSupporter {
 		String a = "[";
 		for (int i = 0; i <= hp; i++) {
 			if (i == hp) {
-				a = a + "]";
+				a = a + "]"; 
 			} else {
 				a = a + "_";
 
 			}
 		}
 		CaveExplorer.print(a);
+	}
+	
+	public static void suggestionInput() {
+		String move = "the suggested move is to not ";
+		if(backend.giveSuggestion() == "") {
+			CaveExplorer.print("There is no suggested move");
+		}
+		else {
+			CaveExplorer.print(move + backend.giveSuggestion());
+		}
 	}
 
 }

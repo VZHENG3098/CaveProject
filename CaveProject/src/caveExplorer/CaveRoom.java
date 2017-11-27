@@ -182,10 +182,10 @@ public class CaveRoom {
 		CaveExplorer.caves[4][1] = DR;
 
 		CaveRoom R = new RaymondCustomRoom("Clothes");
-		CaveExplorer.caves[3][8] = R;
+		CaveExplorer.caves[0][9] = R;
 
 		CaveRoom DB = new GameRoom("DodgeBall");
-		CaveExplorer.caves[4][2] = DB;
+		CaveExplorer.caves[4][2] = DB; 
 
 		// CaveRoom V = new vincentRoom("Healer");
 		// CaveExplorer.caves[1][3] = V;
@@ -231,7 +231,7 @@ public class CaveRoom {
 		// moving up and down (3D array, i.e. make a starway room)
 
 	}
-
+  
 	public static void updatingRoom() {
 		CaveRoom[][] c = CaveExplorer.caves;
 		if (CaveExplorer.inventory.returnSchedule() == 0) {
@@ -241,7 +241,7 @@ public class CaveRoom {
 			if(CaveExplorer.inventory.isClothes()) {
 		        c[4][1].setConnection(EAST, c[4][2], new Door());
 			}
-		} else if (CaveExplorer.inventory.returnSchedule() == 3) {
+		} else if (CaveExplorer.inventory.returnSchedule() == 2) {
 			c[3][2].setConnection(NORTH, c[2][2], new Door());
 		}
 	}

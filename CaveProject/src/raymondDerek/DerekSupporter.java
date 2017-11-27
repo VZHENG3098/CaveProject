@@ -20,6 +20,8 @@ public interface DerekSupporter {
 
 	boolean getSkip();
 
+	String giveSuggestion();
+
 	//boolean levelCode();
 
 }
