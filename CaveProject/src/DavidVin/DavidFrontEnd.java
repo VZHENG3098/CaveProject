@@ -109,7 +109,7 @@ public class DavidFrontEnd implements vincentSupport {
 		boolean specialBlock = false;
 		int[] coordinates = VincentBackEnd.covertToCoordinate(coords);
 		int a = coordinates[0];
-		int b = coordinates[1];
+		int b = coordinates[coordinates.length-1];
 		
 		if(arr[a][b].getSpecialPlot() == true) {
 			specialBlock = true;
