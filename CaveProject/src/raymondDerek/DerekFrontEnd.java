@@ -24,12 +24,16 @@ public class DerekFrontEnd implements RaymondSupporter {
 
 		int i = 0;
 		while (backend.stillPlaying()) {
+			//shows the current level
 			CaveExplorer.print("You are on level " + backend.getLevel());
+			//updates how many balls are present in each corresponding level
 			backend.updateBallPos();
 			printhp();
 			healthbar();
-			displayBoard(); 
+			displayBoard();
+			//checks user input
 			userInput();
+			//checks suggestions
 			suggestionInput();
 			i++;
 			if (i % 3 == 0) {
@@ -39,7 +43,8 @@ public class DerekFrontEnd implements RaymondSupporter {
 			// showLevel();
 		}
 		if (backend.getHp() <= 20) {
-			CaveExplorer.print("You have lost all your stamina.");
+			//penalty for losing
+			CaveExplorer.print("You have lost all your health points and as a result, lost 5 stamina.");
 			CaveExplorer.inventory.decreaseStamina(5);
 		} else {
 			CaveExplorer.print("Today's your lucky day, there are no more dodgeballs");
@@ -57,16 +62,20 @@ public class DerekFrontEnd implements RaymondSupporter {
 		String move = inputSource.nextLine();
 		while (true) {
 			if (move.equalsIgnoreCase("a")) {
+				//goes left
 				backend.userInput(-1);
 				break;
 			} else if (move.equalsIgnoreCase("d")) {
+				//goes right
 				backend.userInput(1);
 				break;
 			} else if (move.equalsIgnoreCase("s")) {
-				backend.userInput(2); // 2 so nothing happens
+				//stay still
+				backend.userInput(2); 
 				break;
 			} else if (move.equalsIgnoreCase("win")) {
-				backend.userInput(3);
+				//win is a cheat code
+				backend.userInput(3); 
 				break;
 			} else {
 				System.out.println("You may only press a, d, or s");
@@ -101,11 +110,12 @@ public class DerekFrontEnd implements RaymondSupporter {
 	}
 
 	public static void healthbar() {
+		//hp bar
 		int hp = backend.getHp() / 20;
 		String a = "[";
 		for (int i = 0; i <= hp; i++) {
 			if (i == hp) {
-				a = a + "]"; 
+				a = a + "]";
 			} else {
 				a = a + "_";
 
@@ -113,13 +123,13 @@ public class DerekFrontEnd implements RaymondSupporter {
 		}
 		CaveExplorer.print(a);
 	}
-	
+
 	public static void suggestionInput() {
+		//suggested moves
 		String move = "the suggested move is to not ";
-		if(backend.giveSuggestion() == "") {
+		if (backend.giveSuggestion() == "") {
 			CaveExplorer.print("There is no suggested move");
-		}
-		else {
+		} else {
 			CaveExplorer.print(move + backend.giveSuggestion());
 		}
 	}

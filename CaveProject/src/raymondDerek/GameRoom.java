@@ -1,6 +1,5 @@
 package raymondDerek;
 
-
 import caveExplorer.CaveExplorer;
 import caveExplorer.CaveRoom;
 import caveExplorer.Inventory;
@@ -22,28 +21,24 @@ public class GameRoom extends CaveRoom {
 
 	public String getContents() {
 		return "D";
-		
+
 	}
-	
-	
+
 	public void performAction(int direction) {
 
-		if(direction == 4) {
-				
+		if (direction == 4) {
+
 			startGame();
-		}
-		else 
-		{
+		} else {
 			CaveExplorer.print("That key does nothing");
 		}
 	}
+
 	public void startGame() {
 		new DerekFrontEnd().play();
 		CaveExplorer.inventory.nextClass();
-		System.out.println("Go to your next class "+CaveExplorer.inventory.currentClass());
+		System.out.println("Go to your next class " + CaveExplorer.inventory.currentClass());
 	}
-
-	
 
 	public String getDescription() {
 		return "You can play dodgeball here. Press e to play.";

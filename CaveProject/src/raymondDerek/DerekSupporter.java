@@ -22,6 +22,6 @@ public interface DerekSupporter {
 
 	String giveSuggestion();
 
-	//boolean levelCode();
+	// boolean levelCode();
 
 }
