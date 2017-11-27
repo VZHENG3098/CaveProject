@@ -7,8 +7,7 @@ import caveExplorer.CaveRoom;
 public class DimitrisBackend implements BenSupport {
 	
 	private String[][] board;
-	private int[] playerPosition;
-	private int[][] line;
+	private int sizeOfLine;
 	
 	static String playerString = "X";
 	static String emptyString = " ";
@@ -47,10 +46,10 @@ public class DimitrisBackend implements BenSupport {
 		
 		int direction = getInput();
 		boolean[] possiblePlayerMoves = calculateOpenSides(getPlayerPosition());
-		for(boolean bool : possiblePlayerMoves) {
-			System.out.println(bool);
-		}
-		System.out.println(direction);
+//		for(boolean bool : possiblePlayerMoves) {
+//			System.out.println(bool);
+//		}
+//		System.out.println(direction);
 		if(possiblePlayerMoves[direction]) {
 			
 			moveEntity(getPlayerPosition(), direction);
@@ -107,18 +106,25 @@ public class DimitrisBackend implements BenSupport {
 					
 					//offsets cannot be equal, if they are then it is (0,0) or a diagonal, both are illegal moves
 					if(board[row][col] == DimitrisBackend.emptyString && rowOffset != colOffset){
-						if(row - pos[0] == -1) {
-							openSides[CaveRoom.NORTH] = true;
+						if(colOffset == 0) {
+							if(row - pos[0] == -1) {
+								openSides[CaveRoom.NORTH] = true;
+							}
+							if(row - pos[0] == 1) {
+								openSides[CaveRoom.SOUTH] = true;
+							}
 						}
-						if(row - pos[0] == 1) {
-							openSides[CaveRoom.SOUTH] = true;
+						
+						if(rowOffset == 0) {
+							if(col - pos[1] == -1) {
+								openSides[CaveRoom.WEST] = true;
+							}
+							if(col - pos[1] == 1 ) {
+								openSides[CaveRoom.EAST] = true;
+							}
 						}
-						if(col - pos[1] == -1) {
-							openSides[CaveRoom.WEST] = true;
-						}
-						if(col - pos[1] == 1) {
-							openSides[CaveRoom.EAST] = true;
-						}
+						
+						
 					}
 				}
 			}
@@ -142,7 +148,7 @@ public class DimitrisBackend implements BenSupport {
 			board[pos[0]-1][pos[1]] = board[pos[0]][pos[1]];
 			break;
 		case(CaveRoom.WEST) :
-			board[pos[0]-1][pos[1]] = board[pos[0]][pos[1]];
+			board[pos[0]][pos[1]-1] = board[pos[0]][pos[1]];
 			break;
 		case(CaveRoom.SOUTH) :
 			board[pos[0]][pos[1]+1] = board[pos[0]][pos[1]];
@@ -153,11 +159,32 @@ public class DimitrisBackend implements BenSupport {
 	
 	
 	public String[][] populatePeople(String[][] board, int sizeOfLine) {
-		line = new int[sizeOfLine][2]; //each person has a coordinate
-		int cnt = 0;
-		while(hasFreeSpace(board) && sizeOfLine < cnt) {
-			cnt++;
+		
+		int[] currentPos = new int[2];
+		
+		//start line to the left of the counter
+		currentPos[0] = 0;
+		currentPos[1] = board[0].length-3;
+		
+		//start adding people
+		for(int cnt = 0; cnt < sizeOfLine; cnt++) {
+			//System.out.println("setup");
+			if(currentPos[0] < board.length-3) {
+				board[currentPos[0]][currentPos[1]] = "P";
+				currentPos[0]++;
+			}
+			else {
+				if(currentPos[1] > 1) {
+					board[currentPos[0]][currentPos[1]] = "P";
+					currentPos[1]--;
+				}
+				
+			}
+			
 		}
+		
+		this.sizeOfLine = sizeOfLine;
+		
 		return board;
 	}
 	
@@ -186,7 +213,56 @@ public class DimitrisBackend implements BenSupport {
 
 	public void movePeople() {
 		// moves all of the people preserving the line
+		//people move left until they are at the column before the counter
+		//then they move up until they reach  the  same hight as the counter
+		//they are then removed from the line
 		
+		//line always starts next to the counter
+		int[] currentPos = new int[2];
+		currentPos[0] = 0;
+		currentPos[1] = board[0].length-3;
+		
+		
+		int[] startPos = new int[2];
+		startPos[0] = currentPos [0];
+		startPos[1] = currentPos[1];
+				
+		for(int cnt = 0; cnt < sizeOfLine; cnt++) {
+			//System.out.println("setup");
+			if(currentPos[0] < board.length-3) {
+				if(currentPos[0] == startPos[0] && currentPos[1] == startPos[1]) {
+					board[currentPos[0]][currentPos[1]] = DimitrisBackend.emptyString;
+				}else if(board[currentPos[0]][currentPos[1]] == "P") {
+					if(calculateOpenSides(currentPos)[CaveRoom.NORTH]) {
+						moveEntity(currentPos, CaveRoom.NORTH);
+					}
+					
+				}
+				currentPos[0]++;
+			}
+			else {
+				if(currentPos[1] > 1) {
+					if(board[currentPos[0]][currentPos[1]] == "P") {
+						for(boolean open : calculateOpenSides(currentPos)) {
+							System.out.print(open);
+						}
+						if(calculateOpenSides(currentPos)[CaveRoom.EAST]) {
+							moveEntity(currentPos, CaveRoom.EAST);
+						}
+					}
+					
+					currentPos[1]--;
+				}
+				
+			}
+			
+		}
+		
+		
+	}
+	
+	public boolean reachedCounter(int[] pos) {
+		return false;
 	}
 
 	public void addPlayer(String[][] board) {

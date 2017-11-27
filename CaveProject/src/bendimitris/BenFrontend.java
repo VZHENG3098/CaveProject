@@ -19,7 +19,7 @@ public class BenFrontend implements DimitrisSupport{
 	}
 	
 	public void startGame() { //initialized the game
-		board = setUpBoard(5, 9);
+		board = setUpBoard(9, 9);
 		moveTeacher();
 		realBackend.runGame();
 	}
@@ -49,7 +49,7 @@ public class BenFrontend implements DimitrisSupport{
 		}
 		
 		realBackend.addLunchCounter(board);
-		realBackend.populatePeople(board, 5);
+		realBackend.populatePeople(board, 18);
 		realBackend.addPlayer(board);
 		return board;
 	}
@@ -74,7 +74,7 @@ public class BenFrontend implements DimitrisSupport{
 		this.board = board;
 	}
 	
-	public boolean isEnd
+	public boolean isEnd()
 	{
 		String[] teacher = {"<", "^", ">", "v"};
 		return ((board[2][3].equals(teacher[1]) && realBackend.getPlayerPosition()[0] == 0) || (board[2][3].equals(teacher[0]) && realBackend.getPlayerPosition()[0] == 2));
