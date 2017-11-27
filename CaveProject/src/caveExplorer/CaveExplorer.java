@@ -35,7 +35,7 @@ public class CaveExplorer {
 			currentRoom.interpretInput(in.nextLine());
 			CaveRoom.updatingRoom();
             if(inventory.getIntStamina() <= 0) {
-            	System.out.println("YOU LOSE BECAUSE YOU HAVE 0 STAMINA");
+            	System.out.println("You have 0 Stamina left and taken to the hospital");
                 playing = false;
             }
 		}

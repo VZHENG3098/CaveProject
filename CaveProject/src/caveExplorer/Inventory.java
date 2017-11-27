@@ -11,7 +11,7 @@ public class Inventory {
 	private int Schedule;
 	private int stamina;
 	private int gold;
-	private String[] ScheduleList = {"English", "GYM", "Lunch", "LQS"};
+	private String[] ScheduleList = {"English", "Gym", "LQS", "Lunch"};
 	
 	public Inventory() {
 	Schedule = 0;

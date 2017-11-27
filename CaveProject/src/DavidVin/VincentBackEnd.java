@@ -140,7 +140,7 @@ public class VincentBackEnd implements davidSupport{
 		for(int row = startRow; row <=  endRow; row++){
 			for(int col = startCol; col <= endCol; col++){
 	
-				if(memArr[row][col].getSpecialPlot() && !(row != a && col != b)) {
+				if(memArr[row][col].getSpecialPlot() && (row != a || col != b)) {
 					return true;
 				}
 			}
