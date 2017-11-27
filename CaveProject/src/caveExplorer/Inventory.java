@@ -102,7 +102,6 @@ public class Inventory {
 		CaveExplorer.print("You picked up " + contents);
 	}
 	public void nextClass() { // call this after each successive minigame
-		System.out.println(Schedule);
 		Schedule++;
 	}
 	
