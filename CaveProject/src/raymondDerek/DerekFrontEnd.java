@@ -39,10 +39,12 @@ public class DerekFrontEnd implements RaymondSupporter {
 		}
 		if (backend.getHp() <= 20) {
 			CaveExplorer.print("You have lost all your stamina.");
+			CaveExplorer.inventory.decreaseStamina(5);
 		} else {
 			CaveExplorer.print("Today's your lucky day, there are no more dodgeballs");
+			CaveExplorer.inventory.increaseStamina(10);
 		}
-
+  
 	}
 
 	public static void printhp() {
