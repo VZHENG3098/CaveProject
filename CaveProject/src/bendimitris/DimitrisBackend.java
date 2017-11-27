@@ -7,7 +7,9 @@ import caveExplorer.CaveRoom;
 public class DimitrisBackend implements BenSupport {
 	
 	private String[][] board;
-	private int sizeOfLine;
+	
+	private boolean wonGame = false;
+	private boolean endGame = false;
 	
 	static String playerString = "X";
 	static String emptyString = " ";
@@ -23,17 +25,29 @@ public class DimitrisBackend implements BenSupport {
 
 	@Override
 	public void runGame() {		
-		while(!wonGame()) {//if player takes a long time to decide, then scanner will block using up precious time
+		while(!endGame) {//if player takes a long time to decide, then scanner will block using up precious time
 			this.frontend.printBoard(); //print the board each turn
 			executeTurn(); //then update state
 		}
-		
+		if(wonGame) {
+			System.out.println("you won the game");
+		}
+		else {
+			System.out.println("you lost the game");
+		}
 	}
 	
 	public void executeTurn() {
-		
 		frontend.moveTeacher(); //first ben moves teacher
 		board = frontend.getBoard(); //then I get the updated state
+		
+		
+		if(frontend.caughtByTeacher()) {//check if caught
+			endGame = true;
+			System.out.println("You were caught by the teacher");
+			return;
+		}
+		
 		movePeople(); //using this updated state I move p
 		movePlayer();
 		
@@ -183,8 +197,6 @@ public class DimitrisBackend implements BenSupport {
 			
 		}
 		
-		this.sizeOfLine = sizeOfLine;
-		
 		return board;
 	}
 	
@@ -200,8 +212,7 @@ public class DimitrisBackend implements BenSupport {
 	}
 	
 	public boolean wonGame() {
-		// TODO Auto-generated method stub
-		return false;
+		return wonGame;
 	}
 	
 	public String[][] addLunchCounter(String[][] board) {
@@ -226,43 +237,57 @@ public class DimitrisBackend implements BenSupport {
 		int[] startPos = new int[2];
 		startPos[0] = currentPos [0];
 		startPos[1] = currentPos[1];
+		
+		boolean personLeft = false;
 				
-		for(int cnt = 0; cnt < sizeOfLine; cnt++) {
+		while(true) {
 			//System.out.println("setup");
-			if(currentPos[0] < board.length-3) {
+			if(currentPos[0] < board.length-2) {
 				if(currentPos[0] == startPos[0] && currentPos[1] == startPos[1]) {
-					board[currentPos[0]][currentPos[1]] = DimitrisBackend.emptyString;
+					if(board[currentPos[0]][currentPos[1]] == "P") {
+						board[currentPos[0]][currentPos[1]] = DimitrisBackend.emptyString;
+					}
+					if(board[currentPos[0]][currentPos[1]] == DimitrisBackend.playerString) {
+						//this is the end condition --> getting to the counter before people run out
+						wonGame = true;
+						endGame = true;
+						break;
+					}
+					
 				}else if(board[currentPos[0]][currentPos[1]] == "P") {
 					if(calculateOpenSides(currentPos)[CaveRoom.NORTH]) {
 						moveEntity(currentPos, CaveRoom.NORTH);
+						personLeft = true;
 					}
 					
 				}
 				currentPos[0]++;
 			}
 			else {
-				if(currentPos[1] > 1) {
-					if(board[currentPos[0]][currentPos[1]] == "P") {
-						for(boolean open : calculateOpenSides(currentPos)) {
-							System.out.print(open);
-						}
+				if(currentPos[1] >= 0) {
+					if(board[currentPos[0]-1][currentPos[1]] == "P") {
 						if(calculateOpenSides(currentPos)[CaveRoom.EAST]) {
-							moveEntity(currentPos, CaveRoom.EAST);
+							//System.out.print("moving");
+							int[] movePos = new int[2];
+							movePos[0] = currentPos [0]-1; //it wants the deincrement
+							movePos[1] = currentPos[1];
+							moveEntity(movePos, CaveRoom.EAST);
+							personLeft = true;
 						}
 					}
 					
 					currentPos[1]--;
+				}else {
+					break;
 				}
 				
 			}
 			
 		}
 		
+		this.endGame = this.endGame || !personLeft; //the game is over if there are no people left
 		
-	}
-	
-	public boolean reachedCounter(int[] pos) {
-		return false;
+		
 	}
 
 	public void addPlayer(String[][] board) {
