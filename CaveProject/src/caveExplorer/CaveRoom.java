@@ -197,13 +197,6 @@ public class CaveRoom {
 
 		
 		
-		CaveRoom D = new davidRoom("Money");
-		CaveExplorer.caves[1][4] = D;
-		
-		
-		CaveRoom S = new davidRoom("Money");
-		CaveExplorer.caves[2][1] = S;
-		
 
 
 		//4.set starting room
