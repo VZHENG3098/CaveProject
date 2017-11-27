@@ -96,6 +96,8 @@ public class RaymondBackEnd implements DerekSupporter{
 			}
 		}
 		
+		
+		
 		//fill remaining col with balls if not enough for the level
 		if(x != getNumBalls()) {
 			for(int i = 1; i < plots[0].length - 1; i++) {
@@ -116,7 +118,7 @@ public class RaymondBackEnd implements DerekSupporter{
 	}
 	
 	public void updateBallPos() {
-		int[] tempArr = new int[50];
+		int[] tempArr = new int[100];
 		int tempIdx = 0;
 		for(int row = 0; row < plots.length; row++) {
 			for(int col = 0; col < plots[row].length; col++) {
