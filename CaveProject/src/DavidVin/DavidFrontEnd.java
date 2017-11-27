@@ -80,6 +80,15 @@ public class DavidFrontEnd implements vincentSupport {
 	    		VincentBackEnd.Victory();
 	    		victory=true;
 	    	}
+	    	
+	    	if(turns==0)
+	    	{
+	    		System.out.println("Better luck next time.");
+	    		cheatActivated = false;
+	    		victory = false;
+	    		specialblock = false;
+	    		play();
+	    	}
 		}
 	}
 	
@@ -134,24 +143,26 @@ public class DavidFrontEnd implements vincentSupport {
 					int aadd = VincentBackEnd.avoidAIOOBEEnd(a);
 					int bsub = VincentBackEnd.avoidAIOOBEStart(b);
 					int badd = VincentBackEnd.avoidAIOOBEEnd(b);
+						
+					
+					//display error
+					
+					for(int x = 0; x < arr.length; x++){
+						for(int y = 0; y < arr[x].length; y++){
 							
-					for(row = asub; row <=  aadd; row++){
-						for(col = bsub; col <= badd; col++){
-							
-							if(row!=asub||row!=asub+1||row!=aadd)	
+							if(x==asub||x==a||x==aadd)	
 							{
-								if(col!=bsub||col!=bsub+1||col!=badd)
+								if(y==bsub||y==b||y==badd)
 								{
-									System.out.print("[?]");
+									System.out.print(("["+arr[x][y].getLetter()+"]"));
 								}
+								
 							}
-							else
-							{
-								System.out.print(("["+arr[row][col].getLetter()+"]"));
-							}	
 						}
+						
 					}
 					
+					specialblock = false;
 				}
 				else if(arr[row][col].isRevealed()) {
 					System.out.print(("["+arr[row][col].getLetter()+"]"));
