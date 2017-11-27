@@ -241,7 +241,7 @@ public class CaveRoom {
 			if(CaveExplorer.inventory.isClothes()) {
 		        c[4][1].setConnection(EAST, c[4][2], new Door());
 			}
-		} else if (CaveExplorer.inventory.returnSchedule() == 3) {
+		} else if (CaveExplorer.inventory.returnSchedule() == 2) {
 			c[3][2].setConnection(NORTH, c[2][2], new Door());
 		}
 	}
