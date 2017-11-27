@@ -18,7 +18,8 @@ public interface DerekSupporter {
 
 	int getLevel();
 
+	boolean getSkip();
+
 	//boolean levelCode();
 
 }
-

@@ -96,7 +96,9 @@ public class RaymondBackEnd implements DerekSupporter{
 			}
 		}
 		
-		//fill remaining col with balls if not enough
+		
+		
+		//fill remaining col with balls if not enough for the level
 		if(x != getNumBalls()) {
 			for(int i = 1; i < plots[0].length - 1; i++) {
 				if(plots[0][i].isContainsBall() == false) {
@@ -108,11 +110,15 @@ public class RaymondBackEnd implements DerekSupporter{
 				}
 			}
 		}
+		
+		
+		
+		
 		 
 	}
 	
 	public void updateBallPos() {
-		int[] tempArr = new int[50];
+		int[] tempArr = new int[100];
 		int tempIdx = 0;
 		for(int row = 0; row < plots.length; row++) {
 			for(int col = 0; col < plots[row].length; col++) {
@@ -182,14 +188,12 @@ public class RaymondBackEnd implements DerekSupporter{
 	
 	public boolean stillPlaying() {
 		if(getSkip()) {
-			CaveExplorer.print("Today's your lucky day, there are no more dodgeballs");
 			return false;
 		}
 		
 		if(hp > 0) {
 			return true;
 		} 
-		CaveExplorer.print("You have lost all your stamina.");
 		return false;
 	
 	}
@@ -202,4 +206,3 @@ public class RaymondBackEnd implements DerekSupporter{
 	
 
 }
-     
