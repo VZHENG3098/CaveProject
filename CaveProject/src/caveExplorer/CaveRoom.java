@@ -182,7 +182,7 @@ public class CaveRoom {
 		CaveExplorer.caves[4][1] = DR;
 
 		CaveRoom R = new RaymondCustomRoom("Clothes");
-		CaveExplorer.caves[3][8] = R;
+		CaveExplorer.caves[0][9] = R;
 
 		CaveRoom DB = new GameRoom("DodgeBall");
 		CaveExplorer.caves[4][2] = DB;
