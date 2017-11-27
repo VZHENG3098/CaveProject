@@ -10,17 +10,14 @@ public class BenFrontend implements DimitrisSupport{
 	
 	public BenFrontend() 
 	{
-		realBackend = new DimitrisBackend((DimitrisSupport)this);
+		realBackend = new DimitrisBackend(this);
 	}
 	
 	public static void main(String[] args)  //debug function
 	{
 		BenFrontend realFrontend = new BenFrontend();
-		caveExplorer.CaveExplorer.in = new Scanner(System.in); //memory lead - only useful for debugging
-		realFrontend.board = realFrontend.setUpBoard(4, 7);
-		realBackend.addLunchCounter(realFrontend.board);
-		realBackend.populatePeople(realFrontend.board, 7);
-		realBackend.runGame();
+		caveExplorer.CaveExplorer.in = new Scanner(System.in); //memory leak - only useful for debugging
+		realFrontend.startGame();
 	}
 	
 	public void startGame() { //initialized the game

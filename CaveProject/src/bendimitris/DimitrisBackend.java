@@ -31,7 +31,7 @@ public class DimitrisBackend implements BenSupport {
 		
 		while(cnt < maxTurns) {//if player takes a long time to decide, then scanner will block using up precious time
 			this.frontend.printBoard(); //print the board each turn
-			executeTurn(); //then update state
+			System.out.print(playerString); //then update state
 		}
 		
 	}
@@ -114,7 +114,6 @@ public class DimitrisBackend implements BenSupport {
 		//ie it will throw an out of bounds exception and will overwrite entities that are in the space being moved to
 		//the appropriate helper method( calcualteOpenSides does all of this checking and should be used)
 		
-		board[pos[0], pos[1]] = entityString;
 	}
 	
 	public int getInput() {
