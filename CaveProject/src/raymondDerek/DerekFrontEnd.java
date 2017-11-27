@@ -27,7 +27,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 			CaveExplorer.print("You are on level " + backend.getLevel());
 			printhp();
 			healthbar();
-			displayBoard();
+			displayBoard(); 
 			userInput();
 			backend.updateBallPos();
 			suggestionInput();
