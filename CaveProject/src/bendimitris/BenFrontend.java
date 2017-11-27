@@ -3,7 +3,7 @@ package bendimitris;
 import java.util.Scanner;
 
 public class BenFrontend implements DimitrisSupport{
-	private static DimitrisBackend realBackend;
+	public final DimitrisBackend realBackend;
 	private String[][] board;
 	
 	public BenFrontend() 

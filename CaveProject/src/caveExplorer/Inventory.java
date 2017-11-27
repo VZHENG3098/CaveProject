@@ -7,6 +7,8 @@ public class Inventory {
 
 	public boolean Essay;
 	public boolean clothes;
+	
+	public boolean poisened;
 	 
 	private int Schedule;
 	private int stamina;
