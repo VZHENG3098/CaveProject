@@ -119,7 +119,9 @@ public class DerekFrontEnd implements RaymondSupporter {
 		if(backend.giveSuggestion() == "") {
 			CaveExplorer.print("There is no suggested move");
 		}
-		CaveExplorer.print(move + backend.giveSuggestion());
+		else {
+			CaveExplorer.print(move + backend.giveSuggestion());
+		}
 	}
 
 }
