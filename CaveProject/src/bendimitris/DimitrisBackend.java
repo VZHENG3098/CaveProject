@@ -165,7 +165,7 @@ public class DimitrisBackend implements BenSupport {
 			board[pos[0]][pos[1]-1] = board[pos[0]][pos[1]];
 			break;
 		case(CaveRoom.SOUTH) :
-			board[pos[0]][pos[1]+1] = board[pos[0]][pos[1]];
+			board[pos[0]+1][pos[1]] = board[pos[0]][pos[1]];
 			break;
 		}
 		board[pos[0]][pos[1]] = DimitrisBackend.emptyString;

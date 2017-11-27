@@ -9,7 +9,7 @@ public class BenRoom extends CaveRoom {
 	BenFrontend game = new BenFrontend();
 
 	public BenRoom(){
-		super("This is the cafeteria room, play to survive");
+		super("This is the cafeteria room, you need to eat. Skip the line and make it to the lunch counter without being spotted by the teacher.");
 		super.setContents("C");
 	}
 	
