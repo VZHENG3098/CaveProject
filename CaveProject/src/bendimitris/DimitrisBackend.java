@@ -24,7 +24,7 @@ public class DimitrisBackend implements BenSupport {
 
 	@Override
 	public void runGame() {		
-		while(!wonGame && ) {//if player takes a long time to decide, then scanner will block using up precious time
+		while(!wonGame()) {//if player takes a long time to decide, then scanner will block using up precious time
 			this.frontend.printBoard(); //print the board each turn
 			executeTurn(); //then update state
 		}
