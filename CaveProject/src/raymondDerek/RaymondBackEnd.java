@@ -144,10 +144,10 @@ public class RaymondBackEnd implements DerekSupporter{
 	public String giveSuggestion() {
 		String suggestion = "";
 		if(plots[6][getPlayerPos() + 1].isContainsBall()) {
-			suggestion += " don't move to the right,";
+			suggestion += "move to the right,";
 		}
 		if(plots[6][getPlayerPos() - 1].isContainsBall()) {
-			suggestion += " don't move to the left";
+			suggestion += "move to the left";
 		}
 		return suggestion;
 	}
