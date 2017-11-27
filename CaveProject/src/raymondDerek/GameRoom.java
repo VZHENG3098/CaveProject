@@ -39,7 +39,8 @@ public class GameRoom extends CaveRoom {
 	}
 	public void startGame() {
 		new DerekFrontEnd().play();
-
+		CaveExplorer.inventory.nextClass();
+		System.out.print("Go to your next class "+CaveExplorer.inventory.currentClass());
 	}
 
 	

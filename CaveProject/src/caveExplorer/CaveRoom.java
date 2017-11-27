@@ -216,8 +216,7 @@ public class CaveRoom {
 			}
 		}
 		
-		c[3][1].setConnection(SOUTH,  c[4][1], new Door());
-		c[4][1].setConnection(EAST, c[4][2], new Door());
+		
 		
 		// c[1][0].setConnection(SOUTH, c[2][0], new Door()); // create the door
 		// c[4][0].setConnection(SOUTH, c[5][0], new Door());
@@ -238,6 +237,11 @@ public class CaveRoom {
 		if (CaveExplorer.inventory.returnSchedule() == 0) {
 			c[3][6].setConnection(NORTH, c[2][6], new Door()); // open door for english class
 		} else if (CaveExplorer.inventory.returnSchedule() == 1) {
+			c[3][1].setConnection(SOUTH,  c[4][1], new Door());
+			if(CaveExplorer.inventory.isClothes()) {
+		        c[4][1].setConnection(EAST, c[4][2], new Door());
+			}
+		} else if (CaveExplorer.inventory.returnSchedule() == 2) {
 			c[3][2].setConnection(NORTH, c[2][2], new Door());
 		}
 	}
