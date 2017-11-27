@@ -30,6 +30,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 			displayBoard();
 			userInput();
 			backend.updateBallPos();
+			suggestionInput();
 			i++;
 			if (i % 3 == 0) {
 				backend.createBalls();
@@ -44,7 +45,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 			CaveExplorer.print("Today's your lucky day, there are no more dodgeballs");
 			CaveExplorer.inventory.increaseStamina(10);
 		}
-  
+
 	}
 
 	public static void printhp() {
@@ -111,6 +112,11 @@ public class DerekFrontEnd implements RaymondSupporter {
 			}
 		}
 		CaveExplorer.print(a);
+	}
+	
+	public static void suggestionInput() {
+		String move = "";
+		CaveExplorer.print("the suggested move is to the " + backend.giveSuggestion());
 	}
 
 }
