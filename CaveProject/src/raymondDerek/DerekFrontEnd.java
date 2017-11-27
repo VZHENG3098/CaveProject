@@ -105,7 +105,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 		String a = "[";
 		for (int i = 0; i <= hp; i++) {
 			if (i == hp) {
-				a = a + "]";
+				a = a + "]"; 
 			} else {
 				a = a + "_";
 
