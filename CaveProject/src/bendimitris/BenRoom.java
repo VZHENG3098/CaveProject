@@ -2,7 +2,7 @@ package bendimitris;
 
 import caveExplorer.CaveExplorer;
 import caveExplorer.CaveRoom;
-import caveExplorer.Inventory;
+//import caveExplorer.Inventory;
 
 public class BenRoom extends CaveRoom {
 	
