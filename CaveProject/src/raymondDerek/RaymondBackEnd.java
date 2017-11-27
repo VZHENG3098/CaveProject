@@ -139,7 +139,18 @@ public class RaymondBackEnd implements DerekSupporter{
 			}
 			i++;
 		}
-		
+		giveSuggestion();
+	}
+	
+	public void giveSuggestion() {
+		String suggestion = "Suggestion: ";
+		if(plots[6][getPlayerPos() + 1].isContainsBall()) {
+			suggestion += " don't move to the right,";
+		}
+		if(plots[6][getPlayerPos() - 1].isContainsBall()) {
+			suggestion += " don't move to the left";
+		}
+		CaveExplorer.print(suggestion);
 	}
 	
 	
