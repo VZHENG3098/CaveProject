@@ -116,6 +116,9 @@ public class DerekFrontEnd implements RaymondSupporter {
 	
 	public static void suggestionInput() {
 		String move = "the suggested move is to not ";
+		if(backend.giveSuggestion() == "") {
+			CaveExplorer.print("There is no suggested move");
+		}
 		CaveExplorer.print(move + backend.giveSuggestion());
 	}
 
