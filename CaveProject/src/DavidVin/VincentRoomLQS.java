@@ -29,7 +29,7 @@ public class VincentRoomLQS extends NPCRoom {
 	 */ 
 	public void performAction(int direction) {
 		if(direction == 4 && CaveExplorer.inventory.returnSchedule() == 1) {
-			CaveExplorer.inventory.increaseStamina(10);
+			CaveExplorer.inventory.increaseStamina(5);
 			CaveExplorer.inventory.nextClass();
 		}
 		else {

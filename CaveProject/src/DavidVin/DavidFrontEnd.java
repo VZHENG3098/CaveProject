@@ -2,6 +2,8 @@ package DavidVin;
 
 import java.util.Scanner;
 
+import caveExplorer.CaveExplorer;
+
 public class DavidFrontEnd implements vincentSupport {
 	
 	private static Scanner inputSource = new Scanner(System.in);
@@ -52,14 +54,21 @@ public class DavidFrontEnd implements vincentSupport {
 	    	{
 	    		System.out.println("\nDing Ding Ding You gain ten points");
 	    	}
-	    	
-	    	System.out.println("\nYou currently have "+VincentBackEnd.getPoints()+" points");
 	    	int turns = VincentBackEnd.getTurns();
+	    	if(turns==0)
+            {
+                System.out.println("YOU LOST! You feint from the stress and lose 5 stamina.");
+                CaveExplorer.inventory.decreaseStamina(5);
+                victory=true;
+            }
+	    	System.out.println("\nYou currently have "+VincentBackEnd.getPoints()+" points");
 	    	System.out.println("You have "+ turns + " flips left");
 	    	
 	    	if(VincentBackEnd.getPoints()==60)	
 	    	{
-	    		System.out.println("Congrats you won.");
+	    		System.out.println("Congrats you won. Here is 10 stamina!");
+	    		VincentBackEnd.Victory();
+	    		CaveExplorer.inventory.increaseStamina(10);
 	    		victory=true;
 	    	}
 		}
