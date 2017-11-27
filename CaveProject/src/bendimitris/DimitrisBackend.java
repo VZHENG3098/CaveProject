@@ -251,7 +251,7 @@ public class DimitrisBackend implements BenSupport {
 			//System.out.println("setup");
 			if(currentPos[0] < board.length-2) {
 				if(currentPos[0] == startPos[0] && currentPos[1] == startPos[1]) {
-					if(board[currentPos[0]][currentPos[1]] == "P") {
+					if(board[currentPos[0]][currentPos[1]] == "P" && (int)(Math.random()*3) != 1) { //add random change not to move person
 						board[currentPos[0]][currentPos[1]] = DimitrisBackend.emptyString;
 					}
 					if(board[currentPos[0]][currentPos[1]] == DimitrisBackend.playerString) {
@@ -261,7 +261,7 @@ public class DimitrisBackend implements BenSupport {
 						break;
 					}
 					
-				}else if(board[currentPos[0]][currentPos[1]] == "P") {
+				}else if(board[currentPos[0]][currentPos[1]] == "P" && (int)(Math.random()*3) != 1) { //add random chance not to move person
 					if(calculateOpenSides(currentPos)[CaveRoom.NORTH]) {
 						moveEntity(currentPos, CaveRoom.NORTH);
 						personLeft = true;
