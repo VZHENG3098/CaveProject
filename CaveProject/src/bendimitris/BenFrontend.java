@@ -19,7 +19,7 @@ public class BenFrontend implements DimitrisSupport{
 	}
 	
 	public void startGame() { //initialized the game
-		board = setUpBoard(5, 5);
+		board = setUpBoard(5, 9);
 		moveTeacher();
 		realBackend.runGame();
 	}
