@@ -87,6 +87,12 @@ public class DimitrisBackend implements BenSupport {
 	public int getInput() {
 		while(true) {
 			String input = CaveExplorer.in.nextLine();
+			if (input.equals("exit"))
+			{
+				wonGame = true;
+				endGame = true;
+				return 0;
+			}
 			if(input.length() == 1) {
 				if("wdsa".indexOf(input)!= -1) {
 					return "wdsa".indexOf(input);
