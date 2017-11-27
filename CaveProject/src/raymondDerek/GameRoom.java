@@ -26,7 +26,7 @@ public class GameRoom extends CaveRoom {
 
 	public void performAction(int direction) {
 
-		if (direction == 4) {
+		if (direction == 4 && CaveExplorer.inventory.returnSchedule() == 1) {
 
 			startGame();
 		} else {
@@ -37,11 +37,14 @@ public class GameRoom extends CaveRoom {
 	public void startGame() {
 		new DerekFrontEnd().play();
 		CaveExplorer.inventory.nextClass();
-		System.out.println("Go to your next class " + CaveExplorer.inventory.currentClass());
 	}
 
 	public String getDescription() {
-		return "You can play dodgeball here. Press e to play.";
+		if(CaveExplorer.inventory.returnSchedule() == 1) {
+			return "You can play dodgeball here. Press e to play.";
+		}else {
+			return "Go to your next class " + CaveExplorer.inventory.currentClass();
+		}
 	}
 
 }

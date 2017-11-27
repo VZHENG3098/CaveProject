@@ -62,28 +62,28 @@ public class BenFrontend implements DimitrisSupport{
 		String[] teacher = {"<", "^", ">", "v"};
 		if (direction == 0 && teacherPos[1] > 0)
 		{
-			if (!(board[teacherPos[0]][teacherPos[1] - 1].equals(" "))
+			if (!(board[teacherPos[0]][teacherPos[1] - 1].equals(" ")))
 			{
 				teacherPos[1] -= 1;	    
 			}
 		}
 		else if (direction == 1 && teacherPos[0] > 0)
 		{
-			if (!(board[teacherPos[0] - 1][teacherPos[1]].equals(" "))
+			if (!(board[teacherPos[0] - 1][teacherPos[1]].equals(" ")))
 			{
 				teacherPos[0] -= 1;	    
 			}	
 		}
 		else if (direction == 2 && teacherPos[1] < (board[teacherPos[0]].length - 1))
 		{
-			if (!(board[teacherPos[0]][teacherPos[1] + 1].equals(" "))
+			if (!(board[teacherPos[0]][teacherPos[1] + 1].equals(" ")))
 			{
 				teacherPos[1] += 1;	    
 			}	
 		}
 		else if (direction == 3 && teacherPos[0] < (board.length - 1))
 		{
-			if (!(board[teacherPos[0] + 1][teacherPos[1]].equals(" "))
+			if (!(board[teacherPos[0] + 1][teacherPos[1]].equals(" ")))
 			{
 				teacherPos[0] += 1;	    
 			}
@@ -106,21 +106,21 @@ public class BenFrontend implements DimitrisSupport{
 	public boolean caughtByTeacher()
 	{
 		String[] teacher = {"<", "^", ">", "v"};
-		if (board[teacherPos[0]][teacherPos[1]].equals(teacher[0])
+		if (board[teacherPos[0]][teacherPos[1]].equals(teacher[0]))
 		{
-			return ((realBackend.getPlayerPosition[0] == teacherPos[0]) && (realBackend.getPlayerPosition[1] < teacherPos[1]));	    
+			return ((realBackend.getPlayerPosition()[0] == teacherPos[0]) && (realBackend.getPlayerPosition()[1] < teacherPos[1]));	    
 		}
-		else if (board[teacherPos[0]][teacherPos[1]].equals(teacher[1])
+		else if (board[teacherPos[0]][teacherPos[1]].equals(teacher[1]))
 		{
-			return ((realBackend.getPlayerPosition[1] == teacherPos[1]) && (realBackend.getPlayerPosition[0] < teacherPos[0]));
+			return ((realBackend.getPlayerPosition()[1] == teacherPos[1]) && (realBackend.getPlayerPosition()[0] < teacherPos[0]));
 		}
-		else if (board[teacherPos[0]][teacherPos[1]].equals(teacher[2])
+		else if (board[teacherPos[0]][teacherPos[1]].equals(teacher[2]))
 		{
-			return ((realBackend.getPlayerPosition[0] == teacherPos[0]) && (realBackend.getPlayerPosition[1] > teacherPos[1]));	    
+			return ((realBackend.getPlayerPosition()[0] == teacherPos[0]) && (realBackend.getPlayerPosition()[1] > teacherPos[1]));	    
 		}
-		else if (board[teacherPos[0]][teacherPos[1]].equals(teacher[3])
+		else if (board[teacherPos[0]][teacherPos[1]].equals(teacher[3]))
 		{
-			return ((realBackend.getPlayerPosition[1] == teacherPos[1]) && (realBackend.getPlayerPosition[0] > teacherPos[0]));
+			return ((realBackend.getPlayerPosition()[1] == teacherPos[1]) && (realBackend.getPlayerPosition()[0] > teacherPos[0]));
 		}
 		return false;
 	}

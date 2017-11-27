@@ -28,7 +28,7 @@ public class VincentRoomLQS extends NPCRoom {
 	 * @param direction
 	 */ 
 	public void performAction(int direction) {
-		if(direction == 4 && CaveExplorer.inventory.returnSchedule() == 1) {
+		if(direction == 4 && CaveExplorer.inventory.returnSchedule() == 2) {
 			CaveExplorer.inventory.increaseStamina(5);
 			CaveExplorer.inventory.nextClass();
 		}
@@ -37,8 +37,8 @@ public class VincentRoomLQS extends NPCRoom {
 		}
 	}
 	public String getDescription() {
-		if(CaveExplorer.inventory.returnSchedule() == 1) {
-			return "\n You have nothing to do in LQS. You can rest and regain your stamina";
+		if(CaveExplorer.inventory.returnSchedule() == 2) {
+			return "\n You have nothing to do in LQS. You can rest and regain your stamina by pressing e";
 		}else {
 			return "Go to your next class "+CaveExplorer.inventory.currentClass();
 		}
