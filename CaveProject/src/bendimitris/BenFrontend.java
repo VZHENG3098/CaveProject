@@ -76,7 +76,10 @@ public class BenFrontend implements DimitrisSupport{
 	
 	public boolean caughtByTeacher()
 	{
-		String[] teacher = {"<", "^", ">", "v"};
-		return ((board[2][3].equals(teacher[1]) && realBackend.getPlayerPosition()[0] == 0) || (board[2][3].equals(teacher[0]) && realBackend.getPlayerPosition()[0] == 2));
+		//TODO This function is buggy, pls fix, if the player is at x coord zero, then this function has a chance of returning true
+//		String[] teacher = {"<", "^", ">", "v"};
+//		return ((board[2][3].equals(teacher[1]) && realBackend.getPlayerPosition()[0] == 0) || (board[2][3].equals(teacher[0]) && realBackend.getPlayerPosition()[0] == 2));
+//	
+		return false;
 	}
 } 
