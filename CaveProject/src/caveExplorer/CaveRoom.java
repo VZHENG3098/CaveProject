@@ -215,7 +215,10 @@ public class CaveRoom {
 
 			}
 		}
-
+		
+		c[3][1].setConnection(SOUTH,  c[4][1], new Door());
+		c[4][1].setConnection(EAST, c[4][2], new Door());
+		
 		// c[1][0].setConnection(SOUTH, c[2][0], new Door()); // create the door
 		// c[4][0].setConnection(SOUTH, c[5][0], new Door());
 		//

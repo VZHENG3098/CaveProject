@@ -24,11 +24,8 @@ public class DerekCustomRoom extends NPCRoom {
 	}
 	
 	public String getContents() {
-		if(containsNPC() && npc.isActive()) {
-			return "G";
-		}else {
-			return super.getContents();
-		}
+		return "G";
+		
 	}
 	 
 	public String getDescription() {
