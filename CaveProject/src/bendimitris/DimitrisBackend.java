@@ -251,7 +251,7 @@ public class DimitrisBackend implements BenSupport {
 			//System.out.println("setup");
 			if(currentPos[0] < board.length-2) {
 				if(currentPos[0] == startPos[0] && currentPos[1] == startPos[1]) {
-					if(board[currentPos[0]][currentPos[1]] == "P" && (int)(Math.random()*3) != 1) { //add random change not to move person
+					if(board[currentPos[0]][currentPos[1]] == "P") { //add random change not to move person
 						board[currentPos[0]][currentPos[1]] = DimitrisBackend.emptyString;
 					}
 					if(board[currentPos[0]][currentPos[1]] == DimitrisBackend.playerString) {
@@ -261,10 +261,11 @@ public class DimitrisBackend implements BenSupport {
 						break;
 					}
 					
-				}else if(board[currentPos[0]][currentPos[1]] == "P" && (int)(Math.random()*3) != 1) { //add random chance not to move person
-					if(calculateOpenSides(currentPos)[CaveRoom.NORTH]) {
+				}else if(board[currentPos[0]][currentPos[1]] == "P") { 
+					personLeft = true;
+					if(calculateOpenSides(currentPos)[CaveRoom.NORTH] && (int)(Math.random()*3) != 1) {//add random chance not to move person
 						moveEntity(currentPos, CaveRoom.NORTH);
-						personLeft = true;
+						
 					}
 					
 				}
@@ -273,13 +274,14 @@ public class DimitrisBackend implements BenSupport {
 			else {
 				if(currentPos[1] >= 0) {
 					if(board[currentPos[0]-1][currentPos[1]] == "P") {
-						if(calculateOpenSides(currentPos)[CaveRoom.EAST]) {
+						personLeft = true;
+						if(calculateOpenSides(currentPos)[CaveRoom.EAST] && (int)(Math.random()*3) != 1) {
 							//System.out.print("moving");
 							int[] movePos = new int[2];
 							movePos[0] = currentPos [0]-1; //it wants the deincrement
 							movePos[1] = currentPos[1];
 							moveEntity(movePos, CaveRoom.EAST);
-							personLeft = true;
+							
 						}
 					}
 					
@@ -298,8 +300,8 @@ public class DimitrisBackend implements BenSupport {
 	}
 
 	public void addPlayer(String[][] board) {
-		//player starts in bottom left corner
-		board[board.length-1][0] = DimitrisBackend.playerString;
+		//player starts in upper left corner
+		board[3][1] = DimitrisBackend.playerString;
 	}
 	
 }
