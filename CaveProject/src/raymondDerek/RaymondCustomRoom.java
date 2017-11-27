@@ -47,4 +47,4 @@ public class RaymondCustomRoom extends NPCRoom {
 			return "This is the place  where you found your gym clothes";
 		}
 	}
-}
+} 
