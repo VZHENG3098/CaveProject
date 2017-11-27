@@ -22,7 +22,7 @@ public class BenRoom extends CaveRoom {
 	}
 	
 	public String getContents() {
-		return "C";
+		return "CAF";
 		
 	}
 	
@@ -63,6 +63,7 @@ public class BenRoom extends CaveRoom {
 					CaveExplorer.inventory.poisened = false;
 					CaveExplorer.inventory.addToContents("a Lunch Tray"); //they cannot play twice so no chance of duplicates
 					System.out.println("a tray has been added to your inventory");
+					CaveExplorer.inventory.nextClass();
 				}else {
 					CaveExplorer.inventory.poisened = true;
 					System.out.println("you have been poisened and will loose stamina");

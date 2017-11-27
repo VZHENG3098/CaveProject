@@ -190,7 +190,7 @@ public class CaveRoom {
 		// CaveRoom V = new vincentRoom("Healer");
 		// CaveExplorer.caves[1][3] = V;
 
-		c[1][1] = new BenRoom();
+		c[4][7] = new BenRoom();
 
 		// 4.set starting room
 		CaveExplorer.currentRoom = c[0][1];
@@ -243,6 +243,8 @@ public class CaveRoom {
 			}
 		} else if (CaveExplorer.inventory.returnSchedule() == 2) {
 			c[3][2].setConnection(NORTH, c[2][2], new Door());
+		}else if (CaveExplorer.inventory.returnSchedule() == 3) {
+			c[4][7].setConnection(SOUTH, c[5][7], new Door());
 		}
 	}
 
