@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class BenFrontend implements DimitrisSupport{
 	public final DimitrisBackend realBackend;
 	private String[][] board;
+	private int[] teacherPos = {2, 3};
 	
 	public BenFrontend() 
 	{
@@ -59,7 +60,35 @@ public class BenFrontend implements DimitrisSupport{
 	{
 		int direction = (int)(Math.random() * 4);
 		String[] teacher = {"<", "^", ">", "v"};
-		board[2][3] = teacher[direction];
+		if (direction == 0 && teacherPos[1] > 0)
+		{
+			if (!(board[teacherPos[0]][teacherPos[1] - 1].equals(" "))
+			{
+				teacherPos[1] -= 1;	    
+			}
+		}
+		else if (direction == 1 && teacherPos[0] > 0)
+		{
+			if (!(board[teacherPos[0] - 1][teacherPos[1]].equals(" "))
+			{
+				teacherPos[0] -= 1;	    
+			}	
+		}
+		else if (direction == 2 && teacherPos[1] < (board[teacherPos[0]].length - 1))
+		{
+			if (!(board[teacherPos[0]][teacherPos[1] + 1].equals(" "))
+			{
+				teacherPos[1] += 1;	    
+			}	
+		}
+		else if (direction == 3 && teacherPos[0] < (board.length - 1))
+		{
+			if (!(board[teacherPos[0] + 1][teacherPos[1]].equals(" "))
+			{
+				teacherPos[0] += 1;	    
+			}
+		}	
+		board[teacherPos[0]][teacherPos[1]] = teacher[direction];
 	}
 
 	@Override
