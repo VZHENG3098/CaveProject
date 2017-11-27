@@ -25,11 +25,11 @@ public class DerekFrontEnd implements RaymondSupporter {
 		int i = 0;
 		while (backend.stillPlaying()) {
 			CaveExplorer.print("You are on level " + backend.getLevel());
+			backend.updateBallPos();
 			printhp();
 			healthbar();
 			displayBoard(); 
 			userInput();
-			backend.updateBallPos();
 			suggestionInput();
 			i++;
 			if (i % 3 == 0) {
