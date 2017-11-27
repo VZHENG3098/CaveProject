@@ -185,7 +185,7 @@ public class CaveRoom {
 		CaveExplorer.caves[0][9] = R;
 
 		CaveRoom DB = new GameRoom("DodgeBall");
-		CaveExplorer.caves[4][2] = DB;
+		CaveExplorer.caves[4][2] = DB; 
 
 		// CaveRoom V = new vincentRoom("Healer");
 		// CaveExplorer.caves[1][3] = V;
