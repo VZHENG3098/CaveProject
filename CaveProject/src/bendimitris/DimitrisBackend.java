@@ -153,6 +153,11 @@ public class DimitrisBackend implements BenSupport {
 		// moves all of the people preserving the line
 		
 	}
+
+	public void addPlayer(String[][] board) {
+		//player starts in bottom left corner
+		board[board.length-1][0] = "X";
+	}
 	
 }
  

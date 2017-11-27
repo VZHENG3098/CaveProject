@@ -1,20 +1,26 @@
 package bendimitris;
 
+import java.util.Scanner;
+
 public class BenFrontend implements DimitrisSupport{
 	private static DimitrisBackend realBackend;
 	private String[][] board;
 	
 	public BenFrontend() 
 	{
-		realBackend = new DimitrisBackend((DimitrisSupport)this);
+		realBackend = new DimitrisBackend(this);
 	}
 	
 	public static void main(String[] args) 
 	{
 		BenFrontend realFrontend = new BenFrontend();
-		realFrontend.board = realFrontend.setUpBoard(4, 7);
-		realFrontend.moveTeacher();
-		realFrontend.printBoard();
+		caveExplorer.CaveExplorer.in = new Scanner(System.in); //memory leak - only useful for debugging
+		realFrontend.startGame();
+	}
+	
+	public void startGame() { //initialized the game
+		board = setUpBoard(5, 5);
+		moveTeacher();
 		realBackend.runGame();
 	}
 
@@ -33,53 +39,18 @@ public class BenFrontend implements DimitrisSupport{
 	public String[][] setUpBoard(int length, int width)
 	{
 		String[][] board = new String[length][width];
-		for (int y = 0; y < board.length; y += 1)
+		
+		for(int row = 0; row < board.length; row++)
 		{
-			for (int x = 0; x < board[y].length; x += 1)
+			for(int col = 0; col < board[row].length; col++)
 			{
-				if (x == 0)
-				{
-					board[y][x] = "P";
-				}
-				else if (y == 0)
-				{
-					if (x < 6)
-					{
-						board[y][x] = "P";
-					}
-					else
-					{
-						board[y][x] = " ";
-					}
-				}
-				else if (y == 1)
-				{
-					if (x == 5)
-					{
-						board[y][x] = "X";
-					}
-					else
-					{
-						board[y][x] = " ";
-					}
-				}
-				else if (y == 3)
-				{
-					board[y][x] = " ";
-				}
-				else
-				{
-					if (x == 3)
-					{
-						board[y][x] = "^";
-					}
-					else
-					{
-						board[y][x] = " ";
-					}
-				}
+				board[row][col] = " ";
 			}
 		}
+		
+		realBackend.addLunchCounter(board);
+		realBackend.populatePeople(board, 5);
+		realBackend.addPlayer(board);
 		return board;
 	}
 
