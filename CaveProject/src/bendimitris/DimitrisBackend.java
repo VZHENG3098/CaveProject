@@ -11,7 +11,7 @@ public class DimitrisBackend implements BenSupport {
 	private int[][] line;
 	
 	static String playerString = "X";
-	static String emptyString = "";
+	static String emptyString = " ";
 	
 	
 	
@@ -46,7 +46,15 @@ public class DimitrisBackend implements BenSupport {
 		
 		
 		int direction = getInput();
-		
+		boolean[] possiblePlayerMoves = calculateOpenSides(getPlayerPosition());
+		for(boolean bool : possiblePlayerMoves) {
+			System.out.println(bool);
+		}
+		System.out.println(direction);
+		if(possiblePlayerMoves[direction]) {
+			
+			moveEntity(getPlayerPosition(), direction);
+		}
 		
 	}
 	
@@ -64,11 +72,20 @@ public class DimitrisBackend implements BenSupport {
 	}
 	
 	public int getInput() {
-		String input = CaveExplorer.in.nextLine();
-		if(input.length() == 1) {
-			return "wdsae".indexOf(input);
+		while(true) {
+			String input = CaveExplorer.in.nextLine();
+			if(input.length() == 1) {
+				if("wdsa".indexOf(input)!= -1) {
+					return "wdsa".indexOf(input);
+				}
+			}
+			
+			
+			frontend.printBoard();
+			System.out.println("invalid direction");
+			
 		}
-		return -1;
+		
 		
 	}
 	
@@ -86,6 +103,8 @@ public class DimitrisBackend implements BenSupport {
 				if(row >= 0 && row < board.length && col >= 0 && col < board[row].length) {
 					int rowOffset = row - pos[0];
 					int colOffset = col - pos[1];
+					
+					
 					//offsets cannot be equal, if they are then it is (0,0) or a diagonal, both are illegal moves
 					if(board[row][col] == DimitrisBackend.emptyString && rowOffset != colOffset){
 						if(row - pos[0] == -1) {
@@ -109,11 +128,27 @@ public class DimitrisBackend implements BenSupport {
 		return openSides;
 	}
 	
-	public void moveEntity(String entityString, int[] pos, int Direction) {
+	public void moveEntity(int[] pos, int direction) {
 		//this function assumes that the bounds have been checked, the direction is valid, and the move is valid
 		//ie it will throw an out of bounds exception and will overwrite entities that are in the space being moved to
 		//the appropriate helper method( calcualteOpenSides does all of this checking and should be used)
 		
+		
+		switch(direction) {
+		case(CaveRoom.EAST) :
+			board[pos[0]][pos[1]+1] = board[pos[0]][pos[1]];
+			break;
+		case(CaveRoom.NORTH) :
+			board[pos[0]-1][pos[1]] = board[pos[0]][pos[1]];
+			break;
+		case(CaveRoom.WEST) :
+			board[pos[0]-1][pos[1]] = board[pos[0]][pos[1]];
+			break;
+		case(CaveRoom.SOUTH) :
+			board[pos[0]][pos[1]+1] = board[pos[0]][pos[1]];
+			break;
+		}
+		board[pos[0]][pos[1]] = DimitrisBackend.emptyString;
 	}
 	
 	
@@ -156,7 +191,7 @@ public class DimitrisBackend implements BenSupport {
 
 	public void addPlayer(String[][] board) {
 		//player starts in bottom left corner
-		board[board.length-1][0] = "X";
+		board[board.length-1][0] = DimitrisBackend.playerString;
 	}
 	
 }
