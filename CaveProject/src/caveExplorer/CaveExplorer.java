@@ -34,6 +34,10 @@ public class CaveExplorer {
 			print("What would you like to do?");
 			currentRoom.interpretInput(in.nextLine());
 			CaveRoom.updatingRoom();
+            if(inventory.getIntStamina() >= 0) {
+            	System.out.println("YOU LOSE BECAUSE YOU HAVE 0 STAMINA");
+                playing = false;
+            }
 		}
 	}
 

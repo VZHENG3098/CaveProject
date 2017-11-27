@@ -77,6 +77,9 @@ public class Inventory {
 	public String getStamina() {
 		return Integer.toString(stamina);
 	}
+	public int getIntStamina() {
+        return stamina;
+    }
 	public void decreaseStamina(int lowerby) {
 		stamina = stamina - lowerby;
 	}
