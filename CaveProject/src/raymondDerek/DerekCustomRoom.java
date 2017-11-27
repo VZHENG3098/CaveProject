@@ -8,16 +8,17 @@ import caveExplorer.NPCRoom;
 public class DerekCustomRoom extends NPCRoom {
 	
 	private NPC npc;
+	private boolean unlocked;
 	
 	public DerekCustomRoom(String description) {
 			super(description);
 			super.setContents("G");
+			this.unlocked = false;
 	}
 	
 	public void performAction(int direction) {
 		if(direction == 4 && CaveExplorer.inventory.isClothes()){
-			talkTeacher();
-
+			CaveExplorer.print("You may only press 'w' or 'd' ");
 		} else {
 			CaveExplorer.print("You can not do anything without the gym clothes.");
 		}
@@ -30,7 +31,12 @@ public class DerekCustomRoom extends NPCRoom {
 	 
 	public String getDescription() {
 		if(CaveExplorer.inventory.isClothes()) {
-			return "The gym is now unlocked! Congrats on finding your clothes. Print 'e' to talk to the teacher";
+			if(this.unlocked = false) {
+				return "The gym is now unlocked! Congrats on finding your clothes. Print 'e' to talk to the teacher";			
+			} else {
+				this.unlocked = true;
+				return "Go to the room on the right to play DodgeBall";
+			}
 		}
 		else {
 			return "This is the gym room. You need your clothes";
@@ -47,9 +53,6 @@ public class DerekCustomRoom extends NPCRoom {
 		return "wdsae";
 	}
 	
-	public void talkTeacher() {
-		CaveExplorer.print("You may now play the minigame");
-
-	}
+	
 }
 	

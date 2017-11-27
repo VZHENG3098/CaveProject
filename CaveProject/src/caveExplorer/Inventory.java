@@ -11,7 +11,7 @@ public class Inventory {
 	private int Schedule;
 	private int stamina;
 	private int gold;
-	private String[] ScheduleList = {"English", "GYM", "Lunch", "LQS"};
+	private String[] ScheduleList = {"English", "Gym", "LQS", "Lunch"};
 	
 	public Inventory() {
 	Schedule = 0;
@@ -102,7 +102,6 @@ public class Inventory {
 		CaveExplorer.print("You picked up " + contents);
 	}
 	public void nextClass() { // call this after each successive minigame
-		System.out.println(Schedule);
 		Schedule++;
 	}
 	

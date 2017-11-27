@@ -2,6 +2,8 @@ package DavidVin;
 
 import java.util.Scanner;
 
+import caveExplorer.CaveExplorer;
+
 public class DavidFrontEnd implements vincentSupport {
 	
 	private static Scanner inputSource = new Scanner(System.in);
@@ -10,14 +12,11 @@ public class DavidFrontEnd implements vincentSupport {
 	public static int row;
 	public static int col;
 	public static boolean cheatActivated;
-	public static boolean specialblock; 
-	public static String coords;
 	
 	public DavidFrontEnd()
 	{
 		cheatActivated = false;
 		victory = false;
-		specialblock = false;
 		play();	
 	}
 	public static String getInput(){
@@ -37,47 +36,39 @@ public class DavidFrontEnd implements vincentSupport {
 	}
 	
 	
-	
-	
 	public static void play()
 	{
 		VincentBackEnd.startArray();
 		plot[][] plot = VincentBackEnd.getPlot();
-		displayBoard(plot);
+		displayBoard(plot,"0,0");
 		
 		while(victory==false) {
 			
-	    	String firstCoordinate = getCords(plot); // format is 5,5 (string)
-	    	
-	    	coords = firstCoordinate;   	
-	    	
-	    	checkBlock(plot, coords); //checks for special block
-	    		    	
-	    	displayBoard(plot); // displays letter in the plot
-	    		
-	    	System.out.println("\nEnter your second coordinate.");                                                                                                                                                                                                                                                                                                                                                                                                                                            
-	    	
+	    	String firstCoordinate = getCords(plot); // format is 5,5 , is a string
+	    	displayBoard(plot,firstCoordinate); // displays letter in the plot
+	    	System.out.println("\nEnter your second coordinate.");                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 	    	String SecondCoordinate = getCords(plot);
-	    	
-	    	coords = SecondCoordinate;
-
-	    	checkBlock(plot, coords);
-	    	
-	    	displayBoard(plot);
+	    	displayBoard(plot,SecondCoordinate);
 	    	
 	    	if(VincentBackEnd.checkAnswer(firstCoordinate, SecondCoordinate)==true)
 	    	{
-	    		System.out.println("\nDing Ding Ding You gain ten points"); //earns points if there is a match
+	    		System.out.println("\nDing Ding Ding You gain ten points");
 	    	}
-	    	
-	    	System.out.println("\nYou currently have "+VincentBackEnd.getPoints()+" points");
 	    	int turns = VincentBackEnd.getTurns();
+	    	if(turns==0)
+            {
+                System.out.println("YOU LOST! You feint from the stress and lose 5 stamina.");
+                CaveExplorer.inventory.decreaseStamina(5);
+                victory=true;
+            }
+	    	System.out.println("\nYou currently have "+VincentBackEnd.getPoints()+" points");
 	    	System.out.println("You have "+ turns + " flips left");
 	    	
-	    	if(VincentBackEnd.getPoints()==180)	
+	    	if(VincentBackEnd.getPoints()==60)	
 	    	{
-	    		System.out.println("You win, here is the summer reading homework.");
+	    		System.out.println("Congrats you won. Here is 10 stamina!");
 	    		VincentBackEnd.Victory();
+	    		CaveExplorer.inventory.increaseStamina(10);
 	    		victory=true;
 	    	}
 		}
@@ -93,7 +84,7 @@ public class DavidFrontEnd implements vincentSupport {
 					System.out.println("You already activated your cheats");
 				}
 				cheatActivated = true;
-				displayBoard(arr);
+				displayBoard(arr,"1,1");
 				System.out.println("");
 				
 				coordinate = getInput();
@@ -103,7 +94,6 @@ public class DavidFrontEnd implements vincentSupport {
 				if(VincentBackEnd.checkForSpecialBock(coordinate) && cheatActivated == false){
 					System.out.println("THERE IS A SPECIAL BLOCK NEAR YOU!");
 				}
-				
 				return coordinate;
 			}else {
 				System.out.println("Please type the coordinate like this example 0,0 and each number is less than " + (arr.length-1));
@@ -113,8 +103,17 @@ public class DavidFrontEnd implements vincentSupport {
 		return coordinate;
 	}
 	
-	public static void displayBoard(plot[][] arr)
+	public static void displayBoard(plot[][] arr,String coords)
 	{
+		
+		boolean specialBlock = false;
+		int[] coordinates = VincentBackEnd.covertToCoordinate(coords);
+		int a = coordinates[0];
+		int b = coordinates[1];
+		
+		if(arr[a][b].getSpecialPlot() == true) {
+			specialBlock = true;
+		}
 		System.out.print("   0  1  2  3  4  5"); //displays the col coordinates
 		for(int row = 0; row < arr.length; row++){
 			System.out.print("\n"+row+" "); //displays the row coordinates
@@ -123,35 +122,8 @@ public class DavidFrontEnd implements vincentSupport {
 				if(cheatActivated == true) {
 					System.out.print(("["+arr[row][col].getLetter()+"]"));
 				}
-				
-				if(specialblock==true)
-				{	
-					int[] coordinates = VincentBackEnd.covertToCoordinate(coords);
-					int a = coordinates[0];
-					int b = coordinates[1];
-					
-					int asub = VincentBackEnd.avoidAIOOBEStart(a);
-					int aadd = VincentBackEnd.avoidAIOOBEEnd(a);
-					int bsub = VincentBackEnd.avoidAIOOBEStart(b);
-					int badd = VincentBackEnd.avoidAIOOBEEnd(b);
-							
-					for(row = asub; row <=  aadd; row++){
-						for(col = bsub; col <= badd; col++){
-							
-							if(row!=asub||row!=asub+1||row!=aadd)	
-							{
-								if(col!=bsub||col!=bsub+1||col!=badd)
-								{
-									System.out.print("[?]");
-								}
-							}
-							else
-							{
-								System.out.print(("["+arr[row][col].getLetter()+"]"));
-							}	
-						}
-					}
-					
+				else if(checkForAdjacency(coords,row,col) == true && specialBlock == true){
+					System.out.print(("["+arr[row][col].getLetter()+"]"));
 				}
 				else if(arr[row][col].isRevealed()) {
 					System.out.print(("["+arr[row][col].getLetter()+"]"));
@@ -166,20 +138,33 @@ public class DavidFrontEnd implements vincentSupport {
 				
 				}
 			}
+			if(specialBlock ==true) {
+				arr[a][b].usedSpecialPlot();
+			}
 		}
 	}
 	
-	
-	public static boolean checkBlock(plot[][] arr, String coords)
-	{
+	public static boolean checkForAdjacency(String coords,int a1,int b1) { //adjustment to Vincent's method
 		int[] coordinates = VincentBackEnd.covertToCoordinate(coords);
 		int a = coordinates[0];
 		int b = coordinates[1];
-    	
-		specialblock = arr[a][b].getSpecialPlot();
+		int startRow =  VincentBackEnd.avoidAIOOBEStart(a);
+		int endRow =  VincentBackEnd.avoidAIOOBEEnd(a);
+		int startCol =  VincentBackEnd.avoidAIOOBEStart(b);
+		int endCol =  VincentBackEnd.avoidAIOOBEEnd(b);
 		
-		return specialblock;
+		for(int row = startRow; row <=  endRow; row++){
+			for(int col = startCol; col <= endCol; col++){
+				if(row == a1 && col == b1) {
+					return true;
+				}
+			}
+		}		
+		return false;
 	}
 	
+	public String setDirections() {
+		return "";
+	}
 	
 }

@@ -37,10 +37,10 @@ public class DerekFrontEnd implements RaymondSupporter {
 			// updateMap();
 			// showLevel();
 		}
-		if (backend.getSkip()) {
-			CaveExplorer.print("Today's your lucky day, there are no more dodgeballs");
-		} else {
+		if (backend.getHp() <= 20) {
 			CaveExplorer.print("You have lost all your stamina.");
+		} else {
+			CaveExplorer.print("Today's your lucky day, there are no more dodgeballs");
 		}
 
 	}

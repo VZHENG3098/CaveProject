@@ -187,6 +187,12 @@ public class RaymondBackEnd implements DerekSupporter{
 	
 	
 	public boolean stillPlaying() {
+		
+		//40 moves to win
+		if(moves == 40) {
+			return false;
+		}
+		
 		if(getSkip()) {
 			return false;
 		}
