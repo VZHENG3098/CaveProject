@@ -183,13 +183,20 @@ public class DimitrisBackend implements BenSupport {
 		//start adding people
 		for(int cnt = 0; cnt < sizeOfLine; cnt++) {
 			//System.out.println("setup");
+			
+			
 			if(currentPos[0] < board.length-3) {
-				board[currentPos[0]][currentPos[1]] = "P";
+				if((int)(Math.random()*3) != 1) {
+					board[currentPos[0]][currentPos[1]] = "P"; //random chance that a person will be missing in line
+				}
+				
 				currentPos[0]++;
 			}
 			else {
 				if(currentPos[1] > 1) {
-					board[currentPos[0]][currentPos[1]] = "P";
+					if((int)(Math.random()*3) != 1) {
+						board[currentPos[0]][currentPos[1]] = "P"; //random chance that a person will be missing in line
+					}
 					currentPos[1]--;
 				}
 				
