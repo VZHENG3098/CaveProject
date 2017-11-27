@@ -73,4 +73,10 @@ public class BenFrontend implements DimitrisSupport{
 	{
 		this.board = board;
 	}
+	
+	public boolean isEnd
+	{
+		String[] teacher = {"<", "^", ">", "v"};
+		return ((board[2][3].equals(teacher[1]) && realBackend.getPlayerPosition()[0] == 0) || (board[2][3].equals(teacher[0]) && realBackend.getPlayerPosition()[0] == 2));
+	}
 } 
