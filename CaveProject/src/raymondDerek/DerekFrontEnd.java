@@ -44,7 +44,7 @@ public class DerekFrontEnd implements RaymondSupporter {
 			CaveExplorer.print("Today's your lucky day, there are no more dodgeballs");
 			CaveExplorer.inventory.increaseStamina(10);
 		}
-
+ 
 	}
 
 	public static void printhp() {

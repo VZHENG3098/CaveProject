@@ -231,7 +231,7 @@ public class CaveRoom {
 		// moving up and down (3D array, i.e. make a starway room)
 
 	}
-
+ 
 	public static void updatingRoom() {
 		CaveRoom[][] c = CaveExplorer.caves;
 		if (CaveExplorer.inventory.returnSchedule() == 0) {
