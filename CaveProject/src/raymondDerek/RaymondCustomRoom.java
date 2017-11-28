@@ -42,7 +42,7 @@ public class RaymondCustomRoom extends NPCRoom {
 	
 	public String getDescription() {
 		if(!CaveExplorer.inventory.isClothes()) {
-			return "You've stumbled upon a random pile of clothes that have the Tech logo on it.";	
+			return "You've stumbled upon a random pile of clothes that have the Tech logo on it. Press 'e' to pick it up";	
 		} else {
 			return "This is the place  where you found your gym clothes";
 		}
