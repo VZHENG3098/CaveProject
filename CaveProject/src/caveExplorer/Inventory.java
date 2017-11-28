@@ -14,12 +14,14 @@ public class Inventory {
 	private int stamina;
 	private int gold;
 	private String[] ScheduleList = {"English", "Gym", "LQS", "Lunch"};
+	private int drinksLeft;
 	
 	public Inventory() {
 	Schedule = 0;
 	stamina = 50;
 	gold = 0;
-
+	drinksLeft = 3;
+	
 	clothes = false;
 	updateMap();
 	contents = "";
@@ -121,5 +123,14 @@ public class Inventory {
 	public String currentClass() {
 		return ScheduleList[Schedule];
 	}
+	public int drinksLeft()
+	{
+		return drinksLeft;
+	}
+	public int subDrink()
+	{
+		return drinksLeft--;
+	}
+	
 }
 

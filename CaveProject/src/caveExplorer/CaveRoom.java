@@ -5,6 +5,7 @@ import raymondDerek.GameRoom;
 import raymondDerek.RaymondCustomRoom;
 import raymondDerek.RaymondDerekPlot;
 import bendimitris.BenRoom;
+import DavidVin.DavidRoomHiddenWater;
 import DavidVin.VincentRoomLQS;
 import DavidVin.davidRoom;
 import DavidVin.vincentRoom;
@@ -175,7 +176,7 @@ public class CaveRoom {
 		CaveRoom LQS = new VincentRoomLQS("LQS");
 		CaveExplorer.caves[2][2] = LQS;
 
-		CaveRoom english = new davidRoom("Money");
+		CaveRoom english = new davidRoom("english");
 		CaveExplorer.caves[2][6] = english;
 
 		CaveRoom DR = new DerekCustomRoom("Room");
@@ -187,6 +188,9 @@ public class CaveRoom {
 		CaveRoom DB = new GameRoom("DodgeBall");
 		CaveExplorer.caves[4][2] = DB; 
 
+		CaveRoom WF = new DavidRoomHiddenWater("water");
+		CaveExplorer.caves[6][9] = WF;
+		
 		// CaveRoom V = new vincentRoom("Healer");
 		// CaveExplorer.caves[1][3] = V;
 
