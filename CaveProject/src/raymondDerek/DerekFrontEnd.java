@@ -28,8 +28,8 @@ public class DerekFrontEnd implements RaymondSupporter {
 			CaveExplorer.print("You are on level " + backend.getLevel());
 			// updates how many balls are present in each corresponding level
 			backend.updateBallPos();
-			printhp();
 			healthbar();
+			printhp();
 			displayBoard();
 			// checks user input
 			userInput();
@@ -111,8 +111,8 @@ public class DerekFrontEnd implements RaymondSupporter {
 
 	public static void healthbar() {
 		// hp bar
-		int hp = backend.getHp() / 20;
-		String a = "[";
+		int hp = backend.getHp() / 5;
+		String a = "HP BAR: [";
 		for (int i = 0; i <= hp; i++) {
 			if (i == hp) {
 				a = a + "]";
