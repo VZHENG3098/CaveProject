@@ -41,11 +41,11 @@ public class CaveExplorer {
 		}
 	}
 
-	private static void moveNPCs() {
-		for(NPC n: npcs) {
-			n.autoMove();
-		}
-		inventory.updateMap();
-	}
+//	private static void moveNPCs() {
+//		for(NPC n: npcs) {
+//			n.autoMove();
+//		}
+//		inventory.updateMap();
+//	}
 
 }

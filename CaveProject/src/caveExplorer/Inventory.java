@@ -12,14 +12,14 @@ public class Inventory {
 	 
 	private int Schedule;
 	private int stamina;
-	private int gold;
+//	private int gold;
 	private String[] ScheduleList = {"English", "Gym", "LQS", "Lunch"};
 	private int drinksLeft;
 	
 	public Inventory() {
 	Schedule = 0;
 	stamina = 50;
-	gold = 0;
+//	gold = 0;
 	drinksLeft = 3;
 	
 	clothes = false;
@@ -130,6 +130,11 @@ public class Inventory {
 	public int subDrink()
 	{
 		return drinksLeft--;
+	}
+	
+	
+	public int scheduleLen() {
+		return this.ScheduleList.length;
 	}
 	
 }
